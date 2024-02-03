@@ -7,6 +7,6 @@ public class main {
 		
 		obj.WriteExcel("Sheet1", 1, 1, "test");
 		System.out.print(obj.ReadExcel("Sheet1", 1, 1));
-		//ff
+		//ffh
 	}
 }
