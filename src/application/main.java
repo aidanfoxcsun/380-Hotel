@@ -7,6 +7,6 @@ public class main {
 		
 		obj.WriteExcel("Victims", 2, 1, "Hey");
 		System.out.print(obj.ReadExcel("Victims", 1, 3));
-		//ffhff
+		//t
 	}
 }
