@@ -18,8 +18,8 @@ import javafx.stage.Window;
 import java.util.HashMap;
 
 public class MainPageController extends Application {
-	@FXML
-	private Button roomSelection;
+	//@FXML
+	//private Button roomSelection;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
