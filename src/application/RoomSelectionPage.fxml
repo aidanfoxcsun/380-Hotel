@@ -17,32 +17,32 @@
    <children>
       <ImageView fitHeight="685.0" fitWidth="1250.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/RoomSelectionBackground.PNG" />
+            <Image url="@../../Images/RoomSelectionBackground.PNG" />
          </image>
       </ImageView>
       <ImageView blendMode="DARKEN" fitHeight="685.0" fitWidth="1250.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/RoomSelectionBackground.PNG" />
+            <Image url="@../../Images/RoomSelectionBackground.PNG" />
          </image>
       </ImageView>
       <ImageView fitHeight="290.0" fitWidth="351.0" layoutX="960.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Suite.PNG" />
+            <Image url="@../../Images/Suite.PNG" />
          </image>
       </ImageView>
       <ImageView fitHeight="290.0" fitWidth="351.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Single.PNG" />
+            <Image url="@../../Images/Single.PNG" />
          </image>
       </ImageView>
       <ImageView fitHeight="290.0" fitWidth="351.0" layoutX="318.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Double.PNG" />
+            <Image url="@../../Images/Double.PNG" />
          </image>
       </ImageView>
       <ImageView fitHeight="290.0" fitWidth="351.0" layoutX="642.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/King.PNG" />
+            <Image url="@../../Images/King.PNG" />
          </image>
       </ImageView>
       <Text fill="#da1414" layoutX="496.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Room Select" wrappingWidth="225.13671875">
@@ -192,47 +192,47 @@
       </Text>
       <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="59.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" rotate="-18.4">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-1.png" />
+            <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="294.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" rotate="18.4">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-2.png" />
+            <Image url="@../../Images/Handprint-2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="913.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-3.png" />
+            <Image url="@../../Images/Handprint-3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="101.0" fitWidth="64.0" layoutX="17.0" layoutY="599.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-4.png" />
+            <Image url="@../../Images/Handprint-4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="357.0" layoutY="584.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-2.png" />
+            <Image url="@../../Images/Handprint-2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="1081.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-3.png" />
+            <Image url="@../../Images/Handprint-3.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="780.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-1.png" />
+            <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="101.0" fitWidth="64.0" layoutX="1160.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true" rotate="36.0">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-4.png" />
+            <Image url="@../../Images/Handprint-4.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="334.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Handprint-1.png" />
+            <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
       <Button layoutX="1009.0" layoutY="548.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="192.0" style="-fx-background-color: #a83232;" text="Confirm" textFill="WHITE">
