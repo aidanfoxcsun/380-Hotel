@@ -236,7 +236,7 @@
             <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
-      <Button layoutX="1009.0" layoutY="548.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="192.0" style="-fx-background-color: #a83232;" text="Confirm" textFill="WHITE">
+      <Button layoutX="1009.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToUserInfoScreen" prefHeight="101.0" prefWidth="192.0" style="-fx-background-color: #a83232;" text="Confirm" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

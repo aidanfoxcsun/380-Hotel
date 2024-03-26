@@ -39,8 +39,8 @@ public class RoomSelectionController {
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
 		
-		String RoomChoice = RoomType.getSelectedToggle().getUserData().toString();
-		hotelRoom.setHotelType(RoomChoice);
+		RadioButton ChosenRoom = (RadioButton) RoomType.getSelectedToggle();
+	    String ChosenOne = ChosenRoom.getText();
 		
 		
             root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
