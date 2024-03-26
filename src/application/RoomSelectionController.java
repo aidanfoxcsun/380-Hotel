@@ -58,6 +58,7 @@ public class RoomSelectionController {
 	@FXML
 	private ToggleGroup RoomType;
 	
+	
 	public void SingleButtonPress(ActionEvent Event) {
 	
 		hotelRoom.setHotelCost(110);
@@ -85,12 +86,12 @@ public class RoomSelectionController {
 	
 	public void CheckInDateEvent(ActionEvent Event) {
 		LocalDate date = CheckInDate.getValue();
-		System.out.println(date);
+		hotelRoom.SetCheckInDate(date);
 	}
 	
 	public void CheckOutDateEvent(ActionEvent Event) {
 		LocalDate date = CheckOutDate.getValue();
-		System.out.println(date);
+		hotelRoom.SetCheckOutDate(date);
 	}
 	
 	
