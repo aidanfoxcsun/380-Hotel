@@ -58,44 +58,50 @@ public class RoomSelectionController {
 	@FXML
 	private ToggleGroup RoomType;
 	
-	
-	public void SingleButtonPress(ActionEvent Event) {
+	@FXML
+	public void SingleButtonPress(ActionEvent Event) throws IOException{
 	
 		hotelRoom.setHotelCost(110);
 		// System.out.println(hotelRoom.getHotelType());
 		//System.out.println(hotelRoom.getHotelCost());
 	}
 	
-	public void DoubleButtonPress(ActionEvent Event) {
+	@FXML
+	public void DoubleButtonPress(ActionEvent Event) throws IOException {
 		
 		hotelRoom.setHotelCost(190);
 		//System.out.println(Choice);
 	}
 	
-	public void KingButtonPress(ActionEvent Event) {
+	@FXML
+	public void KingButtonPress(ActionEvent Event) throws IOException {
 
 		hotelRoom.setHotelCost(225);
 		//System.out.println("King Room chosen!");
 	}
 	
-	public void SuiteButtonPress(ActionEvent Event) {
+	@FXML
+	public void SuiteButtonPress(ActionEvent Event) throws IOException {
 	
 		hotelRoom.setHotelCost(310);
 		//System.out.println("Suite button chosen");
 	}
 	
-	public void CheckInDateEvent(ActionEvent Event) {
+	@FXML
+	public void CheckInDateEvent(ActionEvent Event) throws IOException {
 		LocalDate date = CheckInDate.getValue();
 		hotelRoom.SetCheckInDate(date);
 	}
 	
-	public void CheckOutDateEvent(ActionEvent Event) {
+	@FXML
+	public void CheckOutDateEvent(ActionEvent Event) throws IOException {
 		LocalDate date = CheckOutDate.getValue();
 		hotelRoom.SetCheckOutDate(date);
 	}
 	
 	
-	public void CheckAvailability(MouseEvent Event) {
+	@FXML
+	public void CheckAvailability(MouseEvent Event) throws IOException {
 		// Go through HotelRoom table, check if type is available. 
 		// We need a boolean value for rooms for this.
 		Excel obj = new Excel();
