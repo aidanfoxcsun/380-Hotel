@@ -4,6 +4,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RoomSelectionController">
    <children>
       <ImageView fitHeight="685.0" fitWidth="1250.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -158,8 +159,8 @@
             </Label>
          </children>
       </GridPane>
-      <DatePicker layoutX="536.0" layoutY="548.0" promptText="Check-in date" />
-      <DatePicker layoutX="536.0" layoutY="592.0" promptText="Check-out date" />
+      <DatePicker fx:id="CheckInDate" layoutX="536.0" layoutY="548.0" onAction="#CheckInDateEvent" promptText="Check-in date" />
+      <DatePicker fx:id="CheckOutDate" layoutX="536.0" layoutY="592.0" onAction="#CheckOutDateEvent" promptText="Check-out date" />
       <Text fill="WHITE" layoutX="46.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room Type" wrappingWidth="200.0">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
@@ -240,10 +241,13 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="555.0" layoutY="643.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
-      <RadioButton layoutX="52.0" layoutY="520.0" mnemonicParsing="false" text="Single" textFill="WHITE" />
-      <RadioButton layoutX="146.0" layoutY="520.0" mnemonicParsing="false" text="Double" textFill="WHITE" />
-      <RadioButton layoutX="52.0" layoutY="559.0" mnemonicParsing="false" text="King" textFill="WHITE" />
-      <RadioButton layoutX="146.0" layoutY="559.0" mnemonicParsing="false" text="Suite" textFill="WHITE" />
+      <Button layoutX="555.0" layoutY="643.0" mnemonicParsing="false" onMousePressed="#CheckAvailability" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
+      <RadioButton fx:id="SingleButton" layoutX="52.0" layoutY="520.0" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="RoomType" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="DoubleButton" layoutX="146.0" layoutY="520.0" mnemonicParsing="false" onAction="#DoubleButtonPress" text="Double" textFill="WHITE" toggleGroup="$RoomType" />
+      <RadioButton fx:id="KingButton" layoutX="52.0" layoutY="559.0" mnemonicParsing="false" onAction="#KingButtonPress" text="King" textFill="WHITE" toggleGroup="$RoomType" />
+      <RadioButton fx:id="SuiteButton" layoutX="146.0" layoutY="559.0" mnemonicParsing="false" onAction="#SuiteButtonPress" text="Suite" textFill="WHITE" toggleGroup="$RoomType" />
    </children>
 </AnchorPane>

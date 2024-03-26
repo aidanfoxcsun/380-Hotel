@@ -9,7 +9,9 @@ public class HotelRoom {
 	private int RoomID;
 	
 	public HotelRoom() {
-		
+		HotelType = "";
+		HotelCost = 0;
+		RoomID = 0;
 	}
 	
 	public HotelRoom(String Type, int Cost, int RoomID) {
