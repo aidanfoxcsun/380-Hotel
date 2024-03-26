@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RoomSelectionController">
    <children>
-      <ImageView fitHeight="685.0" fitWidth="1250.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="603.0" fitWidth="1250.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/RoomSelectionBackground.PNG" />
          </image>
@@ -191,7 +191,7 @@
             <Font name="Tempus Sans ITC" size="26.0" />
          </font>
       </Text>
-      <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="59.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" rotate="-18.4">
+      <ImageView fitHeight="90.0" fitWidth="50.0" layoutX="394.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true" rotate="-18.4">
          <image>
             <Image url="@../../Images/Handprint-1.png" />
          </image>
@@ -216,7 +216,7 @@
             <Image url="@../../Images/Handprint-2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="1081.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
+      <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="796.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
          <image>
             <Image url="@../../Images/Handprint-3.png" />
          </image>
@@ -241,13 +241,15 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="555.0" layoutY="643.0" mnemonicParsing="false" onMousePressed="#CheckAvailability" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
-      <RadioButton fx:id="SingleButton" layoutX="52.0" layoutY="520.0" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE">
+
+      <Button layoutX="555.0" layoutY="643.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
+      <RadioButton layoutX="52.0" layoutY="520.0" mnemonicParsing="false" text="Single" textFill="WHITE">
          <toggleGroup>
-            <ToggleGroup fx:id="RoomType" />
+            <ToggleGroup fx:id="Room" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="DoubleButton" layoutX="146.0" layoutY="520.0" mnemonicParsing="false" onAction="#DoubleButtonPress" text="Double" textFill="WHITE" toggleGroup="$RoomType" />
-      <RadioButton fx:id="KingButton" layoutX="52.0" layoutY="559.0" mnemonicParsing="false" onAction="#KingButtonPress" text="King" textFill="WHITE" toggleGroup="$RoomType" />
-      <RadioButton fx:id="SuiteButton" layoutX="146.0" layoutY="559.0" mnemonicParsing="false" onAction="#SuiteButtonPress" text="Suite" textFill="WHITE" toggleGroup="$RoomType" />
+      <RadioButton layoutX="146.0" layoutY="520.0" mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton layoutX="52.0" layoutY="559.0" mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton layoutX="146.0" layoutY="559.0" mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" />
+
    </children>
 </AnchorPane>
