@@ -1,26 +1,23 @@
 package application;
 
-
-
-
 public class Customer {
     private String CustomerFirstName;
     private String CustomerLastName;
     private String CustomerEmail;
-    private int CustomerPhoneNumber;
-    private int CustomerHotelRoom;
-    private int CustomerCreditCard;
+    private String CustomerPhoneNumber;
+    private String CustomerHotelRoom;
+    private String CustomerCreditCard;
     
     
     public Customer() {
     	setCustomerFirstName(null);
     	setCustomerLastName(null);
     	setCustomerEmail(null);
-    	setCustomerPhoneNumber(0);
-    	setCustomerHotelRoom(0);
+    	setCustomerPhoneNumber(null);
+    	setCustomerHotelRoom(null);
     }
     
-    public Customer(String FName, String LName, String Email, int PhoneNum, int HotelRoom, int CreditCard) {
+    public Customer(String FName, String LName, String Email, String PhoneNum, String HotelRoom, String CreditCard) {
     	setCustomerFirstName(FName);
     	setCustomerLastName(LName);
     	setCustomerEmail(Email);
@@ -45,19 +42,19 @@ public class Customer {
 		CustomerFirstName = customerFirstName;
 	}
 
-	public int getCustomerHotelRoom() {
+	public String getCustomerHotelRoom() {
 		return CustomerHotelRoom;
 	}
 
-	public void setCustomerHotelRoom(int customerHotelRoom) {
+	public void setCustomerHotelRoom(String customerHotelRoom) {
 		CustomerHotelRoom = customerHotelRoom;
 	}
 
-	public int getCustomerPhoneNumber() {
+	public String getCustomerPhoneNumber() {
 		return CustomerPhoneNumber;
 	}
 
-	public void setCustomerPhoneNumber(int customerPhoneNumber) {
+	public void setCustomerPhoneNumber(String customerPhoneNumber) {
 		CustomerPhoneNumber = customerPhoneNumber;
 	}
 
@@ -69,15 +66,12 @@ public class Customer {
 		CustomerEmail = customerEmail;
 	}
 
-	public int getCustomerCreditCard() {
+	public String getCustomerCreditCard() {
 		return CustomerCreditCard;
 	}
 
-	public void setCustomerCreditCard(int customerCreditCard) {
+	public void setCustomerCreditCard(String customerCreditCard) {
 		CustomerCreditCard = customerCreditCard;
 	}
-    
-    
-    
     
 }

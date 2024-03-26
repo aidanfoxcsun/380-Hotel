@@ -14,22 +14,6 @@ public class RoomSelectionController {
 	private Scene scene;
 	private Parent root;
 	
-	public void start(Stage stage) throws Exception {
-        //Group root = new Group();
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
-            stage = new Stage();
-            //Image topIcon = new Image("HomePage.png");
-            Scene mainScreenScene = new Scene(root);
-            // stage.getIcons().add(topIcon);
-            stage.setTitle("The Phantom Inn");
-            stage.setScene(mainScreenScene);
-            stage.show();
-            stage.setResizable(false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
