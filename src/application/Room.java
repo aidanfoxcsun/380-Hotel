@@ -1,5 +1,8 @@
 package application;
 
+
+// Probably Deprecated.
+// TODO: Delete this class.
 public class Room {
 	private int roomNumber;
 	private RoomTypes type;
