@@ -14,6 +14,16 @@ public class RoomSelectionController {
 	private Scene scene;
 	private Parent root;
 	
+	
+	
+	@FXML
+    public void switchToHomePage(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    }
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));

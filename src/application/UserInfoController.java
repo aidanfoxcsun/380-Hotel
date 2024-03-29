@@ -44,7 +44,14 @@ public class UserInfoController{
 	
 	
 	
-	
+	@FXML
+    public void switchToHomePage(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    }
 	@FXML
     public void switchToRoomSelectionScreen(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
