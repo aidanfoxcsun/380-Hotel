@@ -20,6 +20,16 @@ public class RoomSelectionController {
 	private Scene scene;
 	private Parent root;
 	
+	
+	
+	@FXML
+    public void switchToHomePage(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    }
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
 		
@@ -121,7 +131,4 @@ public class RoomSelectionController {
 	}
 	
 	
-	
-	//Check availability would be getting what radio button was chosen, then searching through that type for any available slots
-	// Should we add a boolean condition to hotel rooms, so we can check as in example, double and true?
-}
+

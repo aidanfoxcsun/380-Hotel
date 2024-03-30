@@ -17,14 +17,13 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserInfoController">
    <children>
-      <ImageView fitHeight="716.0" fitWidth="1265.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="716.0" fitWidth="1265.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="file:///C:/Users/codth/git/380-Hotel/Images/UserInfoBackground.png" />
          </image>
       </ImageView>
-      <GridPane layoutX="52.0" layoutY="171.0" prefHeight="274.0" prefWidth="218.0">
+      <GridPane layoutX="52.0" layoutY="173.0" prefHeight="272.0" prefWidth="110.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="108.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="108.0" minWidth="10.0" prefWidth="108.0" />
          </columnConstraints>
          <rowConstraints>
@@ -40,14 +39,14 @@
          </rowConstraints>
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="*required fields" textFill="WHITE" />
-            <Label text="First Name*" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Last Name*" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="lastName" prefHeight="25.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Phone Number*" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="phoneNumber" prefHeight="25.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="E-mail Address*" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="email" prefHeight="25.0" prefWidth="99.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
+            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="186.0" GridPane.rowIndex="2" />
+            <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
+            <TextField fx:id="lastName" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="4" />
+            <Label text="Phone Number*" textFill="WHITE" GridPane.rowIndex="5" />
+            <TextField fx:id="phoneNumber" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="6" />
+            <Label text="E-mail Address*" textFill="WHITE" GridPane.rowIndex="7" />
+            <TextField fx:id="email" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="8" />
          </children>
       </GridPane>
       <Label layoutX="52.0" layoutY="102.0" text="Your Details" textFill="WHITE">
@@ -55,12 +54,12 @@
             <Font name="Tempus Sans ITC" size="53.0" />
          </font>
       </Label>
-      <Button layoutX="32.0" layoutY="33.0" mnemonicParsing="false" onAction="#switchToRoomSelectionScreen" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: da1e1e;" text="Back">
+      <Button layoutX="40.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToRoomSelectionScreen" prefHeight="52.0" prefWidth="147.0" style="-fx-background-color: da1e1e;" text="Back">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <GridPane layoutX="27.0" layoutY="465.0" prefHeight="111.0" prefWidth="269.0">
+      <GridPane layoutX="28.0" layoutY="479.0" prefHeight="111.0" prefWidth="269.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -79,20 +78,82 @@
             <RadioButton mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <RadioButton mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
             <RadioButton mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Select Room*" textFill="WHITE" />
+            <Label prefHeight="17.0" prefWidth="115.0" text="Select Room" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
          </children>
       </GridPane>
-      <DatePicker layoutX="139.0" layoutY="607.0" promptText="Check-in date" />
-      <DatePicker layoutX="139.0" layoutY="658.0" promptText="Check-out date" />
-      <Text fill="WHITE" layoutX="32.0" layoutY="625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-in" wrappingWidth="63.0">
+      <DatePicker layoutX="107.0" layoutY="620.0" promptText="Check-in date" />
+      <DatePicker layoutX="107.0" layoutY="667.0" promptText="Check-out date" />
+      <Text fill="WHITE" layoutX="21.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-in" wrappingWidth="63.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="32.0" layoutY="676.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-out" wrappingWidth="84.0">
+      <Text fill="WHITE" layoutX="21.0" layoutY="686.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-out" wrappingWidth="77.0">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
+      <Label layoutX="898.0" layoutY="102.0" text="Payment Info" textFill="WHITE">
+         <font>
+            <Font name="Tempus Sans ITC" size="53.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="898.0" layoutY="177.0" prefHeight="284.0" prefWidth="305.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="83.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="120.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
+            <TextField GridPane.rowIndex="2" />
+            <TextField GridPane.rowIndex="4" />
+            <TextField GridPane.rowIndex="6" />
+            <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
+            <Label text="Card Number*" textFill="WHITE" GridPane.rowIndex="5" />
+            <Label text="Exp Date*" textFill="WHITE" GridPane.rowIndex="7" />
+            <Label prefHeight="17.0" prefWidth="98.0" text="Card Details" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Country*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="Zip Code*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label text="CVV*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+      <TextField layoutX="898.0" layoutY="465.0" prefHeight="25.0" prefWidth="27.0" />
+      <Label layoutX="931.0" layoutY="457.0" prefHeight="40.0" prefWidth="11.0" text="/" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TextField layoutX="951.0" layoutY="466.0" prefHeight="25.0" prefWidth="27.0" />
+      <Button layoutX="1013.0" layoutY="571.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="190.0" style="-fx-background-color: #61462c;" text="Confirm and Review" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button layoutX="1065.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

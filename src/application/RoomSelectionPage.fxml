@@ -16,7 +16,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RoomSelectionController">
    <children>
-      <ImageView fitHeight="603.0" fitWidth="1250.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="603.0" fitWidth="1250.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/RoomSelectionBackground.PNG" />
          </image>
@@ -46,7 +46,7 @@
             <Image url="@../../Images/King.PNG" />
          </image>
       </ImageView>
-      <Text fill="#da1414" layoutX="496.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Room Select" wrappingWidth="225.13671875">
+      <Text fill="#da1414" layoutX="330.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Room Options and Availability " wrappingWidth="555.13671875">
          <font>
             <Font name="Tempus Sans ITC" size="39.0" />
          </font>
@@ -159,14 +159,13 @@
             </Label>
          </children>
       </GridPane>
-      <DatePicker fx:id="CheckInDate" layoutX="536.0" layoutY="548.0" onAction="#CheckInDateEvent" promptText="Check-in date" />
-      <DatePicker fx:id="CheckOutDate" layoutX="536.0" layoutY="592.0" onAction="#CheckOutDateEvent" promptText="Check-out date" />
+
       <Text fill="WHITE" layoutX="46.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room Type" wrappingWidth="200.0">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="529.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Check In/Out Dates" wrappingWidth="215.0">
+      <Text fill="WHITE" layoutX="526.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Availability" wrappingWidth="200.0">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
          </font>
@@ -186,42 +185,42 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1009.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proceed To Payment" wrappingWidth="131.00000000000023">
+      <Text fill="WHITE" layoutX="1009.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proceed" wrappingWidth="93.15811132736758">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
          </font>
       </Text>
-      <ImageView fitHeight="90.0" fitWidth="50.0" layoutX="394.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true" rotate="-18.4">
+      <ImageView fitHeight="90.0" fitWidth="50.0" layoutX="268.0" layoutY="446.0" pickOnBounds="true" preserveRatio="true" rotate="-18.4">
          <image>
             <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="294.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true" rotate="18.4">
+      <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="425.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true" rotate="18.4">
          <image>
             <Image url="@../../Images/Handprint-2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="913.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="885.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/Handprint-3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="101.0" fitWidth="64.0" layoutX="17.0" layoutY="599.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="101.0" fitWidth="64.0" layoutX="749.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/Handprint-4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="357.0" layoutY="584.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="344.0" layoutY="583.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/Handprint-2.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="796.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
+      <ImageView fitHeight="90.0" fitWidth="71.0" layoutX="917.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" rotate="-21.8">
          <image>
             <Image url="@../../Images/Handprint-3.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="780.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="811.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/Handprint-1.png" />
          </image>
@@ -231,25 +230,20 @@
             <Image url="@../../Images/Handprint-4.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="334.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="85.0" fitWidth="48.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
-      <Button layoutX="1009.0" layoutY="548.0" mnemonicParsing="false" onAction="#switchToUserInfoScreen" onMouseClicked="#switchToUserInfoScreen" prefHeight="101.0" prefWidth="192.0" style="-fx-background-color: #a83232;" text="Confirm" textFill="WHITE">
+
          <font>
             <Font size="14.0" />
          </font>
       </Button>
 
-      <Button layoutX="555.0" layoutY="643.0" mnemonicParsing="false" onMouseClicked="#CheckAvailability" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
-      <RadioButton fx:id="SingleButton" layoutX="52.0" layoutY="520.0" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="RoomType" />
          </toggleGroup></RadioButton>
-      <RadioButton fx:id="DoubleButton" layoutX="146.0" layoutY="520.0" mnemonicParsing="false" onAction="#DoubleButtonPress" text="Double" textFill="WHITE" toggleGroup="$RoomType" />
-      <RadioButton fx:id="KingButton" layoutX="52.0" layoutY="559.0" mnemonicParsing="false" onAction="#KingButtonPress" text="King" textFill="WHITE" toggleGroup="$RoomType" />
-      <RadioButton fx:id="SuiteButton" layoutX="146.0" layoutY="559.0" mnemonicParsing="false" onAction="#SuiteButtonPress" text="Suite" textFill="WHITE" toggleGroup="$RoomType" />
 
    </children>
 </AnchorPane>
