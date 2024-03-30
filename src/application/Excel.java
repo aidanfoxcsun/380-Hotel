@@ -39,11 +39,17 @@ public class Excel {
 			Workbook wb = WorkbookFactory.create(fis);
 			Sheet s = wb.getSheet(SheetName);
 			Row r = s.getRow(rNum);
-			Cell c = r.createCell(cNum);
+			if(r == null ) {
+				r = s.createRow(rNum);
+			}
+			Cell c = r.getCell(cNum);
+			if(c == null) {
+				c = r.createCell(cNum);
+			}
 			c.setCellValue(DATA);
 			FileOutputStream fos = new FileOutputStream("The Phantom Inn.xlsx");
 			wb.write(fos);
-
+			fos.close();
 		} catch (Exception e) {
 			System.out.println("WriteExcel catch block");
 			e.printStackTrace();
@@ -76,12 +82,55 @@ public class Excel {
 			Workbook wb = WorkbookFactory.create(fis);
 			Sheet s = wb.getSheet(SheetName);
 			Row r = s.getRow(rNum);
+			if(r == null) {
+				return null;
+			}
 			c = r.getCell(cNum);
 		} catch (Exception e) {
 			System.out.println("getCell catch block");
 			e.printStackTrace();
 		}
 		return c;
+	}
+	
+	public void CreateCell(String SheetName, int rNum, int cNum, String value) {
+		try {
+			FileInputStream fis = new FileInputStream("The Phantom Inn.xlsx");
+			Workbook wb = WorkbookFactory.create(fis);
+			Sheet s = wb.getSheet(SheetName);
+			Row r = s.getRow(rNum);
+			if(r == null ) {
+				r = s.createRow(rNum);
+			}
+			Cell cell = r.createCell(cNum);
+		    cell.setCellValue(value);
+		    FileOutputStream fos = new FileOutputStream("The Phantom Inn.xlsx");
+			wb.write(fos);
+			fos.close();
+		} catch (Exception e) {
+			System.out.println("CreateCell catch block");
+			e.printStackTrace();
+		}
+	}
+	
+	public void DeleteCell(String SheetName, int rNum, int cNum) {
+		try {
+			FileInputStream fis = new FileInputStream("The Phantom Inn.xlsx");
+			Workbook wb = WorkbookFactory.create(fis);
+			Sheet s = wb.getSheet(SheetName);
+			Row r = s.getRow(rNum);
+			Cell cell = r.getCell(cNum);
+			if(cell != null) {
+				r.removeCell(cell);
+			}
+			
+			FileOutputStream fos = new FileOutputStream("The Phantom Inn.xlsx");
+			wb.write(fos);
+			fos.close();
+		} catch (Exception e) {
+			System.out.println("DeleteCell catch block");
+			e.printStackTrace();
+		}
 	}
 
 	public String getEmail(String customerID) {
