@@ -5,8 +5,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -17,8 +16,7 @@
             <Image url="@../../Images/HomePage.PNG" />
          </image>
       </ImageView>
-      <Button layoutX="1040.0" layoutY="602.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Modify/View Booking" textFill="WHITE" />
-      <Button layoutX="499.0" layoutY="574.0" mnemonicParsing="false" onAction="#switchToSelectionScreen" prefHeight="87.0" prefWidth="263.0" style="-fx-background-color: #000000;" text="Start Your Booking" textFill="WHITE">
+
          <font>
             <Font name="Tempus Sans ITC" size="18.0" />
          </font></Button>
@@ -83,10 +81,11 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="1070.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- The Ghost Busters" wrappingWidth="139.48979425430298">
+
          <font>
             <Font size="24.0" />
          </font>
       </Text>
+
    </children>
 </AnchorPane>
