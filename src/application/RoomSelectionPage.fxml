@@ -21,7 +21,7 @@
             <Image url="@../../Images/RoomSelectionBackground.PNG" />
          </image>
       </ImageView>
-      <ImageView blendMode="DARKEN" fitHeight="685.0" fitWidth="1250.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="DARKEN" fitHeight="685.0" fitWidth="1250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/RoomSelectionBackground.PNG" />
          </image>
@@ -159,7 +159,8 @@
             </Label>
          </children>
       </GridPane>
-
+      <DatePicker layoutX="535.0" layoutY="522.0" promptText="Check-in date" />
+      <DatePicker layoutX="535.0" layoutY="561.0" promptText="Check-out date" />
       <Text fill="WHITE" layoutX="46.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room Type" wrappingWidth="200.0">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
@@ -235,15 +236,23 @@
             <Image url="@../../Images/Handprint-1.png" />
          </image>
       </ImageView>
-
+      <Button layoutX="1009.0" layoutY="525.0" mnemonicParsing="false" onAction="#switchToUserInfoScreen" prefHeight="101.0" prefWidth="192.0" style="-fx-background-color: #a83232;" text="Confirm" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-
+      <Button layoutX="554.0" layoutY="610.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
+      <RadioButton layoutX="52.0" layoutY="520.0" mnemonicParsing="false" text="Single" textFill="WHITE">
          <toggleGroup>
-            <ToggleGroup fx:id="RoomType" />
+            <ToggleGroup fx:id="Room" />
          </toggleGroup></RadioButton>
-
+      <RadioButton layoutX="146.0" layoutY="520.0" mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton layoutX="52.0" layoutY="559.0" mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton layoutX="146.0" layoutY="559.0" mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" />
+      <Button layoutX="1067.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
