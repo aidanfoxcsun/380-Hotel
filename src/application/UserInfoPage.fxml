@@ -17,9 +17,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="708.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.UserInfoController">
    <children>
-      <ImageView fitHeight="716.0" fitWidth="1265.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Image" fitHeight="716.0" fitWidth="1265.0" layoutX="7.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/UserInfoBackground.png" />
+            <Image url="@../../Images/UserInfoBackground.png" />
          </image>
       </ImageView>
       <GridPane layoutX="52.0" layoutY="173.0" prefHeight="272.0" prefWidth="110.0">
@@ -40,13 +40,13 @@
          <children>
             <Label prefHeight="17.0" prefWidth="98.0" text="*required fields" textFill="WHITE" />
             <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
-            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="186.0" GridPane.rowIndex="2" />
+            <TextField fx:id="FirstName" onAction="#FirstNameSetter" prefHeight="25.0" prefWidth="186.0" GridPane.rowIndex="2" />
             <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
-            <TextField fx:id="lastName" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="4" />
+            <TextField fx:id="LastName" onAction="#LastNameSetter" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="4" />
             <Label text="Phone Number*" textFill="WHITE" GridPane.rowIndex="5" />
-            <TextField fx:id="phoneNumber" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="6" />
+            <TextField fx:id="PhoneNumber" onAction="#PhoneNumSetter" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="6" />
             <Label text="E-mail Address*" textFill="WHITE" GridPane.rowIndex="7" />
-            <TextField fx:id="email" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="8" />
+            <TextField fx:id="Email" onAction="#EmailSetter" prefHeight="25.0" prefWidth="99.0" GridPane.rowIndex="8" />
          </children>
       </GridPane>
       <Label layoutX="52.0" layoutY="102.0" text="Your Details" textFill="WHITE">
@@ -70,22 +70,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <RadioButton mnemonicParsing="false" text="Single" textFill="WHITE" GridPane.rowIndex="1">
+            <RadioButton fx:id="SingleButton" mnemonicParsing="false" text="Single" textFill="WHITE" GridPane.rowIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="Room" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <RadioButton mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
-            <RadioButton mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <RadioButton fx:id="DoubleButton" mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <RadioButton fx:id="KingButton" mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
+            <RadioButton fx:id="SuiteButton" mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label prefHeight="17.0" prefWidth="115.0" text="Select Room" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
          </children>
       </GridPane>
-      <DatePicker layoutX="107.0" layoutY="620.0" promptText="Check-in date" />
-      <DatePicker layoutX="107.0" layoutY="667.0" promptText="Check-out date" />
+      <DatePicker fx:id="CheckInDate" layoutX="107.0" layoutY="620.0" onAction="#CheckInDateEvent" promptText="Check-in date" />
+      <DatePicker fx:id="CheckOutDate" layoutX="107.0" layoutY="667.0" onAction="#CheckOutDateEvent" promptText="Check-out date" />
       <Text fill="WHITE" layoutX="21.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-in" wrappingWidth="63.0">
          <font>
             <Font size="16.0" />
@@ -155,5 +155,7 @@
             <Font size="27.0" />
          </font>
       </Button>
+      <Label fx:id="DateChecker" layoutX="291.0" layoutY="644.0" prefHeight="46.0" prefWidth="159.0" textFill="#df0c0c" />
+      <Label fx:id="RoomAvailabilityChecker" layoutX="29.0" layoutY="590.0" prefHeight="18.0" prefWidth="232.0" textFill="#27d424" />
    </children>
 </AnchorPane>
