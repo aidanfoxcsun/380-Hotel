@@ -17,17 +17,22 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import java.util.HashMap;
 
-public class MainPageController  extends Application {
+public class MainPageController extends Application {
+	//@FXML
+	//private Button roomSelection;
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
+	
 	@Override
     public void start(Stage stage) throws Exception {
-        // Group root = new Group();
+        //Group root = new Group();
         try {
-            
             Parent root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
             stage = new Stage();
             //Image topIcon = new Image("HomePage.png");
             Scene mainScreenScene = new Scene(root);
-           // stage.getIcons().add(topIcon);
+            // stage.getIcons().add(topIcon);
             stage.setTitle("The Phantom Inn");
             stage.setScene(mainScreenScene);
             stage.show();
@@ -35,5 +40,13 @@ public class MainPageController  extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+	@FXML
+    public void switchToSelectionScreen(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
     }
 }
