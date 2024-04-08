@@ -22,7 +22,7 @@
          <font>
             <Font name="Tempus Sans ITC" size="18.0" />
          </font></Button>
-      <Button layoutX="34.0" layoutY="602.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Support" textFill="WHITE" />
+      <Button layoutX="34.0" layoutY="602.0" mnemonicParsing="false" onAction="#switchToSupportScreen" prefHeight="59.0" prefWidth="151.0" style="-fx-background-color: #000000;" text="Support" textFill="WHITE" />
       <HBox layoutX="-2.0" layoutY="1.0" prefHeight="113.0" prefWidth="1230.0">
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" />

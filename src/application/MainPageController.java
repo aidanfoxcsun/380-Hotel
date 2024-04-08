@@ -49,4 +49,11 @@ public class MainPageController extends Application {
             stage.setScene(scene);
             stage.show();
     }
+	 public void switchToSupportScreen(ActionEvent event) throws IOException {
+         root = FXMLLoader.load(getClass().getResource("Support.FXML"));
+         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+         scene = new Scene(root);
+         stage.setScene(scene);
+         stage.show();
+ }
 }
