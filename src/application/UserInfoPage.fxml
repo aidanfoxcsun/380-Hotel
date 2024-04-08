@@ -78,14 +78,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <RadioButton fx:id="SingleButton" mnemonicParsing="false" text="Single" textFill="WHITE" GridPane.rowIndex="1">
+            <RadioButton fx:id="SingleButton" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE" GridPane.rowIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="Room" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="DoubleButton" mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <RadioButton fx:id="KingButton" mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
-            <RadioButton fx:id="SuiteButton" mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <RadioButton fx:id="DoubleButton" mnemonicParsing="false" onAction="#DoubleButtonPress" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <RadioButton fx:id="KingButton" mnemonicParsing="false" onAction="#KingButtonPress" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
+            <RadioButton fx:id="SuiteButton" mnemonicParsing="false" onAction="#SuiteButtonPress" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label prefHeight="17.0" prefWidth="115.0" text="Select Room" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -129,7 +129,7 @@
             <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
             <TextField fx:id="CFirstName" GridPane.rowIndex="2" />
             <TextField fx:id="CLastName" GridPane.rowIndex="4" />
-            <TextField fx:id="CreditCardNumber" GridPane.rowIndex="6" />
+            <TextField fx:id="CreditCardNumber" onAction="#CreditCardChecker" GridPane.rowIndex="6" />
             <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
             <Label text="Card Number*" textFill="WHITE" GridPane.rowIndex="5" />
             <Label text="Exp Date*" textFill="WHITE" GridPane.rowIndex="7" />

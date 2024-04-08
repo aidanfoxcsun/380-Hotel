@@ -35,6 +35,8 @@ public class UserInfoController {
 	private String SFirstName, SLastName, SEmail, SNumber, SRoom, SCard;
 	private Button ConfirmButton;
 	private HotelRoom HotelRoom = new HotelRoom();
+	
+	@FXML
 	private ToggleGroup Room;
 	
 	@FXML
@@ -119,7 +121,7 @@ public class UserInfoController {
 	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
 		SFirstName = FirstName.getText();
-		
+		System.out.println(SFirstName);
 	}
 	
 	@FXML
@@ -154,6 +156,9 @@ public class UserInfoController {
 			DateChecker.setTextFill(Color.color(1,0,0));
 			DateChecker.setText("Invalid Dates!");
 		}
+		else {
+			DateChecker.setText("");
+		}
 		
 	}
 	
@@ -170,25 +175,28 @@ public class UserInfoController {
 	
 	
 	
+	
 	@FXML
 	public void SingleButtonPress(ActionEvent Event) throws IOException{
 	    HotelRoom.setHotelCost(110);
-	    CheckAvailability();
+	    
+		RadioButton SingleRoom = (RadioButton) Room.getSelectedToggle();
+		System.out.println(SingleRoom.getText());
 	}
 	@FXML
 	public void DoubleButtonPress(ActionEvent Event) throws IOException {
 		HotelRoom.setHotelCost(190);
-		CheckAvailability();
+		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
 	}
 	@FXML
 	public void KingButtonPress(ActionEvent Event) throws IOException {
 		HotelRoom.setHotelCost(225);
-		CheckAvailability();
+		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
 	}
 	@FXML
 	public void SuiteButtonPress(ActionEvent Event) throws IOException {
 		HotelRoom.setHotelCost(310);
-		CheckAvailability();
+		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
 	}
 		
 	@FXML
