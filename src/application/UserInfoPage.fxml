@@ -119,9 +119,9 @@
         </rowConstraints>
          <children>
             <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
-            <TextField GridPane.rowIndex="2" />
-            <TextField GridPane.rowIndex="4" />
-            <TextField GridPane.rowIndex="6" />
+            <TextField fx:id="CFirstName" GridPane.rowIndex="2" />
+            <TextField fx:id="CLastName" GridPane.rowIndex="4" />
+            <TextField fx:id="CreditCardNumber" GridPane.rowIndex="6" />
             <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
             <Label text="Card Number*" textFill="WHITE" GridPane.rowIndex="5" />
             <Label text="Exp Date*" textFill="WHITE" GridPane.rowIndex="7" />
@@ -133,9 +133,9 @@
             <Label text="Country*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Zip Code*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Label text="CVV*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="CVCNumber" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="ZipCode" GridPane.columnIndex="2" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <TextField layoutX="898.0" layoutY="465.0" prefHeight="25.0" prefWidth="27.0" />

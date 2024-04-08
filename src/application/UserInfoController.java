@@ -73,6 +73,24 @@ public class UserInfoController {
 	@FXML
 	private TextField PhoneNumber;
 	
+	@FXML
+	private TextField CFirstName;
+	
+	@FXML
+	private TextField CLastName;
+	
+	@FXML
+	private TextField CreditCardNumber;
+	
+	@FXML 
+	private TextField CVCNumber;
+	
+	@FXML
+	private TextField ExpirationDate;
+	
+	@FXML
+	private TextField ZipCode;
+	
 	
 
     
@@ -138,11 +156,19 @@ public class UserInfoController {
 		}
 		
 	}
-	// Weirdo function to invoke ValidateDates.
-	/*  @FXML
-	  public void CheckerOfData(MouseEvent Event) throws IOException{
-		ValidateDates();
-	  } */
+	
+	@FXML
+	public void CreditCardChecker(ActionEvent Event) throws IOException{
+		// Figure out credit card validator, because java doesn't like unsigned longs.
+		SCard = CreditCardNumber.getText();
+	}
+	
+	/*
+	/ I'm thinking that only the fields that require validation get their own methods.
+	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
+	 */
+	
+	
 	
 	@FXML
 	public void SingleButtonPress(ActionEvent Event) throws IOException{
@@ -173,9 +199,9 @@ public class UserInfoController {
 	    RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
 	    String ChosenOne = ChosenRoom.getText();
 		for(int i = 1 ; i < 30 ; i++) {
-			String Testin = obj.getCell("Rooms", i, 4).getStringCellValue();
-			String Room = obj.getCell("Rooms", i, 1).getStringCellValue();
-			if(Room.equals(ChosenOne) && Testin.equals("Y")) {
+			String Testin = obj.getCell("Rooms", i, 1).getStringCellValue();
+			String Room = obj.getCell("Rooms", i, 4).getStringCellValue();
+			if(Room.equals(ChosenOne) && Testin.equals("")) {
 				RoomAvailabilityChecker.setText("Open Slot Available!");
 				return;
 			}
