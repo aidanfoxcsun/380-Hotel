@@ -10,7 +10,6 @@ public class main{
 	public static void main(String[] args) {
 		// Test code
 		// Uncomment to test excel functionality
-		/*
 		HotelRoom r1 = new HotelRoom(RoomTypes.SINGLE, 123, 100); // creates three new rooms with different types, costs, and types.
 		HotelRoom r2 = new HotelRoom(RoomTypes.DOUBLE, 234, 200); // Note the new RoomTypes enum. This will help prevent typos when creating Rooms.
 		HotelRoom r3 = new HotelRoom(RoomTypes.KING, 500, 300);
@@ -19,10 +18,12 @@ public class main{
 		LocalDate checkOut = LocalDate.of(2024, 1, 15);
 		r1.Reserve(checkIn, checkOut); // Reserves the dates
 		r1.Reserve(LocalDate.of(2024, 2, 20), LocalDate.of(2024, 2, 28)); // Reserves a second set of dates for room 1
-		r1.Checkout(); // removes the first reservation from the excel sheet. Remove this line to see both reservations in the Excel spreadsheet.
-		*/
+		r1.Reserve(LocalDate.of(2024, 1, 20), LocalDate.of(2024, 1, 30));
+		r1.Reserve(LocalDate.of(2023, 1, 10), LocalDate.of(2023, 1, 20));
+		// r1.Checkout(); // removes the first reservation from the excel sheet. Remove this line to see both reservations in the Excel spreadsheet.
 		// Make sure to check and clean up the excel file after each run, because this code WILL continue to add reservation dates.
 		// End Test code
+		
 		
 		Application.launch(MainPageController.class, args);
 		Excel obj = new Excel();
