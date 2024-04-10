@@ -115,11 +115,7 @@ public class UserInfoController {
 		SCard = card.getText();
 	}
 	
-	@FXML
-	public void CheckInDateEvent(ActionEvent Event) throws IOException {
-		LocalDate date = CheckInDate.getValue();
-		HotelRoom.SetCheckInDate(date);
-	}
+	
 	
 	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
@@ -198,29 +194,7 @@ public class UserInfoController {
 	
 	
 	
-	@FXML
-	public void SingleButtonPress(ActionEvent Event) throws IOException{
-	    HotelRoom.setHotelCost(110);
-	    
-		RadioButton SingleRoom = (RadioButton) Room.getSelectedToggle();
-		System.out.println(SingleRoom.getText());
-	}
-	@FXML
-	public void DoubleButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(190);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-	@FXML
-	public void KingButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(225);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-	@FXML
-	public void SuiteButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(310);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-		
+	
 	@FXML
 	public void CheckAvailability() throws IOException {
 		// Go through HotelRoom table, check if type is available. 
