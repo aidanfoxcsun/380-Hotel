@@ -40,6 +40,9 @@ public class UserInfoController {
 	private ToggleGroup Room;
 	
 	@FXML
+	private Label CreditCardError;
+	
+	@FXML
 	private RadioButton SingleButton;
 	@FXML
 	private RadioButton DoubleButton;
@@ -112,11 +115,12 @@ public class UserInfoController {
 		SCard = card.getText();
 	}
 	
-	@FXML
-	public void CheckInDateEvent(ActionEvent Event) throws IOException {
-		LocalDate date = CheckInDate.getValue();
-		HotelRoom.SetCheckInDate(date);
+	public void HotelGrabber(HotelRoom Hotel) {
+		HotelRoom = Hotel;
+		System.out.print("THIS WORKED");
 	}
+	
+	
 	
 	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
@@ -139,33 +143,52 @@ public class UserInfoController {
 		SNumber = PhoneNumber.getText();
 	}
 	
-	@FXML
-	public void CheckOutDateEvent(ActionEvent Event) throws IOException {
-		LocalDate date = CheckOutDate.getValue();
-		HotelRoom.SetCheckOutDate(date);
-		ValidateDates();
-	}
+	
+	
+	
 	
 	
 	@FXML
-	public void ValidateDates() throws IOException {
-		LocalDate checkIn = HotelRoom.GetCheckInDate();
-		LocalDate checkOut = HotelRoom.GetCheckOutDate();
-		//Check if CheckOut is later than the CheckIn
-		if(!checkOut.isAfter(checkIn)) {
-			DateChecker.setTextFill(Color.color(1,0,0));
-			DateChecker.setText("Invalid Dates!");
-		}
-		else {
-			DateChecker.setText("");
-		}
-		
-	}
-	
-	@FXML
-	public void CreditCardChecker(ActionEvent Event) throws IOException{
-		// Figure out credit card validator, because java doesn't like unsigned longs.
+	  public void CreditCardSetter(ActionEvent Event) throws IOException{
 		SCard = CreditCardNumber.getText();
+		CreditCardError.setText("");
+		if(SCard.length() == 16) {
+		// Only start checking if we have a full length number
+			if(!CreditCardChecker()) {
+			CreditCardError.setTextFill(Color.color(1, 0, 0));
+		    CreditCardError.setText("INVALID CARD NUMBER");
+		}
+		else
+			CreditCardError.setText(""); //Make it empty if no errors
+		}
+	}
+	public boolean CreditCardChecker() throws IOException{
+		// Figure out credit card, because java doesn't like unsigned longs.
+		
+		
+		
+		int[] CardNum = new int[SCard.length()];
+		int SumOfNumbers = 0;
+        for(int i = 0 ; i < CardNum.length; i++) {
+        	CardNum[i] = Integer.parseInt(SCard.substring(i, i+1));
+        }
+        
+        for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
+        	int TempNum = CardNum[i];
+        	TempNum = TempNum * 2;
+        	if(TempNum >= 10)
+        		TempNum = (TempNum % 10) + 1;
+        	CardNum[i] = TempNum;
+        }
+        
+        for(int i = 0 ; i < CardNum.length; i++) {
+        	SumOfNumbers += CardNum[i];
+        }
+        
+        if(SumOfNumbers % 10 == 0)
+        	return true;
+        else
+        	return false;
 	}
 	
 	/*
@@ -176,29 +199,7 @@ public class UserInfoController {
 	
 	
 	
-	@FXML
-	public void SingleButtonPress(ActionEvent Event) throws IOException{
-	    HotelRoom.setHotelCost(110);
-	    
-		RadioButton SingleRoom = (RadioButton) Room.getSelectedToggle();
-		System.out.println(SingleRoom.getText());
-	}
-	@FXML
-	public void DoubleButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(190);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-	@FXML
-	public void KingButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(225);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-	@FXML
-	public void SuiteButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(310);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-		
+	
 	@FXML
 	public void CheckAvailability() throws IOException {
 		// Go through HotelRoom table, check if type is available. 
