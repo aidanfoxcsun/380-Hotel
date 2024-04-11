@@ -78,10 +78,7 @@ public class RoomSelectionController {
 		}
 		else
 			DateError.setText("");
-		
-		
 	}
-	
 	
 	
 	@FXML
