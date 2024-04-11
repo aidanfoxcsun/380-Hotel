@@ -115,6 +115,11 @@ public class UserInfoController {
 		SCard = card.getText();
 	}
 	
+	public void HotelGrabber(HotelRoom Hotel) {
+		HotelRoom = Hotel;
+		System.out.print("THIS WORKED");
+	}
+	
 	
 	
 	@FXML

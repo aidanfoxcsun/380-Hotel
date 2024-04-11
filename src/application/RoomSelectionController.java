@@ -86,7 +86,9 @@ public class RoomSelectionController {
 	
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
+		     
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+           
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -94,7 +96,12 @@ public class RoomSelectionController {
     }
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
+           // root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.fxml"));
+            root = loader.load();
+            
+            UserInfoController UserInfoController = loader.getController();
+            UserInfoController.HotelGrabber(HotelRoom);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
