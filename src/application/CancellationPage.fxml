@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1225.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CancelRoomController">
+   <children>
+      <ImageView fitHeight="714.0" fitWidth="1230.0" layoutX="-1.0" layoutY="-7.0">
+         <image>
+            <Image url="@../../Images/SceneBuilder%20Cancellation.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="510.0" layoutY="614.0" mnemonicParsing="false" onAction="#switchToCancelRoomTwoScreen" prefHeight="48.0" prefWidth="196.0" style="-fx-background-color: #696969;" text="Find Your Room" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <HBox layoutX="-2.0" layoutY="1.0" prefHeight="113.0" prefWidth="1230.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+      <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="1004.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/Bit-by-Bit/HotelProject/ImageFolder/telephone.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="950.0" layoutY="673.0" prefHeight="27.0" prefWidth="278.0" text="1428 Elm St, Nightmare, OH" textFill="WHITE">
+         <font>
+            <Font name="SansSerif Regular" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="101.0" fitWidth="96.0" layoutX="196.0" layoutY="596.0" opacity="0.39" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="101.0" fitWidth="64.0" layoutX="1038.0" layoutY="196.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="83.0" fitWidth="62.0" layoutX="100.0" layoutY="205.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="70.0" layoutX="652.0" layoutY="636.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="70.0" layoutX="730.0" layoutY="210.0" opacity="0.23" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="70.0" layoutX="348.0" layoutY="314.0" opacity="0.38" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="101.0" fitWidth="96.0" layoutX="844.0" layoutY="425.0" opacity="0.34" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../git/380-Hotel/Images/Handprint-1.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="RoomNumber" layoutX="405.0" layoutY="549.0" prefHeight="30.0" prefWidth="159.0" />
+      <Text fill="WHITE" layoutX="747.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="514.13671875">
+         <font>
+            <Font name="Tempus Sans ITC" size="51.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="405.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number*" wrappingWidth="140.46875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Label layoutX="-2.0" layoutY="-3.0" prefHeight="116.0" prefWidth="1230.0" style="-fx-background-color: BLACK; -fx-opacity: 0.5;" text="                The Phantom Inn" textFill="#ff0707">
+         <font>
+            <Font name="Tempus Sans ITC" size="81.0" />
+         </font>
+      </Label>
+      <Label layoutX="-4.0" layoutY="325.0" prefHeight="83.0" prefWidth="1237.0" style="-fx-background-color: BLACK; -fx-opacity: 0.5;" textFill="#ff0707">
+         <font>
+            <Font name="Tempus Sans ITC" size="81.0" />
+         </font>
+      </Label>
+      <Text fill="WHITE" layoutX="246.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CANCEL OR CHANGE BOOKING" wrappingWidth="1160.13671875">
+         <font>
+            <Font name="Tempus Sans ITC" size="51.0" />
+         </font>
+      </Text>
+      <Button layoutX="1032.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #696969;" text="Home" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="LastName" layoutX="655.0" layoutY="549.0" prefHeight="30.0" prefWidth="159.0" />
+      <Text fill="WHITE" layoutX="655.0" layoutY="542.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name*" wrappingWidth="140.46875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
