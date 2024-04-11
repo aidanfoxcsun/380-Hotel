@@ -36,9 +36,6 @@ public class RoomSelectionController {
             stage.show();
     }
 	
-
-	
-	
 	
 	
 	
