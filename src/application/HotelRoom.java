@@ -20,7 +20,6 @@ public class HotelRoom {
 		HotelCost = 0;
 		RoomID = 0;
 		
-		this.AddRoom();
 	}
 	
 	public HotelRoom(RoomTypes type, int Cost, int RoomID) {
@@ -28,7 +27,6 @@ public class HotelRoom {
 		HotelCost = Cost;
 		this.RoomID = RoomID;
 		
-		this.AddRoom();
 	}
 	
 	public int GetRow() {
@@ -83,12 +81,12 @@ public class HotelRoom {
 	// Adds the current room to the excel sheet
 	// If the room ID already exists in the spreadsheet, it will not be overridden,
 	// but this object will store its location to perform other functions on it.
-	private void AddRoom() {  // Private because this should never be handled by the client. Main function creates the room object and the object stores itself in the excel sheet.
+	public void AddRoom() {  // Private because this should never be handled by the client. Main function creates the room object and the object stores itself in the excel sheet.
 		Excel excel = new Excel();
 		int i = 1; //  space for the column titles
 		while(excel.getCell("Rooms", i, 0) != null) {
 			if(excel.getCell("Rooms", i, 0).getStringCellValue().equals(RoomID + "")) { // RoomID transformed into a string. May change this.
-				System.out.println("Duplicate Room IDs will not be stored!"); // Avoids duplicating rooms or accidentally overriding other ones.
+				// System.out.println("Duplicate Room IDs will not be stored!"); // Avoids duplicating rooms or accidentally overriding other ones.
 				this.row = i; // stores the location
 				return;
 			}
@@ -156,7 +154,7 @@ public class HotelRoom {
 		String buffer[] = new String[30]; // for storing the checkIn checkOut dates to be shifted. 30 is an arbitrary number, may need to be increased.
 										  // I doubt this is a particularly efficient method, but it seems to work fine.
 		Excel excel = new Excel();
-		if(excel.getCell("Rooms", row, 2) == null) {
+		if(excel.getCell("Rooms", row, 2) == null || excel.getCell("Rooms", row, 2).getStringCellValue() == "") {
 			System.err.println("ERROR: No reserved dates for this Room!"); // Logs as an error, may switch this to a normal log in the future.
 			return;
 		}
@@ -164,7 +162,7 @@ public class HotelRoom {
 		excel.DeleteCell("Rooms", row, 2); // Deleting other cells would be used for canceling a reservation.
 		
 		int i = 0;
-		while(excel.getCell("Rooms", row, i + 3) != null) { // writing all the reservation dates into the buffer.
+		while(excel.getCell("Rooms", row, i + 3) != null && excel.getCell("Rooms", row, i + 3).getStringCellValue() != "") { // writing all the reservation dates into the buffer.
 			buffer[i] = excel.getCell("Rooms", row, i+3).getStringCellValue();
 			excel.DeleteCell("Rooms", row, i + 3); // deletes the cell once its contents were stored in the buffer.
 			i++;
@@ -175,7 +173,40 @@ public class HotelRoom {
 		}
 	}
 	
-	// Up next, canceling a reservation, deleting a room.
+	
+	// As of 4/10/2024: This WILL break if you input the checkout date instead of the checkIn date, so please make sure
+	// you are using the correct date.
+	// Easy fix may be to pass a date pair and make sure the pair exists; may do this in the future.
+	public void Cancel(LocalDate reservation) {
+		String buffer[] = new String[30];
+		Excel e = new Excel();
+		int i = 1;
+		int offset = 0;
+		boolean found = false;
+		while(e.getCell("Rooms", row, i) != null && e.getCell("Rooms", row, i).getStringCellValue().strip() != "") {
+			if(compareDate(reservation, e.getCell("Rooms", row, i).getStringCellValue()) == 0) {
+				found = true;
+				offset = i;
+				break;
+			}
+			i++;
+		}
+		
+		if(!found) {return;}
+		
+		e.DeleteCell("Rooms", row, i); // Delete the first pair of reservation dates, since a checkOut after the closest dates doesn't make sense.
+		e.DeleteCell("Rooms", row, i); // Deleting other cells would be used for canceling a reservation.
+		
+		while(e.getCell("Rooms", row, i + 2) != null) { // writing all the reservation dates into the buffer.
+			buffer[i - offset] = e.getCell("Rooms", row, i+2).getStringCellValue();
+			e.DeleteCell("Rooms", row, i + 2); // deletes the cell once its contents were stored in the buffer.
+			i++;
+		}
+		
+		for(int j = offset; j < buffer.length; j++) {
+			e.CreateCell("Rooms", row, j, buffer[j - offset]); // writing all the contents of that buffer back into the row, effectively shifting everything into place.
+		}
+	}
 	
 	
 }

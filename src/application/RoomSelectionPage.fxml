@@ -159,8 +159,8 @@
             </Label>
          </children>
       </GridPane>
-      <DatePicker layoutX="535.0" layoutY="522.0" promptText="Check-in date" />
-      <DatePicker layoutX="535.0" layoutY="561.0" promptText="Check-out date" />
+      <DatePicker fx:id="CheckInDate" layoutX="535.0" layoutY="522.0" onAction="#CheckInDateEvent" promptText="Check-in date" />
+      <DatePicker fx:id="CheckOutDate" layoutX="535.0" layoutY="561.0" onAction="#CheckOutDateEvent" promptText="Check-out date" />
       <Text fill="WHITE" layoutX="46.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room Type" wrappingWidth="200.0">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
@@ -241,14 +241,14 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="554.0" layoutY="610.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
-      <RadioButton layoutX="52.0" layoutY="520.0" mnemonicParsing="false" text="Single" textFill="WHITE">
+      <Button fx:id="CheckAvailability" layoutX="554.0" layoutY="610.0" mnemonicParsing="false" onMouseClicked="#CheckAvailability" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
+      <RadioButton fx:id="SingleButton" layoutX="52.0" layoutY="520.0" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE">
          <toggleGroup>
             <ToggleGroup fx:id="Room" />
          </toggleGroup></RadioButton>
-      <RadioButton layoutX="146.0" layoutY="520.0" mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" />
-      <RadioButton layoutX="52.0" layoutY="559.0" mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" />
-      <RadioButton layoutX="146.0" layoutY="559.0" mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton fx:id="DoubleButton" layoutX="146.0" layoutY="520.0" mnemonicParsing="false" onAction="#DoubleButtonPress" text="Double" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton fx:id="KingButton" layoutX="52.0" layoutY="559.0" mnemonicParsing="false" onAction="#KingButtonPress" text="King" textFill="WHITE" toggleGroup="$Room" />
+      <RadioButton fx:id="SuiteButton" layoutX="146.0" layoutY="559.0" mnemonicParsing="false" onAction="#SuiteButtonPress" text="Suite" textFill="WHITE" toggleGroup="$Room" />
       <Button layoutX="1067.0" layoutY="25.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
          <font>
             <Font size="27.0" />
