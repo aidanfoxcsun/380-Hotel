@@ -78,22 +78,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <RadioButton fx:id="SingleButton" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE" GridPane.rowIndex="1">
+            <RadioButton mnemonicParsing="false" text="Single" textFill="WHITE" GridPane.rowIndex="1">
                <toggleGroup>
                   <ToggleGroup fx:id="Room" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="DoubleButton" mnemonicParsing="false" onAction="#DoubleButtonPress" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <RadioButton fx:id="KingButton" mnemonicParsing="false" onAction="#KingButtonPress" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
-            <RadioButton fx:id="SuiteButton" mnemonicParsing="false" onAction="#SuiteButtonPress" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <RadioButton mnemonicParsing="false" text="Double" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <RadioButton mnemonicParsing="false" text="King" textFill="WHITE" toggleGroup="$Room" GridPane.rowIndex="2" />
+            <RadioButton mnemonicParsing="false" text="Suite" textFill="WHITE" toggleGroup="$Room" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label prefHeight="17.0" prefWidth="115.0" text="Select Room" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font></Label>
          </children>
       </GridPane>
-      <DatePicker fx:id="CheckInDate" layoutX="107.0" layoutY="620.0" onAction="#CheckInDateEvent" promptText="Check-in date" />
-      <DatePicker fx:id="CheckOutDate" layoutX="107.0" layoutY="667.0" onAction="#CheckOutDateEvent" promptText="Check-out date" />
+      <DatePicker layoutX="107.0" layoutY="620.0" promptText="Check-in date" />
+      <DatePicker layoutX="107.0" layoutY="667.0" promptText="Check-out date" />
       <Text fill="WHITE" layoutX="21.0" layoutY="639.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Check-in" wrappingWidth="63.0">
          <font>
             <Font size="16.0" />
@@ -129,7 +129,7 @@
             <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
             <TextField fx:id="CFirstName" GridPane.rowIndex="2" />
             <TextField fx:id="CLastName" GridPane.rowIndex="4" />
-            <TextField fx:id="CreditCardNumber" onAction="#CreditCardChecker" GridPane.rowIndex="6" />
+            <TextField fx:id="CreditCardNumber" onAction="#CreditCardSetter" GridPane.rowIndex="6" />
             <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
             <Label text="Card Number*" textFill="WHITE" GridPane.rowIndex="5" />
             <Label text="Exp Date*" textFill="WHITE" GridPane.rowIndex="7" />
@@ -144,6 +144,7 @@
             <TextField fx:id="CVCNumber" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <TextField fx:id="ZipCode" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label fx:id="CreditCardError" prefHeight="18.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
       <TextField layoutX="898.0" layoutY="465.0" prefHeight="25.0" prefWidth="27.0" />
