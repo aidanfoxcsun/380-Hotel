@@ -11,7 +11,7 @@ public class main{
 		// Test code
 		// Uncomment to test excel functionality
 		
-		HotelRoom r1 = new HotelRoom(RoomTypes.SINGLE, 123, 100); // creates three new rooms with different types, costs, and types.
+		HotelRoom r1 = new HotelRoom(RoomTypes.SINGLE, 123, 100); // creates three new rooms with different types, costs, and types. 
 		r1.AddRoom();
 		HotelRoom r2 = new HotelRoom(RoomTypes.DOUBLE, 234, 200); // Note the new RoomTypes enum. This will help prevent typos when creating Rooms.
 		r2.AddRoom();

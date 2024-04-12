@@ -238,9 +238,14 @@ public class UserInfoController {
 	 * a function to write a new row to the victims table for any new customer
 	 * Receipt/ manager class <-- Get a manager class working
 	 */
-	
-	
-	
+	@FXML
+    public void switchToReviewPage(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    }
 	
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
