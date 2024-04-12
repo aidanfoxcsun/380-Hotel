@@ -62,7 +62,7 @@ public class UserInfoController {
 	
 	@FXML
 	private Label RoomAvailabilityChecker;
-	
+
 	@FXML 
 	private ImageView Image;
 	
@@ -121,7 +121,7 @@ public class UserInfoController {
 	}
 	
 	
-	
+
 	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
 		SFirstName = FirstName.getText();
@@ -142,9 +142,6 @@ public class UserInfoController {
 	public void PhoneNumSetter(ActionEvent Event) throws IOException{
 		SNumber = PhoneNumber.getText();
 	}
-	
-	
-	
 	
 	
 	
@@ -189,6 +186,7 @@ public class UserInfoController {
         	return true;
         else
         	return false;
+
 	}
 	
 	/*
@@ -198,7 +196,7 @@ public class UserInfoController {
 	
 	
 	
-	
+
 	
 	@FXML
 	public void CheckAvailability() throws IOException {
@@ -220,8 +218,6 @@ public class UserInfoController {
 		RoomAvailabilityChecker.setText("No Open Slots Available!");
 		
 	}
-	
-	
 	
 	
 	/**

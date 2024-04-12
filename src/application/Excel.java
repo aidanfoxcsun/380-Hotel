@@ -121,7 +121,7 @@ public class Excel {
 			Row r = s.getRow(rNum);
 			Cell cell = r.getCell(cNum);
 			if(cell != null) {
-				r.removeCell(cell);
+				cell.setCellValue("");
 			}
 			
 			FileOutputStream fos = new FileOutputStream("The Phantom Inn.xlsx");
