@@ -62,7 +62,7 @@ public class UserInfoController {
 	
 	@FXML
 	private Label RoomAvailabilityChecker;
-	
+
 	@FXML 
 	private ImageView Image;
 	
@@ -121,7 +121,7 @@ public class UserInfoController {
 	}
 	
 	
-	
+
 	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
 		SFirstName = FirstName.getText();
@@ -142,9 +142,6 @@ public class UserInfoController {
 	public void PhoneNumSetter(ActionEvent Event) throws IOException{
 		SNumber = PhoneNumber.getText();
 	}
-	
-	
-	
 	
 	
 	
@@ -189,6 +186,7 @@ public class UserInfoController {
         	return true;
         else
         	return false;
+
 	}
 	
 	/*
@@ -198,7 +196,7 @@ public class UserInfoController {
 	
 	
 	
-	
+
 	
 	@FXML
 	public void CheckAvailability() throws IOException {
@@ -222,8 +220,6 @@ public class UserInfoController {
 	}
 	
 	
-	
-	
 	/**
 	 *  To Do later. Done to validate if entered data is valid for usage.
 	 *  As in. Is a phone number an actual phone number, a credit card valid, etc.
@@ -242,9 +238,14 @@ public class UserInfoController {
 	 * a function to write a new row to the victims table for any new customer
 	 * Receipt/ manager class <-- Get a manager class working
 	 */
-	
-	
-	
+	@FXML
+    public void switchToReviewPage(ActionEvent event) throws IOException {
+            root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    }
 	
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {

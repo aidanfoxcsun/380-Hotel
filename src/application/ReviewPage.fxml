@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1230.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ReviewPageController">
+   <children>
+      <ImageView fitHeight="715.0" fitWidth="1250.0" layoutX="-13.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Elevator.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1049.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <HBox layoutX="320.0" layoutY="7.0" prefHeight="100.0" prefWidth="605.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="629.0">
+               <children>
+                  <Label layoutY="-10.0" prefHeight="110.0" prefWidth="605.0" style="-fx-background-color: BLACK; -fx-opacity: 0.7;" text="          Review" textFill="RED">
+                     <font>
+                        <Font name="Tempus Sans ITC" size="73.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Button layoutX="35.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToUserInfoPage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: da1e1e;" text="Back">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
+      <Button layoutX="385.0" layoutY="572.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: BLACK; -fx-opacity: 0.8;" text="Book" textFill="RED">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Button>
+      <GridPane layoutX="109.0" layoutY="186.0" prefHeight="174.0" prefWidth="244.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="114.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" wrappingWidth="101.13671875">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" wrappingWidth="101.13671875" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="134.13671875" GridPane.rowIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="101.13671875" GridPane.rowIndex="3">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+      <Text fill="RED" layoutX="104.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Details:">
+         <font>
+            <Font name="Tempus Sans ITC" size="29.0" />
+         </font>
+      </Text>
+      <Text fill="RED" layoutX="919.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: 0.5;" text="Reservation Details:">
+         <font>
+            <Font name="Tempus Sans ITC" size="29.0" />
+         </font>
+      </Text>
+      <GridPane layoutX="919.0" layoutY="186.0" prefHeight="174.0" prefWidth="277.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="151.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="126.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Type:" wrappingWidth="101.13671875">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Room Number:" wrappingWidth="135.13671875" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Check In:" wrappingWidth="147.13671875" GridPane.rowIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Check Out:" wrappingWidth="147.13671875" GridPane.rowIndex="3">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+         </children>
+      </GridPane>
+      <Text fill="RED" layoutX="577.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: 0.5;" text="Total:">
+         <font>
+            <Font name="Tempus Sans ITC" size="29.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
