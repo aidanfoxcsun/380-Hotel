@@ -17,6 +17,8 @@ public class main{
 		r2.AddRoom();
 		HotelRoom r3 = new HotelRoom(RoomTypes.KING, 500, 300);
 		r3.AddRoom();
+		HotelRoom r4 = new HotelRoom(RoomTypes.SUITE, 1000, 400);
+		r4.AddRoom();
 		LocalDate checkIn = LocalDate.of(2024, 1, 10); // creates a set of reservation dates.
 		LocalDate checkOut = LocalDate.of(2024, 1, 15);
 		r1.Reserve(checkIn, checkOut); // Reserves the dates

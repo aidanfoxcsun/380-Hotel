@@ -36,30 +36,6 @@ public class UserInfoController {
 	private Button ConfirmButton;
 	private HotelRoom HotelRoom = new HotelRoom();
 	
-	@FXML
-	private ToggleGroup Room;
-	
-	@FXML
-	private RadioButton SingleButton;
-	@FXML
-	private RadioButton DoubleButton;
-	@FXML
-	private RadioButton KingButton;
-	@FXML
-	private RadioButton SuiteButton;
-	
-	@FXML
-	private DatePicker CheckInDate;
-	
-	@FXML
-	private DatePicker CheckOutDate;
-	
-	@FXML
-	private Label DateChecker;
-	
-	@FXML
-	private Label RoomAvailabilityChecker;
-	
 	@FXML 
 	private ImageView Image;
 	
@@ -113,12 +89,6 @@ public class UserInfoController {
 	}
 	
 	@FXML
-	public void CheckInDateEvent(ActionEvent Event) throws IOException {
-		LocalDate date = CheckInDate.getValue();
-		HotelRoom.SetCheckInDate(date);
-	}
-	
-	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
 		SFirstName = FirstName.getText();
 		System.out.println(SFirstName);
@@ -140,29 +110,6 @@ public class UserInfoController {
 	}
 	
 	@FXML
-	public void CheckOutDateEvent(ActionEvent Event) throws IOException {
-		LocalDate date = CheckOutDate.getValue();
-		HotelRoom.SetCheckOutDate(date);
-		ValidateDates();
-	}
-	
-	
-	@FXML
-	public void ValidateDates() throws IOException {
-		LocalDate checkIn = HotelRoom.GetCheckInDate();
-		LocalDate checkOut = HotelRoom.GetCheckOutDate();
-		//Check if CheckOut is later than the CheckIn
-		if(!checkOut.isAfter(checkIn)) {
-			DateChecker.setTextFill(Color.color(1,0,0));
-			DateChecker.setText("Invalid Dates!");
-		}
-		else {
-			DateChecker.setText("");
-		}
-		
-	}
-	
-	@FXML
 	public void CreditCardChecker(ActionEvent Event) throws IOException{
 		// Figure out credit card validator, because java doesn't like unsigned longs.
 		SCard = CreditCardNumber.getText();
@@ -172,53 +119,6 @@ public class UserInfoController {
 	/ I'm thinking that only the fields that require validation get their own methods.
 	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
 	 */
-	
-	
-	
-	
-	@FXML
-	public void SingleButtonPress(ActionEvent Event) throws IOException{
-	    HotelRoom.setHotelCost(110);
-	    
-		RadioButton SingleRoom = (RadioButton) Room.getSelectedToggle();
-		System.out.println(SingleRoom.getText());
-	}
-	@FXML
-	public void DoubleButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(190);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-	@FXML
-	public void KingButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(225);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-	@FXML
-	public void SuiteButtonPress(ActionEvent Event) throws IOException {
-		HotelRoom.setHotelCost(310);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	}
-		
-	@FXML
-	public void CheckAvailability() throws IOException {
-		// Go through HotelRoom table, check if type is available. 
-		// We need a boolean value for rooms for this.
-		Excel obj = new Excel();
-	    RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	    String ChosenOne = ChosenRoom.getText();
-		for(int i = 1 ; i < 30 ; i++) {
-			String Testin = obj.getCell("Rooms", i, 1).getStringCellValue();
-			String Room = obj.getCell("Rooms", i, 4).getStringCellValue();
-			if(Room.equals(ChosenOne) && Testin.equals("")) {
-				RoomAvailabilityChecker.setText("Open Slot Available!");
-				return;
-			}
-		
-		}// End of For Loop
-		RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
-		RoomAvailabilityChecker.setText("No Open Slots Available!");
-		
-	}
 	
 	
 	

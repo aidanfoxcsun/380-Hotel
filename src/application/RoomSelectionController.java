@@ -61,12 +61,15 @@ public class RoomSelectionController {
 	@FXML
 	public void CheckInDateEvent(ActionEvent Event) throws IOException {
 		checkIn = CheckInDate.getValue();
+		if(checkOut != null)
+			ValidateDates();
 	}
 	
 	@FXML
 	public void CheckOutDateEvent(ActionEvent Event) throws IOException {
 		checkOut = CheckOutDate.getValue();
-		ValidateDates();
+		if(checkIn != null)
+			ValidateDates();
 	}
 	
 	@FXML
@@ -113,7 +116,6 @@ public class RoomSelectionController {
 		// Go through HotelRoom table, check if type is available. 
 		// We need a boolean value for rooms for this.
 		Excel e = new Excel();
-		RoomAvailabilityChecker.setTextFill(Color.color(0, 0, 0));
 		char typeID = ' ';
 		switch(chosenRoom.getHotelType()) {
 		case SINGLE:
@@ -133,16 +135,17 @@ public class RoomSelectionController {
 			RoomAvailabilityChecker.setText("Please choose a room type!");
 			return;
 		}
-		
-	    RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	    String ChosenOne = ChosenRoom.getText();
 		for(int i = 1 ; i < 30 ; i++) {
 			if(e.getCell("Rooms", i, 0) != null && e.getCell("Rooms", i, 0).getStringCellValue() != "") {
 				String ID = e.getCell("Rooms", i, 0).getStringCellValue();
+				System.out.println(e.getCell("Rooms", i, 0).getStringCellValue());
+				System.out.println(typeID + " = " + ID.charAt(0));
 				if(typeID == ID.charAt(0)) {
 					chosenRoom.setRoomID(Integer.parseInt(ID));
+					chosenRoom.SetRow(i);
 					boolean available = checkRoomAvailability(chosenRoom, checkIn, checkOut);
 					if(available) {
+						RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
 						RoomAvailabilityChecker.setText("Room Found!");
 						return;
 					}
@@ -183,13 +186,20 @@ public class RoomSelectionController {
 		// Check to make sure requested check in and check out dates do not overlap.
 		Excel e = new Excel();
 		int i = 1;
-		while(e.getCell("Rooms", room.GetRow(), i) != null) {
-			if(room.compareDate(checkIn, e.getCell("Rooms", room.GetRow(), i).getStringCellValue()) >= 0 &&
-					room.compareDate(checkIn, e.getCell("Rooms", room.GetRow(), i + 1).getStringCellValue()) <= 0) {
+		int row = room.GetRow();
+		while(e.getCell("Rooms", row, i) != null && e.getCell("Rooms", row, i).getStringCellValue() != "") {
+			if(room.compareDate(checkIn, e.getCell("Rooms", row, i).getStringCellValue()) >= 0 &&
+					room.compareDate(checkIn, e.getCell("Rooms", row, i + 1).getStringCellValue()) <= 0) {
+				
+				System.out.println(e.getCell("Rooms", row, i).getStringCellValue() + " < " + checkIn + " < " + e.getCell("Rooms", row, i + 1).getStringCellValue());
+				
 				return false;
 			}
-			if(room.compareDate(checkOut, e.getCell("Rooms", room.GetRow(), i + 1).getStringCellValue()) <= 0 &&
-					room.compareDate(checkOut, e.getCell("Rooms", room.GetRow(), i).getStringCellValue()) >= 0) {
+			if(room.compareDate(checkOut, e.getCell("Rooms", row, i + 1).getStringCellValue()) <= 0 &&
+					room.compareDate(checkOut, e.getCell("Rooms", row, i).getStringCellValue()) >= 0) {
+				
+				System.out.println(e.getCell("Rooms", row, i).getStringCellValue() + " < " + checkOut + " < " + e.getCell("Rooms", row, i + 1).getStringCellValue());
+				
 				return false;
 			}
 			i += 2;

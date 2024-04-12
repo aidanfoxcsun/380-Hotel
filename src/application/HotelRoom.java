@@ -32,6 +32,10 @@ public class HotelRoom {
 	public int GetRow() {
 		return row;
 	}
+	
+	public void SetRow(int r) {
+		row = r;
+	}
 
 	public RoomTypes getHotelType() {
 		return RoomType;
@@ -119,6 +123,7 @@ public class HotelRoom {
 	// DATES are formatted as YYYY-MM-DD
 	protected int compareDate(LocalDate newDate, String storedDate) {
 		LocalDate date;
+		if(storedDate.length() < 10) { return 0; }
 		int year = Integer.parseInt(storedDate.substring(0, 4));
 		int month = Integer.parseInt(storedDate.substring(5,7));
 		int day = Integer.parseInt(storedDate.substring(8,10));
