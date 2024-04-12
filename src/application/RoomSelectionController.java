@@ -177,7 +177,7 @@ public class RoomSelectionController {
             root = loader.load();
             
             UserInfoController UserInfoController = loader.getController();
-            UserInfoController.HotelGrabber(HotelRoom);
+            UserInfoController.HotelGrabber(chosenRoom);
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
