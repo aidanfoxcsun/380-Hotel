@@ -161,6 +161,7 @@
       </GridPane>
       <DatePicker fx:id="CheckInDate" layoutX="535.0" layoutY="522.0" onAction="#CheckInDateEvent" promptText="Check-in date" />
       <DatePicker fx:id="CheckOutDate" layoutX="535.0" layoutY="561.0" onAction="#CheckOutDateEvent" promptText="Check-out date" />
+
       <Text fill="WHITE" layoutX="48.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Room Type" wrappingWidth="216.0">
          <font>
             <Font name="Tempus Sans ITC" size="26.0" />
@@ -241,6 +242,7 @@
             <Font size="14.0" />
          </font>
       </Button>
+
       <Button fx:id="CheckAvailability" layoutX="554.0" layoutY="610.0" mnemonicParsing="false" onAction="#CheckAvailability" prefHeight="43.0" prefWidth="143.0" style="-fx-background-color: #4a4848;" text="Check Availabilty" textFill="WHITE" />
       <RadioButton fx:id="SingleButton" layoutX="52.0" layoutY="520.0" mnemonicParsing="false" onAction="#SingleButtonPress" text="Single" textFill="WHITE">
          <toggleGroup>
