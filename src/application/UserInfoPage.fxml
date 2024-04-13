@@ -123,7 +123,6 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Label fx:id="DateChecker" layoutX="291.0" layoutY="644.0" prefHeight="46.0" prefWidth="159.0" textFill="#df0c0c" />
       <Label fx:id="RoomAvailabilityChecker" layoutX="29.0" layoutY="590.0" prefHeight="18.0" prefWidth="232.0" textFill="#27d424" />
    </children>
 </AnchorPane>

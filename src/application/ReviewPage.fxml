@@ -17,7 +17,7 @@
    <children>
       <ImageView fitHeight="715.0" fitWidth="1250.0" layoutX="-13.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Elevator.png" />
+            <Image url="@../../Images/Elevator.png" />
          </image>
       </ImageView>
       <Button layoutX="1049.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
@@ -50,8 +50,8 @@
       </Button>
       <GridPane layoutX="109.0" layoutY="186.0" prefHeight="174.0" prefWidth="244.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="114.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.8000244140625" minWidth="5.0" prefWidth="136.19998779296876" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.60000610351562" minWidth="10.0" prefWidth="107.20001220703125" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -80,6 +80,26 @@
                   <Font size="19.0" />
                </font>
             </Text>
+            <Label fx:id="CFirstName" prefHeight="56.0" prefWidth="112.0" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="CLastName" prefHeight="56.0" prefWidth="112.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="CPhone" prefHeight="56.0" prefWidth="112.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="CEmail" prefHeight="44.0" prefWidth="159.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <Text fill="RED" layoutX="104.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Details:">

@@ -173,8 +173,12 @@ public class RoomSelectionController {
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
            // root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.FXML"));
             root = loader.load();
+            
+            chosenRoom.SetCheckInDate(checkIn);
+            chosenRoom.SetCheckOutDate(checkOut);
+            
             
             UserInfoController UserInfoController = loader.getController();
             UserInfoController.HotelGrabber(chosenRoom);

@@ -101,8 +101,9 @@ public class UserInfoController {
     
 	
 	@FXML
-	public void confirmRoom(ActionEvent event) throws IOException {
+	public Customer confirmRoom() throws IOException {
 		Customer cust = new Customer(SFirstName, SLastName, SEmail, SNumber, SRoom, SCard);
+		return cust;
 	}
 	
 	@FXML
@@ -164,10 +165,10 @@ public class UserInfoController {
 		
 		
 		
-		int[] CardNum = new int[SCard.length()];
+		int[] CardNum = new int[CreditCardNumber.getText().length()];
 		int SumOfNumbers = 0;
         for(int i = 0 ; i < CardNum.length; i++) {
-        	CardNum[i] = Integer.parseInt(SCard.substring(i, i+1));
+        	CardNum[i] = Integer.parseInt(CreditCardNumber.getText().substring(i, i+1));
         }
         
         for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
@@ -240,7 +241,13 @@ public class UserInfoController {
 	 */
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
+		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPageController.FXML"));
+                root = loader.load();
+                Customer CustomerData = confirmRoom();
+                ReviewPageController ReviewPageController = loader.getController();
+                ReviewPageController.InfoGrabber(CustomerData);		
+		
+            //root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

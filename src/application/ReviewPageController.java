@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ReviewPageController {
@@ -17,7 +18,41 @@ public class ReviewPageController {
 	private Scene scene;
 	private Parent root;
 	
+	@FXML
+	Label CFirstName; 
+	@FXML
+	Label CLastName;
+	@FXML
+	Label CPhone;
+	@FXML 
+	Label CEmail;
+	@FXML
+	Label RoomID;
+	@FXML
+	Label HotelType;
 	
+	Customer NewCustomer = new Customer();
+	HotelRoom HotelData = new HotelRoom();
+	
+	
+	
+	 
+	 public void InfoGrabber(Customer CustomerInfo){
+		            NewCustomer = CustomerInfo;
+		            
+		  
+	 }
+	 
+	 public void HotelInfoGrabber(HotelRoom HotelInfo) {
+		 HotelData = HotelInfo;
+	 }
+	
+	  public void Initialize() {
+		  CFirstName.setText(NewCustomer.getCustomerFirstName());
+		  CLastName.setText(NewCustomer.getCustomerLastName());
+		 
+	  }
+	  
 	
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
