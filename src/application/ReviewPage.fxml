@@ -80,22 +80,22 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Label fx:id="CFirstName" prefHeight="56.0" prefWidth="112.0" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+            <Label fx:id="CFirstName" prefHeight="56.0" prefWidth="112.0" text="Firstname" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="CLastName" prefHeight="56.0" prefWidth="112.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="CLastName" prefHeight="56.0" prefWidth="112.0" text="LastName" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="CPhone" prefHeight="56.0" prefWidth="112.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="CPhone" prefHeight="56.0" prefWidth="112.0" text="PhoneNum" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="CEmail" prefHeight="44.0" prefWidth="159.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="CEmail" prefHeight="44.0" prefWidth="159.0" text="email" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="20.0" />
                </font>
@@ -144,22 +144,22 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Label fx:id="HotelType" prefHeight="27.0" prefWidth="110.0" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+            <Label fx:id="HotelType" prefHeight="27.0" prefWidth="110.0" text="RoomType" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="RoomID" prefHeight="27.0" prefWidth="110.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="RoomID" prefHeight="27.0" prefWidth="110.0" text="RoomID" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="HotelCheckIn" prefHeight="27.0" prefWidth="110.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="HotelCheckIn" prefHeight="27.0" prefWidth="110.0" text="CheckIn" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="HotelCheckOut" prefHeight="27.0" prefWidth="110.0" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="HotelCheckOut" prefHeight="27.0" prefWidth="110.0" text="CheckOut" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
@@ -171,5 +171,11 @@
             <Font name="Tempus Sans ITC" size="29.0" />
          </font>
       </Text>
+      <Label fx:id="TheMoney" layoutX="654.0" layoutY="424.0" prefHeight="18.0" prefWidth="49.0" text="TotalMoney" textFill="#c41d1d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Text fill="#cf0808" layoutX="719.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Night." />
    </children>
 </AnchorPane>

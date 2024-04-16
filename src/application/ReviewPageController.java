@@ -40,6 +40,9 @@ public class ReviewPageController {
 	@FXML
 	Label HotelCheckOut;
 	
+	@FXML
+	Label TheMoney;
+	
 	Customer NewCustomer = new Customer();
 	HotelRoom HotelData = new HotelRoom();
 	
@@ -56,6 +59,7 @@ public class ReviewPageController {
         	break;
         case SUITE:
         	HotelType.setText("SUITE");
+        	break;
          default:
         	HotelType.setText("Unknown?");
         	return;
@@ -77,6 +81,8 @@ public class ReviewPageController {
 		           
 		            HotelCheckIn.setText(HotelData.GetCheckInDate().toString());
 		            HotelCheckOut.setText(HotelData.GetCheckOutDate().toString());
+		            
+		            TheMoney.setText("$" + Integer.toString(HotelData.getHotelCost()));
 		            
 		            	
 		            
