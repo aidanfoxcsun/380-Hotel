@@ -241,11 +241,11 @@ public class UserInfoController {
 	 */
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
-		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPageController.FXML"));
+		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.FXML"));
                 root = loader.load();
                 Customer CustomerData = confirmRoom();
                 ReviewPageController ReviewPageController = loader.getController();
-                ReviewPageController.InfoGrabber(CustomerData);		
+                ReviewPageController.InfoGrabber(CustomerData, HotelRoom);		
 		
             //root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

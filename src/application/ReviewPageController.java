@@ -31,22 +31,61 @@ public class ReviewPageController {
 	@FXML
 	Label HotelType;
 	
+	@FXML 
+	Label HotelCost;
+	
+	@FXML
+	Label HotelCheckIn;
+	
+	@FXML
+	Label HotelCheckOut;
+	
 	Customer NewCustomer = new Customer();
 	HotelRoom HotelData = new HotelRoom();
 	
-	
+	public void TypeShower(HotelRoom HotelInfo) {
+		switch(HotelData.getHotelType()) {
+        case SINGLE:
+        	HotelType.setText("SINGLE");
+        	break;
+        case DOUBLE:
+        	HotelType.setText("DOUBLE");
+        	break;
+        case KING:
+        	HotelType.setText("KING");
+        	break;
+        case SUITE:
+        	HotelType.setText("SUITE");
+         default:
+        	HotelType.setText("Unknown?");
+        	return;
+        }
+	}
 	
 	 
-	 public void InfoGrabber(Customer CustomerInfo){
+	 public void InfoGrabber(Customer CustomerInfo, HotelRoom HotelInfo){
 		            NewCustomer = CustomerInfo;
+		            CFirstName.setText(NewCustomer.getCustomerFirstName());
+		            CLastName.setText(NewCustomer.getCustomerLastName());
+		            CPhone.setText(NewCustomer.getCustomerPhoneNumber());
+		            CEmail.setText(NewCustomer.getCustomerEmail());
+		            
+		            HotelData = HotelInfo;
+		            TypeShower(HotelData);
+		            
+		            //RoomID.setText();
+		           
+		            HotelCheckIn.setText(HotelData.GetCheckInDate().toString());
+		            HotelCheckOut.setText(HotelData.GetCheckOutDate().toString());
+		            
+		            	
+		            
+		            
 		            
 		  
 	 }
 	 
-	 public void HotelInfoGrabber(HotelRoom HotelInfo) {
-		 HotelData = HotelInfo;
-	 }
-	
+	 
 	  public void Initialize() {
 		  CFirstName.setText(NewCustomer.getCustomerFirstName());
 		  CLastName.setText(NewCustomer.getCustomerLastName());

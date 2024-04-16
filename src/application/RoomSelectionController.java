@@ -64,7 +64,8 @@ public class RoomSelectionController {
 	public void CheckInDateEvent(ActionEvent Event) throws IOException {
 		checkIn = CheckInDate.getValue();
 		if(checkOut != null)
-			ValidateDates();
+	 		ValidateDates();
+		
 	}
 	
 	@FXML
@@ -109,6 +110,8 @@ public class RoomSelectionController {
 		}
 		else {
 			DateChecker.setText("");
+			chosenRoom.SetCheckInDate(checkIn);
+			chosenRoom.SetCheckOutDate(checkOut);
 		}
 		
 	}
@@ -176,8 +179,7 @@ public class RoomSelectionController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.FXML"));
             root = loader.load();
             
-            chosenRoom.SetCheckInDate(checkIn);
-            chosenRoom.SetCheckOutDate(checkOut);
+           
             
             
             UserInfoController UserInfoController = loader.getController();
