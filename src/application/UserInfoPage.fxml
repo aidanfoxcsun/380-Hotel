@@ -86,8 +86,8 @@
         </rowConstraints>
          <children>
             <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
-            <TextField fx:id="CFirstName" GridPane.rowIndex="2" />
-            <TextField fx:id="CLastName" GridPane.rowIndex="4" />
+            <TextField fx:id="CFirstName" onAction="#CFirstnameCheck" GridPane.rowIndex="2" />
+            <TextField fx:id="CLastName" onAction="#CLastNameCheck" GridPane.rowIndex="4" />
             <TextField fx:id="CreditCardNumber" onAction="#CreditCardSetter" GridPane.rowIndex="6" />
             <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
             <Label text="Card Number*" textFill="WHITE" GridPane.rowIndex="5" />
@@ -100,9 +100,9 @@
             <Label text="Country*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Zip Code*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Label text="CVV*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="CVCNumber" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField fx:id="ZipCode" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="CVCNumber" onAction="#CVCStatusCheck" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField onAction="#CountryStatusCheck" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="ZipCode" onAction="#ZipcodeStatusCheck" GridPane.columnIndex="2" GridPane.rowIndex="6" />
             <Label fx:id="CreditCardError" prefHeight="18.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label fx:id="CCFirstNameStatus" text="**" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="CCLastNameStatus" text="**" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
@@ -114,7 +114,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField layoutX="951.0" layoutY="466.0" prefHeight="25.0" prefWidth="27.0" />
+      <TextField fx:id="ExpirationDate" layoutX="951.0" layoutY="466.0" onAction="#ExpDateStatus" prefHeight="25.0" prefWidth="27.0" />
       <Button layoutX="1013.0" layoutY="571.0" mnemonicParsing="false" onAction="#switchToReviewPage" prefHeight="102.0" prefWidth="190.0" style="-fx-background-color: #61462c;" text="Confirm and Review" textFill="WHITE">
          <font>
             <Font size="17.0" />

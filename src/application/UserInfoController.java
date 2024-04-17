@@ -127,7 +127,7 @@ public class UserInfoController {
 	
 
     
-	
+	// 102 is merely a test value
 	@FXML
 	public Customer confirmRoom() throws IOException {
 		SRoom = "102";
@@ -144,6 +144,39 @@ public class UserInfoController {
 		CaLastName = CLastName.getText();
 		CZipCode = ZipCode.getText();
 		CVC = CVCNumber.getText();
+	}
+	
+	@FXML 
+	public void CFirstnameCheck(ActionEvent Event) {
+		CCFirstNameStatus.setTextFill(Color.color(0, 1, 0));
+		CCFirstNameStatus.setText("✓");
+	}
+	
+	@FXML
+	public void CLastNameCheck(ActionEvent Event) {
+	    CCLastNameStatus.setTextFill(Color.color(0, 1, 0));
+		CCLastNameStatus.setText("✓");
+	}
+	
+	@FXML
+	public void CVCStatusCheck(ActionEvent Event) {
+		CVCStatus.setTextFill(Color.color(0, 1, 0));
+		CVCStatus.setText("✓");
+	}
+	 @FXML
+	public void ExpDateStatus(ActionEvent Event) {
+		EXPStatus.setTextFill(Color.color(0, 1, 0));
+		EXPStatus.setText("✓");
+	}
+	 @FXML
+	public void ZipcodeStatusCheck(ActionEvent Event) {
+		ZipCodeStatus.setTextFill(Color.color(0, 1, 0));
+		ZipCodeStatus.setText("✓");
+	}
+	 @FXML
+	public void CountryStatusCheck(ActionEvent Event) {
+		CountryStatus.setTextFill(Color.color(0, 1, 0));
+		CountryStatus.setText("✓");
 	}
 	
 	// Sole Purpose of this method is for RoomSelectionController loader to actually pass on the HotelReservation data.
