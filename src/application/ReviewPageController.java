@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -19,29 +20,32 @@ public class ReviewPageController {
 	private Parent root;
 	
 	@FXML
-	Label CFirstName; 
+	private Label CFirstName; 
 	@FXML
-	Label CLastName;
+	private Label CLastName;
 	@FXML
-	Label CPhone;
+	private Label CPhone;
 	@FXML 
-	Label CEmail;
+	private Label CEmail;
 	@FXML
-	Label RoomID;
+	private Label RoomID;
 	@FXML
-	Label HotelType;
+	private Label HotelType;
 	
 	@FXML 
-	Label HotelCost;
+    private Label HotelCost;
 	
 	@FXML
-	Label HotelCheckIn;
+	private Label HotelCheckIn;
 	
 	@FXML
-	Label HotelCheckOut;
+	private Label HotelCheckOut;
 	
 	@FXML
-	Label TheMoney;
+	private Label TheMoney;
+	
+	@FXML
+	private Button BookButton; 
 	
 	Customer NewCustomer = new Customer();
 	HotelRoom HotelData = new HotelRoom();
@@ -96,6 +100,11 @@ public class ReviewPageController {
 		  CFirstName.setText(NewCustomer.getCustomerFirstName());
 		  CLastName.setText(NewCustomer.getCustomerLastName());
 		 
+	  }
+	  
+	  @FXML
+	  public void ConfirmReservation(ActionEvent Event) {
+		   NewCustomer.WriteToDatabase();
 	  }
 	  
 	

@@ -25,6 +25,28 @@ public class Customer {
     	setCustomerHotelRoom(HotelRoom);
     	setCustomerCreditCard(CreditCard); //Note: This presumes we use Luhn's algorithm beforehand for validation.
     }
+    
+    /**
+     * Really Stupid Write to Victims Sheet method.
+     *  called when user presses the book button.
+     */
+    public void WriteToDatabase() {
+    	Excel excel = new Excel();
+    	for(int i = 1; i < 17; i++) {
+    		if(excel.isNull(i, 1, 0) && excel.isNull(i, 2, 0)){// iterate until we found an empty row.
+    			int cols = 1;
+    			excel.CreateCell("Victims", i, cols++, CustomerFirstName);
+    			excel.CreateCell("Victims",i,cols++,CustomerLastName);
+    			excel.CreateCell("Victims", i, cols++, CustomerEmail);
+    			excel.CreateCell("Victims",i,cols++, CustomerPhoneNumber);
+    			excel.CreateCell("Victims", i, cols++, CustomerHotelRoom);
+    			excel.CreateCell("Victims", i, cols++, CustomerCreditCard);
+    		    break;
+    		}
+    		
+    		
+    	}
+    }
 
 	public String getCustomerLastName() {
 		return CustomerLastName;

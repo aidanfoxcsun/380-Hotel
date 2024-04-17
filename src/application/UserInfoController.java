@@ -130,7 +130,7 @@ public class UserInfoController {
 	
 	@FXML
 	public Customer confirmRoom() throws IOException {
-		
+		SRoom = "102";
 		Customer cust = new Customer(SFirstName, SLastName, SEmail, SNumber, SRoom, SCard);
 		
 		return cust;
