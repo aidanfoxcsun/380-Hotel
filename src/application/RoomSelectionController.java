@@ -141,12 +141,12 @@ public class RoomSelectionController {
 			return;
 		}
 		for(int i = 1 ; i < 30 ; i++) {
-			if(e.getCell("Rooms", i, 0) != null && e.getCell("Rooms", i, 0).getStringCellValue() != "") {
-				String ID = e.getCell("Rooms", i, 0).getStringCellValue();
-				System.out.println(e.getCell("Rooms", i, 0).getStringCellValue());
-				System.out.println(typeID + " = " + ID.charAt(0));
-				if(typeID == ID.charAt(0)) {
-					chosenRoom.setRoomID(Integer.parseInt(ID));
+			if(e.getCell("Rooms", i, 0) != null) {
+				int ID = (int)e.getCell("Rooms", i, 0).getNumericCellValue();
+				//System.out.println(e.getCell("Rooms", i, 0).getStringCellValue());
+				//System.out.println(typeID + " = " + ID.charAt(0));
+				if(typeID == (ID+"").charAt(0)) {
+					chosenRoom.setRoomID(ID);
 					chosenRoom.SetRow(i);
 					boolean available = checkRoomAvailability(chosenRoom, checkIn, checkOut);
 					if(available) {
