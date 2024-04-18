@@ -96,14 +96,14 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="1041.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #696969;" text="Home" textFill="WHITE">
+      <Button layoutX="1018.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="54.0" prefWidth="143.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutX="92.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToCancelRoomScreen" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #696969;" text="Back" textFill="WHITE">
+      <Button layoutX="91.0" layoutY="29.0" mnemonicParsing="false" onAction="#switchToCancelRoomScreen" prefHeight="51.0" prefWidth="143.0" style="-fx-background-color: #2c2929;" text="Back" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font size="27.0" />
          </font>
       </Button>
    </children>

@@ -98,9 +98,9 @@
             <Font name="Tempus Sans ITC" size="51.0" />
          </font>
       </Text>
-      <Button layoutX="1032.0" layoutY="38.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="39.0" prefWidth="96.0" style="-fx-background-color: #696969;" text="Home" textFill="WHITE">
+      <Button layoutX="1008.0" layoutY="30.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="140.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font size="27.0" />
          </font>
       </Button>
       <TextField fx:id="LastName" layoutX="655.0" layoutY="549.0" prefHeight="30.0" prefWidth="159.0" />
