@@ -18,7 +18,7 @@ public class Customer {
     	setCustomerLastName(null);
     	setCustomerEmail(null);
     	setCustomerPhoneNumber(null);
-    	setCustomerHotelRoom(null);
+    	
     }
     
     public Customer(String FName, String LName, String Email, String PhoneNum, String HotelRoom, String CreditCard) {

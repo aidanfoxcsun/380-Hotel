@@ -96,20 +96,18 @@ public class ReviewPageController {
 	 }
 	 
 	 
-	  public void Initialize() {
-		  CFirstName.setText(NewCustomer.getCustomerFirstName());
-		  CLastName.setText(NewCustomer.getCustomerLastName());
-		 
-	  }
+	 
 	  
-	  @FXML
-	  public void ConfirmReservation(ActionEvent Event) {
+	  
+	  public void ConfirmReservation() {
 		   NewCustomer.UpdateExcel();
 	  }
 	  
 	
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
+		    
+		    
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -126,6 +124,8 @@ public class ReviewPageController {
     }
 	@FXML
     public void switchToThankYouPage(ActionEvent event) throws IOException {
+		    ConfirmReservation();
+		    
             root = FXMLLoader.load(getClass().getResource("ThankYouPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
