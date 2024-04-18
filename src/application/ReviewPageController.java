@@ -104,7 +104,7 @@ public class ReviewPageController {
 	  
 	  @FXML
 	  public void ConfirmReservation(ActionEvent Event) {
-		   NewCustomer.WriteToDatabase();
+		   NewCustomer.UpdateExcel();
 	  }
 	  
 	

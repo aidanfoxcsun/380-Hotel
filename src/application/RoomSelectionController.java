@@ -150,7 +150,7 @@ public class RoomSelectionController {
 					chosenRoom.SetRow(i);
 					boolean available = checkRoomAvailability(chosenRoom, checkIn, checkOut);
 					if(available) {
-						RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
+						RoomAvailabilityChecker.setTextFill(Color.color(0, 1, 0));
 						RoomAvailabilityChecker.setText("Room Is Available!");
 						return;
 					}
