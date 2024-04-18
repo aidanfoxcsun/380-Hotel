@@ -80,6 +80,11 @@ public class HotelRoom {
 		CheckOut = CheckOutTime;
 	}
 	
+	@Override
+	public String toString() {
+		return RoomID + "";
+	}
+	
 	// Excel stuff
 	
 	// Adds the current room to the excel sheet
@@ -89,7 +94,7 @@ public class HotelRoom {
 		Excel excel = new Excel();
 		int i = 1; //  space for the column titles
 		while(excel.getCell("Rooms", i, 0) != null) {
-			if(excel.getCell("Rooms", i, 0).getStringCellValue().equals(RoomID + "")) { // RoomID transformed into a string. May change this.
+			if(excel.getCell("Rooms", i, 0).getNumericCellValue() == RoomID) { // RoomID transformed into a string. May change this.
 				// System.out.println("Duplicate Room IDs will not be stored!"); // Avoids duplicating rooms or accidentally overriding other ones.
 				this.row = i; // stores the location
 				return;
@@ -212,6 +217,47 @@ public class HotelRoom {
 			e.CreateCell("Rooms", row, j, buffer[j - offset]); // writing all the contents of that buffer back into the row, effectively shifting everything into place.
 		}
 	}
+	
+	
+	// Static
+	public static HotelRoom FindRoom(String ID) {
+		Excel excel = new Excel();
+		int i = 1; //  space for the column titles
+		while(excel.getCell("Rooms", i, 0) != null) {
+			if(excel.getCell("Rooms", i, 0).getNumericCellValue() == Integer.parseInt(ID)) {
+				int roomID = (int)excel.getCell("Rooms", i, 0).getNumericCellValue();
+				int typeid = roomID / 100;
+				int cost = 0;
+				RoomTypes type = RoomTypes.__PLACEHOLDER__;
+				switch(typeid) { // PLACEHOLDERS!!! CHANGE IN FUTURE
+				case 1:
+					cost = 100;
+					type = RoomTypes.SINGLE;
+					break;
+				case 2:
+					cost = 200;
+					type = RoomTypes.DOUBLE;
+					break;
+				case 3:
+					cost = 300;
+					type = RoomTypes.KING;
+					break;
+				case 4:
+					cost = 400;
+					type = RoomTypes.SUITE;
+					break;
+				default:
+					cost = -1;
+					break;
+				}
+				
+				return new HotelRoom(type, cost, roomID);
+			}
+			i++; 
+		}
+		return null;
+	}
+	
 	
 	
 }
