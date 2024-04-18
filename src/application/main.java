@@ -34,7 +34,7 @@ public class main{
 		*/
 		// End Test code
 		
-		
+		/*
 		HotelRoom r1 = new HotelRoom(RoomTypes.SINGLE, 100, 100);
 		r1.AddRoom();
 		r1.Reserve(LocalDate.of(2024, 4, 17), LocalDate.of(2024, 4, 20));
@@ -57,7 +57,7 @@ public class main{
 		System.out.println(x.getCustomerCreditCard());
 		System.out.println(x.toString());
 		
-		
+		*/
 		Application.launch(MainPageController.class, args);
 		Excel obj = new Excel();
 		
