@@ -17,7 +17,7 @@
    <children>
       <ImageView fitHeight="715.0" fitWidth="1250.0" layoutX="-13.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/Elevator.png" />
+            <Image url="@../../Images/Elevator.png" />
          </image>
       </ImageView>
       <Button layoutX="1049.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="147.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">

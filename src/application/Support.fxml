@@ -11,14 +11,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1225.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SupportController">
    <children>
-      <ImageView fitHeight="739.0" fitWidth="1230.0" layoutY="-32.0">
+      <ImageView fitHeight="741.0" fitWidth="1230.0" layoutY="-34.0">
          <image>
             <Image url="@../../Images/SupportBackground.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="556.0" layoutY="647.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="48.0" prefWidth="115.0" style="-fx-background-color: #666666;" text="Home" textFill="WHITE">
+      <Button layoutX="561.0" layoutY="640.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="51.0" prefWidth="110.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font size="27.0" />
          </font>
       </Button>
       <HBox layoutX="-2.0" layoutY="1.0" prefHeight="113.0" prefWidth="1230.0">
