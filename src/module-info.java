@@ -2,7 +2,7 @@
 module ThePhantomInn {
     requires javafx.controls;
     requires javafx.graphics;
-    requires java.desktop;
+    //requires java.desktop;
     requires javafx.fxml;
     requires javafx.base;
     requires org.apache.poi.poi;
