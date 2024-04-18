@@ -18,7 +18,7 @@ public class Customer {
     	setCustomerLastName(null);
     	setCustomerEmail(null);
     	setCustomerPhoneNumber(null);
-    	setCustomerHotelRoom(null);
+    	
     }
     
     public Customer(String FName, String LName, String Email, String PhoneNum, String HotelRoom, String CreditCard) {
@@ -29,7 +29,8 @@ public class Customer {
     	setCustomerHotelRoom(HotelRoom);
     	setCustomerCreditCard(CreditCard); //Note: This presumes we use Luhn's algorithm beforehand for validation.
     }
-
+    
+ 
 	public String getCustomerLastName() {
 		return CustomerLastName;
 	}

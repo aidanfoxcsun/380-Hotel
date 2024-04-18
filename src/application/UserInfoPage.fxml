@@ -70,9 +70,9 @@
       </Label>
       <GridPane layoutX="898.0" layoutY="177.0" prefHeight="284.0" prefWidth="305.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="83.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="120.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.79998779296875" minWidth="10.0" prefWidth="116.79998779296875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.7999755859375" minWidth="10.0" prefWidth="79.20001220703125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="151.199951171875" minWidth="10.0" prefWidth="109.5999755859375" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -86,8 +86,8 @@
         </rowConstraints>
          <children>
             <Label text="First Name*" textFill="WHITE" GridPane.rowIndex="1" />
-            <TextField fx:id="CFirstName" GridPane.rowIndex="2" />
-            <TextField fx:id="CLastName" GridPane.rowIndex="4" />
+            <TextField fx:id="CFirstName" onAction="#CFirstnameCheck" GridPane.rowIndex="2" />
+            <TextField fx:id="CLastName" onAction="#CLastNameCheck" GridPane.rowIndex="4" />
             <TextField fx:id="CreditCardNumber" onAction="#CreditCardSetter" GridPane.rowIndex="6" />
             <Label text="Last Name*" textFill="WHITE" GridPane.rowIndex="3" />
             <Label text="Card Number*" textFill="WHITE" GridPane.rowIndex="5" />
@@ -100,10 +100,12 @@
             <Label text="Country*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Zip Code*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
             <Label text="CVV*" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="CVCNumber" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <TextField fx:id="ZipCode" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <TextField fx:id="CVCNumber" onAction="#CVCStatusCheck" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField onAction="#CountryStatusCheck" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="ZipCode" onAction="#ZipcodeStatusCheck" GridPane.columnIndex="2" GridPane.rowIndex="6" />
             <Label fx:id="CreditCardError" prefHeight="18.0" prefWidth="66.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="CCFirstNameStatus" text="**" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="CCLastNameStatus" text="**" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <TextField layoutX="898.0" layoutY="465.0" prefHeight="25.0" prefWidth="27.0" />
@@ -112,7 +114,7 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <TextField layoutX="951.0" layoutY="466.0" prefHeight="25.0" prefWidth="27.0" />
+      <TextField fx:id="ExpirationDate" layoutX="951.0" layoutY="466.0" onAction="#ExpDateStatus" prefHeight="25.0" prefWidth="27.0" />
       <Button layoutX="1013.0" layoutY="571.0" mnemonicParsing="false" onAction="#switchToReviewPage" prefHeight="102.0" prefWidth="190.0" style="-fx-background-color: #61462c;" text="Confirm and Review" textFill="WHITE">
          <font>
             <Font size="17.0" />
@@ -123,7 +125,14 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Label fx:id="DateChecker" layoutX="291.0" layoutY="644.0" prefHeight="46.0" prefWidth="159.0" textFill="#df0c0c" />
       <Label fx:id="RoomAvailabilityChecker" layoutX="29.0" layoutY="590.0" prefHeight="18.0" prefWidth="232.0" textFill="#27d424" />
+      <Label fx:id="FirstNameStatus" layoutX="162.0" layoutY="231.0" text="**" textFill="RED" />
+      <Label fx:id="LastNameStatus" layoutX="162.0" layoutY="291.0" text="**" textFill="RED" />
+      <Label fx:id="PhoneStatus" layoutX="162.0" layoutY="354.0" text="**" textFill="RED" />
+      <Label fx:id="EmailStatus" layoutX="162.0" layoutY="411.0" text="**" textFill="RED" />
+      <Label fx:id="ZipCodeStatus" layoutX="1207.0" layoutY="402.0" text="**" textFill="RED" />
+      <Label fx:id="CVCStatus" layoutX="1207.0" layoutY="255.0" text="**" textFill="RED" />
+      <Label fx:id="EXPStatus" layoutX="978.0" layoutY="470.0" text="**" textFill="RED" />
+      <Label fx:id="CountryStatus" layoutX="1207.0" layoutY="326.0" text="**" textFill="RED" />
    </children>
 </AnchorPane>

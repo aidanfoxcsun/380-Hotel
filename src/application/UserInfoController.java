@@ -30,10 +30,11 @@ public class UserInfoController {
 	private Scene scene;
 	private Parent root;
 	
-	private Label firstName, lastName, email, phoneNumber,  room, card;
+	
 	
 	private String SFirstName, SLastName, SEmail, SNumber, SRoom, SCard;
-	private Button ConfirmButton;
+	private String CaFirstName, CaLastName, CZipCode, CVC;
+	// uncomment if this is going to be used private Button ConfirmButton;
 	private HotelRoom HotelRoom = new HotelRoom();
 	
 	@FXML
@@ -96,54 +97,148 @@ public class UserInfoController {
 	@FXML
 	private TextField ZipCode;
 	
+	@FXML
+	private Label FirstNameStatus;
+	
+	@FXML
+	private Label LastNameStatus;
+	
+	@FXML
+	private Label PhoneStatus;
+	
+	@FXML
+	private Label EmailStatus;
+	@FXML
+	private Label CCFirstNameStatus;
+	@FXML
+	private Label CCLastNameStatus;
+	@FXML 
+	private Label CCNumStatus;
+	@FXML
+	private Label CVCStatus;
+	@FXML
+	private Label EXPStatus;
+	@FXML
+	private Label ZipCodeStatus;
+	@FXML
+	private Label CountryStatus;
+	
+	
 	
 
     
-	
+	// 102 is merely a test value
 	@FXML
-	public void confirmRoom(ActionEvent event) throws IOException {
+	public Customer confirmRoom() throws IOException {
+		SRoom = "102";
 		Customer cust = new Customer(SFirstName, SLastName, SEmail, SNumber, SRoom, SCard);
+		
+		return cust;
 	}
 	
+	
+	// out of date function for usage. Should delete
 	@FXML
 	public void updateUserInfo() {
-		SFirstName = firstName.getText();
-		SLastName = lastName.getText();
-		SEmail = email.getText();
-		SNumber = phoneNumber.getText();
-		SRoom = room.getText();
-		SCard = card.getText();
+		CaFirstName = CFirstName.getText();
+		CaLastName = CLastName.getText();
+		CZipCode = ZipCode.getText();
+		CVC = CVCNumber.getText();
 	}
 	
+	@FXML 
+	public void CFirstnameCheck(ActionEvent Event) {
+		CCFirstNameStatus.setTextFill(Color.color(0, 1, 0));
+		CCFirstNameStatus.setText("✓");
+	}
+	
+	@FXML
+	public void CLastNameCheck(ActionEvent Event) {
+	    CCLastNameStatus.setTextFill(Color.color(0, 1, 0));
+		CCLastNameStatus.setText("✓");
+	}
+	
+	@FXML
+	public void CVCStatusCheck(ActionEvent Event) {
+		CVCStatus.setTextFill(Color.color(0, 1, 0));
+		CVCStatus.setText("✓");
+	}
+	 @FXML
+	public void ExpDateStatus(ActionEvent Event) {
+		EXPStatus.setTextFill(Color.color(0, 1, 0));
+		EXPStatus.setText("✓");
+	}
+	 @FXML
+	public void ZipcodeStatusCheck(ActionEvent Event) {
+		ZipCodeStatus.setTextFill(Color.color(0, 1, 0));
+		ZipCodeStatus.setText("✓");
+	}
+	 @FXML
+	public void CountryStatusCheck(ActionEvent Event) {
+		CountryStatus.setTextFill(Color.color(0, 1, 0));
+		CountryStatus.setText("✓");
+	}
+	
+	// Sole Purpose of this method is for RoomSelectionController loader to actually pass on the HotelReservation data.
 	public void HotelGrabber(HotelRoom Hotel) {
 		HotelRoom = Hotel;
-		System.out.print("THIS WORKED");
+		// System.out.print("THIS WORKED");
 	}
 	
 	
-
+/**
+ * FirstNameSetter: Simply grabs the entered userdata for validation.
+ * Requires the user to press enter to actually grab the data.
+ * @param Event
+ * @throws IOException
+ */
+	
 	@FXML
 	public void FirstNameSetter(ActionEvent Event) throws IOException{
 		SFirstName = FirstName.getText();
-		System.out.println(SFirstName);
+		 FirstNameStatus.setTextFill(Color.color(0, 1, 0));
+		 FirstNameStatus.setText("✓");
+		//System.out.println(SFirstName);
 	}
+	/**
+	 * LastNameSetter: Grabs last name user data.
+	 * @param Event
+	 * @throws IOException
+	 */
 	
 	@FXML
 	public void LastNameSetter(ActionEvent Event) throws IOException{
 		SLastName = LastName.getText(); 
+		LastNameStatus.setTextFill(Color.color(0, 1, 0));
+		LastNameStatus.setText("✓");
 	}
+	/**
+	 * Grabs the user email entered as a string.
+	 * When we get the receipt stuff working. We should check if the Java Email library gives a validation method.
+	 * @param Event
+	 * @throws IOException
+	 */
 	
 	@FXML
 	public void EmailSetter(ActionEvent Event) throws IOException{
 		SEmail = Email.getText();
+		EmailStatus.setTextFill(Color.color(0, 1, 0));
+		EmailStatus.setText("✓");
 	}
 	
 	@FXML
 	public void PhoneNumSetter(ActionEvent Event) throws IOException{
 		SNumber = PhoneNumber.getText();
+		PhoneStatus.setTextFill(Color.color(0, 1, 0));
+		PhoneStatus.setText("✓");
 	}
 	
-	
+	/**
+	 * Grab credit card number as a string for later usage. 
+	 * Checks the length first before the actually validation of the number.
+	 * @param Event
+	 * @throws IOException
+	 */
 	
 	@FXML
 	  public void CreditCardSetter(ActionEvent Event) throws IOException{
@@ -156,18 +251,24 @@ public class UserInfoController {
 		    CreditCardError.setText("INVALID CARD NUMBER");
 		}
 		else
-			CreditCardError.setText(""); //Make it empty if no errors
+			CreditCardError.setTextFill(Color.color(0, 1, 0));
+			CreditCardError.setText("✓"); //Make it empty if no errors
 		}
 	}
+	/**
+	 * Takes given credit card number as a string. converts into a parsable long int, then validates using Luhn's algorithm.
+	 * @return true if valid number, false if 
+	 * @throws IOException
+	 */
 	public boolean CreditCardChecker() throws IOException{
 		// Figure out credit card, because java doesn't like unsigned longs.
 		
 		
 		
-		int[] CardNum = new int[SCard.length()];
+		int[] CardNum = new int[CreditCardNumber.getText().length()];
 		int SumOfNumbers = 0;
         for(int i = 0 ; i < CardNum.length; i++) {
-        	CardNum[i] = Integer.parseInt(SCard.substring(i, i+1));
+        	CardNum[i] = Integer.parseInt(CreditCardNumber.getText().substring(i, i+1));
         }
         
         for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
@@ -198,35 +299,7 @@ public class UserInfoController {
 	
 
 	
-	@FXML
-	public void CheckAvailability() throws IOException {
-		// Go through HotelRoom table, check if type is available. 
-		// We need a boolean value for rooms for this.
-		Excel obj = new Excel();
-	    RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
-	    String ChosenOne = ChosenRoom.getText();
-		for(int i = 1 ; i < 30 ; i++) {
-			String Testin = obj.getCell("Rooms", i, 1).getStringCellValue();
-			String Room = obj.getCell("Rooms", i, 4).getStringCellValue();
-			if(Room.equals(ChosenOne) && Testin.equals("")) {
-				RoomAvailabilityChecker.setText("Open Slot Available!");
-				return;
-			}
-		
-		}// End of For Loop
-		RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
-		RoomAvailabilityChecker.setText("No Open Slots Available!");
-		
-	}
 	
-	
-	/**
-	 *  To Do later. Done to validate if entered data is valid for usage.
-	 *  As in. Is a phone number an actual phone number, a credit card valid, etc.
-	 */
-	//public boolean ValidateInfo() {
-		
-	//}
 	
 	
 	/*
@@ -240,7 +313,13 @@ public class UserInfoController {
 	 */
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
+		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.FXML"));
+                root = loader.load();
+                Customer CustomerData = confirmRoom();
+                ReviewPageController ReviewPageController = loader.getController();
+                ReviewPageController.InfoGrabber(CustomerData, HotelRoom);		
+		
+            //root = FXMLLoader.load(getClass().getResource("ReviewPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
