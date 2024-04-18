@@ -148,7 +148,7 @@ public class RoomSelectionController {
 					boolean available = checkRoomAvailability(chosenRoom, checkIn, checkOut);
 					if(available) {
 						RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
-						RoomAvailabilityChecker.setText("Room Found!");
+						RoomAvailabilityChecker.setText("Room Is Available!");
 						return;
 					}
 				}
