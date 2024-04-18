@@ -43,7 +43,9 @@
             <Font size="27.0" />
          </font>
       </Button>
-      <Button fx:id="BookButton" layoutX="385.0" layoutY="572.0" mnemonicParsing="false" onAction="#ConfirmReservation" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: BLACK; -fx-opacity: 0.8;" text="Book" textFill="RED">
+
+      <Button layoutX="385.0" layoutY="572.0" mnemonicParsing="false" onAction="#switchToThankYouPage" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: BLACK; -fx-opacity: 0.8;" text="Book" textFill="RED">
+
          <font>
             <Font size="43.0" />
          </font>
