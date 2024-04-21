@@ -64,7 +64,8 @@ public class RoomSelectionController {
 	public void CheckInDateEvent(ActionEvent Event) throws IOException {
 		checkIn = CheckInDate.getValue();
 		if(checkOut != null)
-			ValidateDates();
+	 		ValidateDates();
+		
 	}
 	
 	@FXML
@@ -78,26 +79,26 @@ public class RoomSelectionController {
 	public void SingleButtonPress(ActionEvent Event) throws IOException{
 	    chosenRoom.setHotelCost(110);
 	    chosenRoom.setHotelType(RoomTypes.SINGLE);
-		RadioButton SingleRoom = (RadioButton) Room.getSelectedToggle();
-		System.out.println(SingleRoom.getText());
+		
+		
 	}
 	@FXML
 	public void DoubleButtonPress(ActionEvent Event) throws IOException {
 		chosenRoom.setHotelCost(190);
 		chosenRoom.setHotelType(RoomTypes.DOUBLE);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
+	
 	}
 	@FXML
 	public void KingButtonPress(ActionEvent Event) throws IOException {
 		chosenRoom.setHotelCost(225);
 		chosenRoom.setHotelType(RoomTypes.KING);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
+		
 	}
 	@FXML
 	public void SuiteButtonPress(ActionEvent Event) throws IOException {
 		chosenRoom.setHotelCost(310);
 		chosenRoom.setHotelType(RoomTypes.SUITE);
-		RadioButton ChosenRoom = (RadioButton) Room.getSelectedToggle();
+		
 	}
 	
 	@FXML
@@ -109,6 +110,8 @@ public class RoomSelectionController {
 		}
 		else {
 			DateChecker.setText("");
+			chosenRoom.SetCheckInDate(checkIn);
+			chosenRoom.SetCheckOutDate(checkOut);
 		}
 		
 	}
@@ -147,7 +150,7 @@ public class RoomSelectionController {
 					chosenRoom.SetRow(i);
 					boolean available = checkRoomAvailability(chosenRoom, checkIn, checkOut);
 					if(available) {
-						RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
+						RoomAvailabilityChecker.setTextFill(Color.color(0, 1, 0));
 						RoomAvailabilityChecker.setText("Room Is Available!");
 						return;
 					}
@@ -173,8 +176,8 @@ public class RoomSelectionController {
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
            // root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.fxml"));
-            root = loader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.FXML"));
+            root = loader.load();         
             
             UserInfoController UserInfoController = loader.getController();
             UserInfoController.HotelGrabber(chosenRoom);

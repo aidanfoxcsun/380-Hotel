@@ -43,15 +43,17 @@
             <Font size="27.0" />
          </font>
       </Button>
+
       <Button layoutX="385.0" layoutY="572.0" mnemonicParsing="false" onAction="#switchToThankYouPage" prefHeight="100.0" prefWidth="460.0" style="-fx-background-color: BLACK; -fx-opacity: 0.8;" text="Book" textFill="RED">
+
          <font>
             <Font size="43.0" />
          </font>
       </Button>
-      <GridPane layoutX="109.0" layoutY="186.0" prefHeight="174.0" prefWidth="244.0">
+      <GridPane layoutX="75.0" layoutY="186.0" prefHeight="174.0" prefWidth="278.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="114.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="10.0" prefWidth="112.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.19996337890626" minWidth="5.0" prefWidth="98.39997558593751" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="163.20001220703125" minWidth="10.0" prefWidth="146.4000244140625" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -70,7 +72,7 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" wrappingWidth="134.13671875" GridPane.rowIndex="2">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone #:" wrappingWidth="134.13671875" GridPane.rowIndex="2">
                <font>
                   <Font size="19.0" />
                </font>
@@ -80,6 +82,26 @@
                   <Font size="19.0" />
                </font>
             </Text>
+            <Label fx:id="CFirstName" prefHeight="56.0" prefWidth="112.0" text="Firstname" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="CLastName" prefHeight="56.0" prefWidth="112.0" text="LastName" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="CPhone" prefHeight="56.0" prefWidth="112.0" text="PhoneNum" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="CEmail" prefHeight="44.0" prefWidth="159.0" text="email" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <Text fill="RED" layoutX="104.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Details:">
@@ -94,8 +116,8 @@
       </Text>
       <GridPane layoutX="919.0" layoutY="186.0" prefHeight="174.0" prefWidth="277.0">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="151.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="126.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="164.0" minWidth="10.0" prefWidth="137.59990234375" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.00009765625003" minWidth="10.0" prefWidth="140.00009765625003" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -124,6 +146,26 @@
                   <Font size="19.0" />
                </font>
             </Text>
+            <Label fx:id="HotelType" prefHeight="27.0" prefWidth="110.0" text="RoomType" textFill="WHITE" GridPane.columnIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="RoomID" prefHeight="27.0" prefWidth="110.0" text="RoomID" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="HotelCheckIn" prefHeight="27.0" prefWidth="110.0" text="CheckIn" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="HotelCheckOut" prefHeight="27.0" prefWidth="110.0" text="CheckOut" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <Text fill="RED" layoutX="577.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: 0.5;" text="Total:">
@@ -131,5 +173,11 @@
             <Font name="Tempus Sans ITC" size="29.0" />
          </font>
       </Text>
+      <Label fx:id="TheMoney" layoutX="654.0" layoutY="424.0" prefHeight="18.0" prefWidth="49.0" text="TotalMoney" textFill="#c41d1d">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Text fill="#cf0808" layoutX="719.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Night." />
    </children>
 </AnchorPane>

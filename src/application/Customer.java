@@ -9,6 +9,12 @@ public class Customer {
     private String CustomerPhoneNumber;
     private HotelRoom CustomerHotelRoom;
     private String CustomerCreditCard;
+    private String CVCCode;
+    private String Country; 
+    private String ZipCode;
+    private LocalDate CustomerCheckIn;
+    private LocalDate CustomerCheckOut;
+    private String EXPDate;
     
     public int row;
     
@@ -18,7 +24,7 @@ public class Customer {
     	setCustomerLastName(null);
     	setCustomerEmail(null);
     	setCustomerPhoneNumber(null);
-    	setCustomerHotelRoom(null);
+    	
     }
     
     public Customer(String FName, String LName, String Email, String PhoneNum, String HotelRoom, String CreditCard) {
@@ -29,7 +35,8 @@ public class Customer {
     	setCustomerHotelRoom(HotelRoom);
     	setCustomerCreditCard(CreditCard); //Note: This presumes we use Luhn's algorithm beforehand for validation.
     }
-
+    
+ 
 	public String getCustomerLastName() {
 		return CustomerLastName;
 	}
@@ -81,6 +88,54 @@ public class Customer {
 		CustomerCreditCard = customerCreditCard;
 	}
 	
+	public String getCVCCode() {
+		return CVCCode;
+	}
+
+	public void setCVCCode(String cVCCode) {
+		CVCCode = cVCCode;
+	}
+
+	public String getCountry() {
+		return Country;
+	}
+
+	public void setCountry(String country) {
+		Country = country;
+	}
+
+	public String getZipCode() {
+		return ZipCode;
+	}
+
+	public void setZipCode(String zipCode) {
+		ZipCode = zipCode;
+	}
+
+	public LocalDate getCustomerCheckIn() {
+		return CustomerCheckIn;
+	}
+
+	public void setCustomerCheckIn(LocalDate customerCheckIn) {
+		CustomerCheckIn = customerCheckIn;
+	}
+
+	public LocalDate getCustomerCheckOut() {
+		return CustomerCheckOut;
+	}
+
+	public void setCustomerCheckOut(LocalDate customerCheckOut) {
+		CustomerCheckOut = customerCheckOut;
+	}
+
+	public String getEXPDate() {
+		return EXPDate;
+	}
+
+	public void setEXPDate(String eXPDate) {
+		EXPDate = eXPDate;
+	}
+
 	public void UpdateExcel() {
 		Excel e = new Excel();
 		int i = 1;
