@@ -5,37 +5,30 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1225.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SupportController">
    <children>
-      <ImageView fitHeight="741.0" fitWidth="1230.0" layoutY="-34.0">
+      <ImageView fitHeight="700.0" fitWidth="1225.0">
          <image>
-            <Image url="@../../Images/SupportBackground.jpg" />
+            <Image url="@../../bin/Images/SupportBackground.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="561.0" layoutY="640.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="51.0" prefWidth="110.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
+      <Label layoutX="-17.0" layoutY="-1.0" prefHeight="113.0" prefWidth="1429.0" style="-fx-background-color: BLACK; -fx-opacity: 0.5;" text="                The Phantom Inn" textFill="#ff0707">
          <font>
-            <Font size="27.0" />
+            <Font name="Tempus Sans ITC" size="81.0" />
          </font>
-      </Button>
-      <HBox layoutX="-2.0" layoutY="1.0" prefHeight="113.0" prefWidth="1230.0">
-         <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" />
-            <Label prefHeight="113.0" prefWidth="1429.0" style="-fx-background-color: BLACK; -fx-opacity: 0.5;" text="                The Phantom Inn" textFill="#ff0707">
-               <font>
-                  <Font name="Tempus Sans ITC" size="81.0" />
-               </font>
-            </Label>
-         </children>
-      </HBox>
+      </Label>
       <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="1004.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../git/Bit-by-Bit/HotelProject/ImageFolder/telephone.png" />
          </image>
       </ImageView>
+      <Button layoutX="1024.0" layoutY="34.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="57.0" prefWidth="132.0" style="-fx-background-color: #2c2929;" text="Home" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Button>
       <Label alignment="CENTER" layoutX="950.0" layoutY="673.0" prefHeight="27.0" prefWidth="278.0" text="1428 Elm St, Nightmare, OH" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="21.0" />
