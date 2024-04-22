@@ -49,7 +49,12 @@ public class ReviewPageController {
 	
 	Customer NewCustomer = new Customer();
 	HotelRoom HotelData = new HotelRoom();
-	
+	/**
+	 * Author:Sebastian Sunga
+	 * Date: 04/14/2024
+	 * Description: shows the hotel type from the enum due to needing to convert to string.
+	 * @param HotelInfo
+	 */
 	public void TypeShower(HotelRoom HotelInfo) {
 		switch(HotelData.getHotelType()) {
         case SINGLE:
@@ -70,7 +75,13 @@ public class ReviewPageController {
         }
 	}
 	
-	 
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/15/2024
+	  * Description: Switch off point for data from UserPageInfoController and this ReviewPageController
+	  * @param CustomerInfo
+	  * @param HotelInfo
+	  */
 	 public void InfoGrabber(Customer CustomerInfo, HotelRoom HotelInfo){
 		            NewCustomer = CustomerInfo;
 		            CFirstName.setText(NewCustomer.getCustomerFirstName());
@@ -98,7 +109,11 @@ public class ReviewPageController {
 	 
 	 
 	  
-	  
+	  /**
+	   * Author: Sebastian Sunga, model methods made by Aidan Fox.
+	   * Date: 04/15/2024
+	   * Description: Writes to the excel sheet with customer data.
+	   */
 	  public void ConfirmReservation() {
 		   NewCustomer.UpdateExcel();
 		   HotelData.Reserve(HotelData.GetCheckInDate(), HotelData.GetCheckOutDate());
