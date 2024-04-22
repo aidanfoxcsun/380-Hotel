@@ -148,8 +148,15 @@ public class UserInfoController {
 	public Customer confirmRoom() throws IOException {
 		SRoom = Integer.toString(HotelRoom.getRoomID());
 		Customer cust = new Customer(SFirstName, SLastName, SEmail, SNumber, SRoom, SCard);
+		cust.setCountry(CardCountry);
+		cust.setCVCCode(CVC);
 		cust.setCustomerCheckIn(HotelRoom.GetCheckInDate());
 		cust.setCustomerCheckOut(HotelRoom.GetCheckOutDate());	
+		cust.setZipCode(CardZipCode);
+		
+		String ExpDate = ExpMonth.concat("/");
+		ExpDate = ExpDate.concat(ExpYear);
+		cust.setEXPDate(ExpDate);
 		
 		return cust;
 	}
@@ -182,9 +189,10 @@ public class UserInfoController {
 				  EXPMonthStatus.setTextFill(Color.color(0, 1, 0));
 			      EXPMonthStatus.setText("✓");
 			  }
-			  else
+			  else{
 				  EXPMonthStatus.setTextFill(Color.color(1, 0, 0));
 			      EXPMonthStatus.setText("INVALID");
+			  }
 			  break;
 		  case BACK_SPACE:
 			  ExpMonth = "";
