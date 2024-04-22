@@ -37,14 +37,15 @@ public class CancelRoomController {
         String lastNameInput = LastName.getText();
         String roomNumberInput = RoomNumber.getText();
 
-        // Check if last name and room number match the expected values
+        // Check if Room Number and Last Name match an existing booking
         if ("expectedLastName".equals(lastNameInput) && "expectedRoomNumber".equals(roomNumberInput)) {
             root = FXMLLoader.load(getClass().getResource("CancellationPageTwo.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } else {
+        } 
+        else {
             // Show an alert for invalid input
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");

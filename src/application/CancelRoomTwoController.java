@@ -22,6 +22,8 @@ public class CancelRoomTwoController {
 	
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
+		 // SHOULD CANCEL BOOKING AND SEND TO HOME PAGE
+
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -31,7 +33,8 @@ public class CancelRoomTwoController {
 	
 	
 	@FXML
-	 public void switchToCancelRoomScreen(ActionEvent event) throws IOException {	// GOES BACK TO CANCECL ROOM SCREEN 1, (TO CHANGE ROOM# or CONTINUE BACK TO HOME)
+	 public void switchToCancelRoomScreen(ActionEvent event) throws IOException {	
+		// GOES BACK TO CANCELL ROOM SCREEN 1, (TO CHANGE ROOM# or CONTINUE BACK TO HOME)
          root = FXMLLoader.load(getClass().getResource("CancellationPage.FXML"));
          stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          scene = new Scene(root);
@@ -41,7 +44,8 @@ public class CancelRoomTwoController {
 
 	
 	@FXML
-    public void switchToSelectionScreen(ActionEvent event) throws IOException {			// SHOULD CANCEL ROOM NUMBER CAN SEND TO ROOM SELECTION SCREEN
+    public void switchToSelectionScreen(ActionEvent event) throws IOException {			
+		 // SHOULD CANCEL BOOKING AND SEND TO ROOM SELECTION SCREEN
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
