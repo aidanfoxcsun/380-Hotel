@@ -88,6 +88,7 @@ public class ReviewPageController {
 		            CLastName.setText(NewCustomer.getCustomerLastName());
 		            CPhone.setText(NewCustomer.getCustomerPhoneNumber());
 		            CEmail.setText(NewCustomer.getCustomerEmail());
+		            RoomID.setText(Integer.toString(NewCustomer.getCustomerHotelRoom().getRoomID()));
 		            
 		            HotelData = HotelInfo;
 		            TypeShower(HotelData);
