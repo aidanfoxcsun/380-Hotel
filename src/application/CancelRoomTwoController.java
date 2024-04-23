@@ -29,15 +29,13 @@ public class CancelRoomTwoController {
 		 */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
-		 // SHOULD CANCEL BOOKING AND SEND TO HOME PAGE
-
+		 // ONLY GOES TO HOME
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
     }
-	
 	
 	   /**
 		 * Author: Alexander Chakmakian
@@ -48,7 +46,7 @@ public class CancelRoomTwoController {
 		 */
 	@FXML
 	 public void switchToCancelRoomScreen(ActionEvent event) throws IOException {	
-		// GOES BACK TO CANCELL ROOM SCREEN 1, (TO CHANGE ROOM# or CONTINUE BACK TO HOME)
+		// ONLY GOES BACK TO CANCEL ROOM SCREEN 1
          root = FXMLLoader.load(getClass().getResource("CancellationPage.FXML"));
          stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          scene = new Scene(root);
@@ -73,5 +71,23 @@ public class CancelRoomTwoController {
             stage.show();
     }
 	
+	   /**
+	      * Author: Alexander Chakmakian
+		  * Date: 04/22/2024
+	      * Description: Cancels room and sends user to home page upon button click
+	      * @param Event
+          * @throws IOException
+	   */
+		@FXML
+	    public void CancelRoomswitchToHomePage(ActionEvent event) throws IOException {
+			 // ONLY GOES TO HOME
+	            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+	            scene = new Scene(root);
+	            stage.setScene(scene);
+	            stage.show();
+	    }
 	
 }
+
+

@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
+
 public class CancelRoomController {
     private Stage stage;
     private Scene scene;
@@ -51,10 +52,13 @@ public class CancelRoomController {
     @FXML
     public void switchToCancelRoomTwoScreen(ActionEvent event) throws IOException {
         String lastNameInput = LastName.getText();
-        String roomNumberInput = RoomNumber.getText();
+        int roomNumberInput = Integer.parseInt(RoomNumber.getText()); // Convert to int
 
-        // Check if Room Number and Last Name match an existing booking
-        if ("expectedLastName".equals(lastNameInput) && "expectedRoomNumber".equals(roomNumberInput)) {
+        // Call the findCustomer method from Customer class
+        Customer customer = Customer.findCustomer(lastNameInput, roomNumberInput);
+
+        if (customer != null) {
+            // If customer is found, navigate to the next cancellation page
             root = FXMLLoader.load(getClass().getResource("CancellationPageTwo.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -70,4 +74,5 @@ public class CancelRoomController {
             alert.showAndWait();
         }
     }
+
 }

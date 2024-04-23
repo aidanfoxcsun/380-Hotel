@@ -17,7 +17,7 @@
             <Image url="@../../Images/SceneBuilder%20Cancellation.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="250.0" layoutY="583.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="196.0" style="-fx-background-color: #696969;" text="Cancel Booking" textFill="WHITE">
+      <Button layoutX="250.0" layoutY="583.0" mnemonicParsing="false" onAction="#CancelRoomswitchToHomePage" prefHeight="60.0" prefWidth="196.0" style="-fx-background-color: #696969;" text="Cancel Booking" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font></Button>
