@@ -15,6 +15,8 @@ public class Customer {
     private LocalDate CustomerCheckIn;
     private LocalDate CustomerCheckOut;
     private String EXPDate;
+    private String CreditCardFirstName;
+    private String CreditCardLastName;
     
     public int row;
     
@@ -134,6 +136,22 @@ public class Customer {
 
 	public void setEXPDate(String eXPDate) {
 		EXPDate = eXPDate;
+	}
+
+	public String getCreditCardFirstName() {
+		return CreditCardFirstName;
+	}
+
+	public void setCreditCardFirstName(String creditCardFirstName) {
+		CreditCardFirstName = creditCardFirstName;
+	}
+
+	public String getCreditCardLastName() {
+		return CreditCardLastName;
+	}
+
+	public void setCreditCardLastName(String creditCardLastName) {
+		CreditCardLastName = creditCardLastName;
 	}
 
 	public void UpdateExcel() {

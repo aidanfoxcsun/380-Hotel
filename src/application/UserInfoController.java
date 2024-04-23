@@ -137,13 +137,26 @@ public class UserInfoController {
 	
 
     
-	// 102 is merely a test value
+	/**
+	 * Simply makes customer object and returns it for later bookkeeping.
+	 * Author: Sebastian Sunga
+	 * Date: 03/28/2024
+	 * @return Customer
+	 * @throws IOException
+	 */
 	@FXML
 	public Customer confirmRoom() throws IOException {
-		SRoom = "102";
+		SRoom = Integer.toString(HotelRoom.getRoomID());
 		Customer cust = new Customer(SFirstName, SLastName, SEmail, SNumber, SRoom, SCard);
+		cust.setCountry(CardCountry);
+		cust.setCVCCode(CVC);
 		cust.setCustomerCheckIn(HotelRoom.GetCheckInDate());
 		cust.setCustomerCheckOut(HotelRoom.GetCheckOutDate());	
+		cust.setZipCode(CardZipCode);
+		
+		String ExpDate = ExpMonth.concat("/");
+		ExpDate = ExpDate.concat(ExpYear);
+		cust.setEXPDate(ExpDate);
 		
 		return cust;
 	}
@@ -160,8 +173,12 @@ public class UserInfoController {
 		   return true;
 	}
 	
-	// out of date function for usage. Should delete
-	// Function to concatenate the Expiration date month and year to look neat.
+	/**
+	 * Parses Expiration month value when User presses enters, clears it when user presses backspace.
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * @param Event
+	 */
 	@FXML
 	public void ExpMonthCheck(KeyEvent Event) {
 		String TempInput = ExpirationMonth.getText();
@@ -172,9 +189,10 @@ public class UserInfoController {
 				  EXPMonthStatus.setTextFill(Color.color(0, 1, 0));
 			      EXPMonthStatus.setText("✓");
 			  }
-			  else
+			  else{
 				  EXPMonthStatus.setTextFill(Color.color(1, 0, 0));
 			      EXPMonthStatus.setText("INVALID");
+			  }
 			  break;
 		  case BACK_SPACE:
 			  ExpMonth = "";
@@ -185,7 +203,13 @@ public class UserInfoController {
 			  break;
 		  }
 	}
-	
+	/**
+	 * Validates and stores the Expiration Year.
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * @param Event
+	 * @throws IOException
+	 */
 	@FXML
 	 public void EXPYearCheck(KeyEvent Event) throws IOException{
 		String TempInput = ExpirationYear.getText();
@@ -212,7 +236,12 @@ public class UserInfoController {
 	}
 	
 	
-	
+	/**
+	 * Validates and stores the Credit Card's first name
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * @param Event
+	 */
 	@FXML 
 	public void CFirstnameCheck(KeyEvent Event) {
 		   String TempString = CFirstName.getText();
@@ -238,6 +267,12 @@ public class UserInfoController {
 		
 	}
 	
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: validates and handles Credit Card Last Name.
+	 * @param Event
+	 */
 	@FXML
 	public void CLastNameCheck(KeyEvent Event) {
 		String TempInput = CLastName.getText();
@@ -260,6 +295,13 @@ public class UserInfoController {
 			  break;
 		  }
 	}
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Handles the CVC data, validates and stores.
+	 * @param Event
+	 * @throws IOException
+	 */
 	
 	@FXML
 	public void CVCStatusCheck(KeyEvent Event) throws IOException {
@@ -286,6 +328,13 @@ public class UserInfoController {
 			  break;
 		  }
 	}
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/18/2024
+	  * Description: validates and stores the Zipcode data
+	  * @param Event
+	  * @throws IOException
+	  */
 	 @FXML
 	public void ZipcodeStatusCheck(KeyEvent Event) throws IOException {
 		 String TempInput = ZipCode.getText();
@@ -310,6 +359,13 @@ public class UserInfoController {
 			  break;
 		  }
 	}
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/18/2024
+	  * Description: Handles the Country data.
+	  * @param Event
+	  * @throws IOException
+	  */
 	 @FXML
 	public void CountryStatusCheck(KeyEvent Event) throws IOException {
 		   String TempString = Country.getText();
@@ -339,6 +395,12 @@ public class UserInfoController {
 	}
 	
 	// Sole Purpose of this method is for RoomSelectionController loader to actually pass on the HotelReservation data.
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/07/2024
+	  * Description: Small method to handle and set the hotel room data from RoomSelectionController.
+	  * @param Hotel
+	  */
 	public void HotelGrabber(HotelRoom Hotel) {
 		HotelRoom = Hotel;
 		// System.out.print("THIS WORKED");
@@ -346,9 +408,10 @@ public class UserInfoController {
 	
 	
 /**
- * FirstNameSetter: Simply grabs the entered userdata for validation.
- * I want to try using key press and so it's real time and not at one time.
- * Requires the user to press enter to actually grab the data.
+ * Author: Sebastian Sunga
+ * Date: 04/18/2024
+ * Description: Handles the First Name data. validates and stores
+ * 
  * @param Event
  * @throws IOException
  */
@@ -380,7 +443,8 @@ public class UserInfoController {
 		 
 	}
 	/**
-	 * LastNameSetter: Grabs last name user data.
+	 * Author: Sebastian Sunga
+	 * Date: 04/21/2024
 	 * @param Event
 	 * @throws IOException
 	 */
@@ -420,8 +484,8 @@ public class UserInfoController {
 	}
 	
 	/**
-	 * Grabs the user email entered as a string.
-	 * When we get the receipt stuff working. We should check if the Java Email library gives a validation method.
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
 	 * @param Event
 	 * @throws IOException
 	 */
@@ -457,11 +521,14 @@ public class UserInfoController {
 	
 	
 	
-	/* Author: Sebastian Sunga
-	 * Purpose: Small method to veryify if every character is a digit.
-	 *          Return false if the digit is not a number. Say a letter.
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Takes a given number(as string), and tests if the character is a digit. false if not, true if all are digits.
+	 * @param GivenNumber
+	 * @return
+	 * @throws IOException
 	 */
-	
 	private boolean NumberVerify(String GivenNumber) throws IOException{ 
 		for(int i = 0 ; i < GivenNumber.length() ; i++) {
 			char TestDigit = GivenNumber.charAt(i);
@@ -470,7 +537,13 @@ public class UserInfoController {
 		}
 		return true;
 	}
-	
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Validates and sets the phone number data.
+	 * @param Event
+	 * @throws IOException
+	 */
 	@FXML
 	public void PhoneNumSetter(KeyEvent Event) throws IOException{
 		  String TempInput = PhoneNumber.getText();
@@ -502,8 +575,9 @@ public class UserInfoController {
 	}
 	
 	/**
-	 * Grab credit card number as a string for later usage. 
-	 * Checks the length first before the actually validation of the number.
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024 
+	 * Description: Validates and stores given CC # data. Uses the CreditCard Checker to validate.
 	 * @param Event
 	 * @throws IOException
 	 */
@@ -537,6 +611,8 @@ public class UserInfoController {
 		}
 	
 	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/21/2024
 	 * Takes given credit card number as a string. converts into a parsable long int, then validates using Luhn's algorithm.
 	 * @return true if valid number, false if 
 	 * @throws IOException
@@ -583,15 +659,11 @@ public class UserInfoController {
 	
 	
 	
-	/*
-	 * THINGS WE NEED FOR THIS:
-	 * A credit card validation method
-	 * Store info
-	 * Create some form of error output for wrong user information
-	 * We could use the unfocus of element for that
-	 * a function to write a new row to the victims table for any new customer
-	 * Receipt/ manager class <-- Get a manager class working
+	
+	/**
+	 * Descripton: Switch to the Reviewpage view and controller with the data handled here.
 	 */
+	 
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
 		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.FXML"));
