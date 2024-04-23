@@ -23,6 +23,14 @@ public class CancelRoomController {
     @FXML
     private TextField RoomNumber;
 
+    
+    /**
+	 * Author: Alexander Chakmakian
+	 * Date: 04/18/2024
+	 * Description: Sends user to home page upon button click
+	 * @param Event
+	 * @throws IOException
+	 */
     @FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
@@ -32,6 +40,14 @@ public class CancelRoomController {
         stage.show();
     }
 
+    /**
+ 	 * Author: Alexander Chakmakian
+ 	 * Date: 04/18/2024
+ 	 * Description: Sends user to the next cancel room screen if room # and name match a booking.
+ 	 * Takes in last name and booking number, and the output will be the action of going to the next page.
+ 	 * @param Event
+ 	 * @throws IOException
+ 	 */
     @FXML
     public void switchToCancelRoomTwoScreen(ActionEvent event) throws IOException {
         String lastNameInput = LastName.getText();

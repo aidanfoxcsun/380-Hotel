@@ -20,6 +20,13 @@ public class CancelRoomTwoController {
 	private Scene scene;
 	private Parent root;
 	
+	   /**
+		 * Author: Alexander Chakmakian
+		 * Date: 04/18/2024
+		 * Description: Cancels room and sends user to home page upon button click
+		 * @param Event
+		 * @throws IOException
+		 */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
 		 // SHOULD CANCEL BOOKING AND SEND TO HOME PAGE
@@ -32,6 +39,13 @@ public class CancelRoomTwoController {
     }
 	
 	
+	   /**
+		 * Author: Alexander Chakmakian
+		 * Date: 04/19/2024
+		 * Description: Sends user back to cancel room screen 1
+		 * @param Event
+		 * @throws IOException
+		 */
 	@FXML
 	 public void switchToCancelRoomScreen(ActionEvent event) throws IOException {	
 		// GOES BACK TO CANCELL ROOM SCREEN 1, (TO CHANGE ROOM# or CONTINUE BACK TO HOME)
@@ -42,7 +56,13 @@ public class CancelRoomTwoController {
          stage.show();
 	 }
 
-	
+	   /**
+		 * Author: Alexander Chakmakian
+		 * Date: 04/19/2024
+		 * Description: Cancels booking and sends user to selection room screen upon button click
+		 * @param Event
+		 * @throws IOException
+		 */
 	@FXML
     public void switchToSelectionScreen(ActionEvent event) throws IOException {			
 		 // SHOULD CANCEL BOOKING AND SEND TO ROOM SELECTION SCREEN
