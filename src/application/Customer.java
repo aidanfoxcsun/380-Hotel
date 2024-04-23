@@ -2,6 +2,14 @@ package application;
 
 import java.time.LocalDate;
 
+/**
+ * 
+ * @author Aidan Fox
+ * Date: 4/20/24
+ * Description: Class representing a Customer. Contains all the necessary information such as name, email, phone number, payment info as fields. 
+ * 				Contains methods for modifying and reading from the Excel Sheet used as the central database
+ *
+ */
 public class Customer {
     private String CustomerFirstName;
     private String CustomerLastName;
@@ -20,7 +28,11 @@ public class Customer {
     
     public int row;
     
-    
+    /**
+     * Author: Aidan Fox
+     * Date: 4/20/24
+     * Description: Empty Customer constructor. Initializes all fileds to null.
+     */
     public Customer() {
     	setCustomerFirstName(null);
     	setCustomerLastName(null);
@@ -29,6 +41,17 @@ public class Customer {
     	
     }
     
+    /**
+     * Author: Aidan Fox
+     * Date: 4/20/24
+     * Description: Explicit Customer constructor.
+     * @param FName
+     * @param LName
+     * @param Email
+     * @param PhoneNum
+     * @param HotelRoom
+     * @param CreditCard
+     */
     public Customer(String FName, String LName, String Email, String PhoneNum, String HotelRoom, String CreditCard) {
     	setCustomerFirstName(FName);
     	setCustomerLastName(LName);
@@ -38,6 +61,7 @@ public class Customer {
     	setCustomerCreditCard(CreditCard); //Note: This presumes we use Luhn's algorithm beforehand for validation.
     }
     
+    // Getters and Setter methods
  
 	public String getCustomerLastName() {
 		return CustomerLastName;
@@ -59,6 +83,12 @@ public class Customer {
 		return CustomerHotelRoom;
 	}
 
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Sets the current Hotel Room associated with a the Customer object. Note: this takes the HotelRoom number/ID as a String, and finds the relevant HotelRoom Object using a helper function.
+	 * @param customerHotelRoom
+	 */
 	public void setCustomerHotelRoom(String customerHotelRoom) {
 		CustomerHotelRoom = HotelRoom.FindRoom(customerHotelRoom);
 		if(CustomerHotelRoom == null) {
@@ -153,7 +183,14 @@ public class Customer {
 	public void setCreditCardLastName(String creditCardLastName) {
 		CreditCardLastName = creditCardLastName;
 	}
-
+	
+	// End Getters and Setters
+	
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Updates the Customers Excel spreadsheet to include the current Customer object's relevant information and data.
+	 */
 	public void UpdateExcel() {
 		Excel e = new Excel();
 		int i = 1;
@@ -173,6 +210,14 @@ public class Customer {
 		this.UpdateRoom(this.CustomerHotelRoom, null, null);
 	}
 	
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Adds given HotelRoom to the Customers Excel spreadsheet, with appropriate Check In and Check Out dates.
+	 * @param room
+	 * @param checkIn
+	 * @param checkOut
+	 */
 	public void UpdateRoom(HotelRoom room, String checkIn, String checkOut) {
 		Excel e = new Excel();
 		e.CreateCell("Victims", this.row, 10, room.getRoomID() + "");
@@ -184,6 +229,11 @@ public class Customer {
 			e.CreateCell("Victims", this.row, 14, checkOut.toString());
 	}
 	
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Removes the Customer object from the Customers Excel Spreadsheet.
+	 */
 	public void Remove() {
 		Excel e = new Excel();
 		for(int i = 0; i < 20; i++) {
@@ -193,6 +243,15 @@ public class Customer {
 		}
 	}
 	
+	
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Finds a customer in the Customer Excel spreadsheet, and returns a Customer object with appropriate related information.
+	 * @param lastName
+	 * @param roomID
+	 * @return Customer Object
+	 */
 	public static Customer findCustomer(String lastName, int roomID) {
 		Excel e = new Excel();
 		int i = 1;
@@ -215,7 +274,13 @@ public class Customer {
 		return null;
 	}
 	
+
 	@Override
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: toString method for Customer objects. Displays all relevant information. Card information is hidden, except for the last 4 digits.
+	 */
 	public String toString() {
 		String card = "****";
 		card += CustomerCreditCard.substring(CustomerCreditCard.length() - 4, CustomerCreditCard.length());

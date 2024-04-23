@@ -20,8 +20,15 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 
-
+/**
+ * 
+ * @author Aidan Fox
+ * Date: 4/20/24
+ * Description: Controller class for the frontend page displaying available rooms for the User to selcet from.
+ */
 public class RoomSelectionController {
+	private boolean canContinue = false;
+	private boolean canConfirm = false;
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -102,22 +109,38 @@ public class RoomSelectionController {
 	}
 	
 	@FXML
+	/**
+	 * Authors: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Ensures that the selected dates are in the correct order.
+	 * @throws IOException
+	 */
 	public void ValidateDates() throws IOException {
 		//Check if CheckOut is later than the CheckIn
 		if(!checkOut.isAfter(checkIn)) {
 			DateChecker.setTextFill(Color.color(1,0,0));
 			DateChecker.setText("Invalid Dates!");
+			canContinue = false;
 		}
 		else {
 			DateChecker.setText("");
 			chosenRoom.SetCheckInDate(checkIn);
 			chosenRoom.SetCheckOutDate(checkOut);
+			canContinue = true;
 		}
 		
 	}
 		
 	@FXML
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: Method for checking the availability of the currently selected Reservation pair of dates for any room of the selected type. If a room is found, it is set as the chosen room.
+	 *              Otherwise, tells the user that the selected type and dates are unavailable.
+	 * @throws IOException
+	 */
 	public void CheckAvailability() throws IOException {
+		if(!canContinue) {return;}
 		// Go through HotelRoom table, check if type is available. 
 		// We need a boolean value for rooms for this.
 		Excel e = new Excel();
@@ -152,6 +175,7 @@ public class RoomSelectionController {
 					if(available) {
 						RoomAvailabilityChecker.setTextFill(Color.color(0, 1, 0));
 						RoomAvailabilityChecker.setText("Room Is Available!");
+						canConfirm = true;
 						return;
 					}
 				}
@@ -160,10 +184,18 @@ public class RoomSelectionController {
 		}// End of For Loop
 		RoomAvailabilityChecker.setTextFill(Color.color(1, 0, 0));
 		RoomAvailabilityChecker.setText("No Open Slots Available!");
+		canConfirm = false;
 		
 	}
 	
 	@FXML
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 4/15/24
+	 * Description: Switches the current page to the Home Page.
+	 * @param event
+	 * @throws IOException
+	 */
     public void switchToHomePage(ActionEvent event) throws IOException {
 		     
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
@@ -174,9 +206,17 @@ public class RoomSelectionController {
             stage.show();
     }
 	@FXML
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 4/15/24
+	 * Description: Switches the current page to the UserInfo page.
+	 * @param event
+	 * @throws IOException
+	 */
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
            // root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.FXML"));
+		if(canConfirm) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.FXML"));
             root = loader.load();         
             
             UserInfoController UserInfoController = loader.getController();
@@ -185,10 +225,24 @@ public class RoomSelectionController {
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+		}    
     }
 	
 	
-	// This method should be called for each room of a specified type to see if a reservation is available.
+	/**
+	 * Author: Aidan Fox
+	 * Date: 4/20/24
+	 * Description: For a given room in the Rooms spreadsheet, we iterate through each pair of dates to check for two conditions:
+	 * 					-1: the new check In date is after the old check in date, and it is before the old check out date.
+	 * 						-return false.
+	 * 					-2: the new check Out date is after the old check in date, and it is before the old check Out date.
+	 * 						-return false.
+	 * 				After this runs for every pair of dates, and has not returned, we return true, signaling that the reservation is available.
+	 * @param room
+	 * @param checkIn
+	 * @param checkOut
+	 * @return boolean
+	 */
 	protected boolean checkRoomAvailability(HotelRoom room, LocalDate checkIn, LocalDate checkOut) {
 		// Check to make sure requested check in and check out dates do not overlap.
 		Excel e = new Excel();

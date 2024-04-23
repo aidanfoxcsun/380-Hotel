@@ -7,28 +7,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ThankYouPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1225.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ThankYouPageController">
    <children>
-      <ImageView fitHeight="603.0" fitWidth="1050.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="1250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/ThankYouBackground.png" />
          </image>
       </ImageView>
-      <Pane prefHeight="101.0" prefWidth="1083.0">
+      <Pane prefHeight="101.0" prefWidth="1225.0">
          <children>
-            <Label layoutY="-3.0" prefHeight="110.0" prefWidth="1050.0" style="-fx-background-color: BLACK;" text="   Your Reservation Has Been Booked" textFill="#e42121">
+            <Label layoutY="-3.0" prefHeight="110.0" prefWidth="1225.0" style="-fx-background-color: BLACK;" text="  Your Reservation Has Been Booked. See You Soon!" textFill="#e42121">
                <font>
-                  <Font name="Tempus Sans ITC" size="65.0" />
+                  <Font name="Tempus Sans ITC" size="55.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Button layoutX="368.0" layoutY="550.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="118.0" prefWidth="347.0" style="-fx-opacity: 0.8; -fx-background-color: BLACK;" text="Return Home" textFill="#a42727">
+      <Button layoutX="439.0" layoutY="559.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="118.0" prefWidth="347.0" style="-fx-opacity: 0.8; -fx-background-color: BLACK;" text="Return Home" textFill="#a42727">
          <font>
             <Font size="45.0" />
          </font>
       </Button>
+      <Text fill="WHITE" layoutX="1021.0" layoutY="616.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Phanton Inn is not responsible for lost or stolen souls." wrappingWidth="190.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

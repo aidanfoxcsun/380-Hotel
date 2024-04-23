@@ -33,6 +33,7 @@ public class UserInfoController {
 	
 	
 	
+	
 	private String SFirstName, SLastName, SEmail, SNumber, SRoom, SCard;
 	private String CardFirstName, CardLastName, CardZipCode, CVC,ExpMonth,ExpYear,CardCountry;
 	
@@ -427,12 +428,14 @@ public class UserInfoController {
 			  SFirstName = FirstName.getText();
 			  FirstNameStatus.setTextFill(Color.color(0, 1, 0));
 			  FirstNameStatus.setText("✓");
+			   
 			  }
 			  break;
 		  case BACK_SPACE:
 			  SFirstName = FirstName.getText();
 			  FirstNameStatus.setTextFill(Color.color(1, 0, 0));
 			  FirstNameStatus.setText("**");
+			  
 			  break;
 			  default:
 			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
@@ -445,6 +448,7 @@ public class UserInfoController {
 	/**
 	 * Author: Sebastian Sunga
 	 * Date: 04/21/2024
+	 * Description: Sets SLastname from user input.
 	 * @param Event
 	 * @throws IOException
 	 */
@@ -460,12 +464,14 @@ public class UserInfoController {
 			  SLastName = LastName.getText();
 			  LastNameStatus.setTextFill(Color.color(0, 1, 0));
 			  LastNameStatus.setText("✓");
+			  
 			  }
 			  break;
 		  case BACK_SPACE:
 			  SLastName = "";
 			  LastNameStatus.setTextFill(Color.color(1, 0, 0));
 			  LastNameStatus.setText("**");
+			  
 			  break;
 			  default:
 			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
@@ -486,6 +492,7 @@ public class UserInfoController {
 	/**
 	 * Author: Sebastian Sunga
 	 * Date: 04/18/2024
+	 * Description: Grabs a valid email from user input.
 	 * @param Event
 	 * @throws IOException
 	 */
@@ -554,7 +561,8 @@ public class UserInfoController {
 				   
 			         SNumber = TempInput;
 			         PhoneStatus.setTextFill(Color.color(0, 1, 0));
-			         PhoneStatus.setText("✓");				  
+			         PhoneStatus.setText("✓");		
+			         
 			  } // End of If statement
 			  else {
 				  PhoneStatus.setText("Please enter a valid Phone Number.");
@@ -564,6 +572,7 @@ public class UserInfoController {
 		  case BACK_SPACE:
 			  PhoneStatus.setTextFill(Color.color(1, 0, 0));
 			  PhoneStatus.setText("**");
+			  
 			  break;
 			  
 			  default:
