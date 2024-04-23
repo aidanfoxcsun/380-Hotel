@@ -20,6 +20,14 @@ public class SupportController {
 	private Scene scene;
 	private Parent root;
 	
+	
+	   /**
+		 * Author: Alexander Chakmakian
+		 * Date: 04/18/2024
+		 * Description: Sends user to home page upon button click
+		 * @param Event
+		 * @throws IOException
+		 */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));

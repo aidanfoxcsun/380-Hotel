@@ -49,6 +49,14 @@ public class MainPageController extends Application {
             stage.setScene(scene);
             stage.show();
     }
+	
+	   /**
+		 * Author: Alexander Chakmakian
+		 * Date: 04/18/2024
+		 * Description: Sends user to support page upon button click
+		 * @param Event
+		 * @throws IOException
+		 */
 	@FXML
 	 public void switchToSupportScreen(ActionEvent event) throws IOException {
          root = FXMLLoader.load(getClass().getResource("Support.FXML"));
