@@ -660,10 +660,13 @@ public class UserInfoController {
 	
 	
 	
-	/**
-	 * Descripton: Switch to the Reviewpage view and controller with the data handled here.
-	 */
-	 
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once confirm button is clicked, screen switches to review screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
 		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.FXML"));
@@ -678,7 +681,13 @@ public class UserInfoController {
             stage.setScene(scene);
             stage.show();
     }
-	
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once Home button is clicked, screen switches to Home screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
@@ -687,6 +696,13 @@ public class UserInfoController {
             stage.setScene(scene);
             stage.show();
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: If back button is clicked, screen returns to room selection screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToRoomSelectionScreen(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));

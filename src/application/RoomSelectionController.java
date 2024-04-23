@@ -162,7 +162,13 @@ public class RoomSelectionController {
 		RoomAvailabilityChecker.setText("No Open Slots Available!");
 		
 	}
-	
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once Home button is clicked, screen switches to Home screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
 		     
@@ -173,6 +179,13 @@ public class RoomSelectionController {
             stage.setScene(scene);
             stage.show();
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once confirm button is clicked, screen switches to user information screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
            // root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));

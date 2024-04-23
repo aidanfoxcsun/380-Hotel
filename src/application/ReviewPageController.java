@@ -120,7 +120,13 @@ public class ReviewPageController {
 		   HotelData.Reserve(HotelData.GetCheckInDate(), HotelData.GetCheckOutDate());
 	  }
 	  
-	
+	  /*
+		 * Author: Matthew Barsoum
+		 * Date 03/16/2024
+		 * Description: If home button is clicked, screen switches to Home page
+		 * @param Event
+		 * throws IOException
+		 * */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
 		    
@@ -131,6 +137,13 @@ public class ReviewPageController {
             stage.setScene(scene);
             stage.show();
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: If back button is clicked, screen switches back to user information screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToUserInfoPage(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
@@ -139,6 +152,13 @@ public class ReviewPageController {
             stage.setScene(scene);
             stage.show();
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once Book button is clicked, screen switches to the final screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToThankYouPage(ActionEvent event) throws IOException {
 		    ConfirmReservation();
