@@ -187,7 +187,13 @@ public class RoomSelectionController {
 		canConfirm = false;
 		
 	}
-	
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once Home button is clicked, screen switches to Home screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
 	/**
 	 * Author: Sebastian Sunga
@@ -205,6 +211,13 @@ public class RoomSelectionController {
             stage.setScene(scene);
             stage.show();
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once confirm button is clicked, screen switches to user information screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
 	/**
 	 * Author: Sebastian Sunga

@@ -41,6 +41,13 @@ public class MainPageController extends Application {
             e.printStackTrace();
         }
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once start your booking button is clicked, screen switches to selection screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToSelectionScreen(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
