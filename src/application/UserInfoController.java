@@ -155,6 +155,7 @@ public class UserInfoController {
 		cust.setCustomerCheckOut(HotelRoom.GetCheckOutDate());	
 		cust.setZipCode(CardZipCode);
 		
+		
 		String ExpDate = ExpMonth.concat("/");
 		ExpDate = ExpDate.concat(ExpYear);
 		cust.setEXPDate(ExpDate);

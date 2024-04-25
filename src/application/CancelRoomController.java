@@ -59,7 +59,12 @@ public class CancelRoomController {
 
         if (customer != null) {
             // If customer is found, navigate to the next cancellation page
-            root = FXMLLoader.load(getClass().getResource("CancellationPageTwo.FXML"));
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("CancellationPageTwo.FXML"));
+            root = loader.load();
+            
+            CancelRoomTwoController cancelRoomTwoController = loader.getController();
+            cancelRoomTwoController.InfoGrabber(customer, HotelRoom.FindRoom(RoomNumber.getText()));
+            
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

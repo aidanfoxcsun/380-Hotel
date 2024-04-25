@@ -1,6 +1,7 @@
 package application;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,14 @@ public class CancelRoomTwoController {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	
+	private Customer m_Customer;
+	private HotelRoom m_HotelRoom;
+	
+	public void InfoGrabber(Customer CustomerInfo, HotelRoom RoomInfo) {
+		m_Customer = CustomerInfo;
+		m_HotelRoom = RoomInfo;
+	}
 	
 	   /**
 		 * Author: Alexander Chakmakian
@@ -64,6 +73,7 @@ public class CancelRoomTwoController {
 	@FXML
     public void switchToSelectionScreen(ActionEvent event) throws IOException {			
 		 // SHOULD CANCEL BOOKING AND SEND TO ROOM SELECTION SCREEN
+			CancelBooking();
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -79,14 +89,25 @@ public class CancelRoomTwoController {
           * @throws IOException
 	   */
 		@FXML
+		// Cancels Booking and returns to home screen.
 	    public void CancelRoomswitchToHomePage(ActionEvent event) throws IOException {
-			 // ONLY GOES TO HOME
+				CancelBooking();
 	            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
 	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	            scene = new Scene(root);
 	            stage.setScene(scene);
 	            stage.show();
 	    }
+		
+		// Cancels the booking for the selected customer.
+		public void CancelBooking() {
+			Excel e = new Excel();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+			LocalDate date = LocalDate.parse(e.getCell("Victims", m_Customer.row, 13).getStringCellValue(), formatter);
+			System.out.println(date.toString());
+			m_HotelRoom.Cancel(date);
+			e.DeleteRow("Victims", m_Customer.row);
+		}
 	
 }
 
