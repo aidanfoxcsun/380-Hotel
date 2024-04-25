@@ -102,7 +102,9 @@ public class Excel {
 			Sheet s = wb.getSheet(SheetName);
 			Row r = s.getRow(rNum);
 			s.removeRow(r);
-			s.shiftRows(rNum + 1, s.getLastRowNum(), -1);
+			if(s.getRow(rNum + 1) != null) {				
+				s.shiftRows(rNum + 1, s.getLastRowNum(), -1);
+			}
 			FileOutputStream fos = new FileOutputStream("The Phantom Inn.xlsx");
 			wb.write(fos);
 			fos.close();
