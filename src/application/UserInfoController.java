@@ -156,6 +156,8 @@ public class UserInfoController {
 		cust.setCustomerCheckIn(HotelRoom.GetCheckInDate());
 		cust.setCustomerCheckOut(HotelRoom.GetCheckOutDate());	
 		cust.setZipCode(CardZipCode);
+		cust.setCreditCardFirstName(CardFirstName);
+		cust.setCreditCardLastName(CardLastName);
 		
 		String ExpDate = ExpMonth.concat("/");
 		ExpDate = ExpDate.concat(ExpYear);
@@ -165,15 +167,11 @@ public class UserInfoController {
 	}
 	
 	private boolean ExpMonthValidate(String Month) {
-		int TotalDigit = 0;
-	   for(int i = 0 ; i < Month.length() ; i++) {
-		   TotalDigit += Integer.parseInt(Month.substring(i, i + 1));
-		   
-	   }
-	   if(TotalDigit > 9)
-		   return false;
-	   else
-		   return true;
+	    if(Integer.parseInt(Month.substring(0,1)) == 0 || Integer.parseInt(Month.substring(1,2)) <= 2)
+	       return true;
+	       else
+	    	return false;
+	    	   
 	}
 	
 	/**

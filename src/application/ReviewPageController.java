@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -98,7 +99,10 @@ public class ReviewPageController {
 		            HotelCheckIn.setText(HotelData.GetCheckInDate().toString());
 		            HotelCheckOut.setText(HotelData.GetCheckOutDate().toString());
 		            
-		            TheMoney.setText("$" + Integer.toString(HotelData.getHotelCost()));
+		            int DateDifference = HotelData.GetCheckOutDate().compareTo(HotelData.GetCheckInDate());
+		            int TotalCost = DateDifference * HotelData.getHotelCost();
+		              
+		            TheMoney.setText("$" + Integer.toString(TotalCost));
 		            
 		            	
 		            
