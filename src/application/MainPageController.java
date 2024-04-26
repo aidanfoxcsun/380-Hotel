@@ -41,6 +41,13 @@ public class MainPageController extends Application {
             e.printStackTrace();
         }
     }
+	/*
+	 * Author: Matthew Barsoum
+	 * Date 03/16/2024
+	 * Description: Once start your booking button is clicked, screen switches to selection screen
+	 * @param Event
+	 * throws IOException
+	 * */
 	@FXML
     public void switchToSelectionScreen(ActionEvent event) throws IOException {
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
@@ -49,6 +56,14 @@ public class MainPageController extends Application {
             stage.setScene(scene);
             stage.show();
     }
+	
+	   /**
+		 * Author: Alexander Chakmakian
+		 * Date: 04/18/2024
+		 * Description: Sends user to support page upon button click
+		 * @param Event
+		 * @throws IOException
+		 */
 	@FXML
 	 public void switchToSupportScreen(ActionEvent event) throws IOException {
          root = FXMLLoader.load(getClass().getResource("Support.FXML"));

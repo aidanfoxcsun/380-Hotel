@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
+
 public class CancelRoomController {
     private Stage stage;
     private Scene scene;
@@ -23,6 +24,14 @@ public class CancelRoomController {
     @FXML
     private TextField RoomNumber;
 
+    
+    /**
+	 * Author: Alexander Chakmakian
+	 * Date: 04/18/2024
+	 * Description: Sends user to home page upon button click
+	 * @param Event
+	 * @throws IOException
+	 */
     @FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
@@ -32,19 +41,31 @@ public class CancelRoomController {
         stage.show();
     }
 
+    /**
+ 	 * Author: Alexander Chakmakian
+ 	 * Date: 04/18/2024
+ 	 * Description: Sends user to the next cancel room screen if room # and name match a booking.
+ 	 * Takes in last name and booking number, and the output will be the action of going to the next page.
+ 	 * @param Event
+ 	 * @throws IOException
+ 	 */
     @FXML
     public void switchToCancelRoomTwoScreen(ActionEvent event) throws IOException {
         String lastNameInput = LastName.getText();
-        String roomNumberInput = RoomNumber.getText();
+        int roomNumberInput = Integer.parseInt(RoomNumber.getText()); // Convert to int
 
-        // Check if last name and room number match the expected values
-        if ("expectedLastName".equals(lastNameInput) && "expectedRoomNumber".equals(roomNumberInput)) {
+        // Call the findCustomer method from Customer class
+        Customer customer = Customer.findCustomer(lastNameInput, roomNumberInput);
+
+        if (customer != null) {
+            // If customer is found, navigate to the next cancellation page
             root = FXMLLoader.load(getClass().getResource("CancellationPageTwo.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-        } else {
+        } 
+        else {
             // Show an alert for invalid input
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Error");
@@ -53,4 +74,5 @@ public class CancelRoomController {
             alert.showAndWait();
         }
     }
+
 }
