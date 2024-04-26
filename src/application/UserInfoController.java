@@ -15,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -33,7 +35,7 @@ public class UserInfoController {
 	
 	
 	
-	
+	private boolean[] ValidateText = { false, false, false, false, false, false, false , false, false, false, false ,false};
 	private String SFirstName, SLastName, SEmail, SNumber, SRoom, SCard;
 	private String CardFirstName, CardLastName, CardZipCode, CVC,ExpMonth,ExpYear,CardCountry;
 	
@@ -189,6 +191,7 @@ public class UserInfoController {
 				  ExpMonth = TempInput;
 				  EXPMonthStatus.setTextFill(Color.color(0, 1, 0));
 			      EXPMonthStatus.setText("✓");
+			      ValidateText[7] = true;
 			  }
 			  else{
 				  EXPMonthStatus.setTextFill(Color.color(1, 0, 0));
@@ -199,6 +202,7 @@ public class UserInfoController {
 			  ExpMonth = "";
 			  EXPMonthStatus.setTextFill(Color.color(1, 0, 0));
 		      EXPMonthStatus.setText("**");
+		      ValidateText[7] = false;
 			  break;
 		  default:
 			  break;
@@ -220,6 +224,7 @@ public class UserInfoController {
 				  ExpYear = TempInput;
 				  EXPYearStatus.setTextFill(Color.color(0, 1, 0));
 				  EXPYearStatus.setText("✓");
+				  ValidateText[8] = true;
 			  }
 			  else {
 				  EXPYearStatus.setTextFill(Color.color(1, 0, 0));
@@ -230,6 +235,7 @@ public class UserInfoController {
 			  ExpYear = "";
 			  EXPYearStatus.setTextFill(Color.color(1, 0, 0));
 		      EXPYearStatus.setText("**");
+		      ValidateText[8] = false;
 			  break;
 		  default:
 			  break;
@@ -253,12 +259,14 @@ public class UserInfoController {
 				  CardFirstName = TempString;
 				  CCFirstNameStatus.setTextFill(Color.color(0, 1, 0));
 				  CCFirstNameStatus.setText("✓");
+				  ValidateText[4] = true;
 				  }
 				  break;
 			  case BACK_SPACE:
 				  CardFirstName = "";
 				  CCFirstNameStatus.setTextFill(Color.color(1, 0, 0));
 				  CCFirstNameStatus.setText("**");
+				  ValidateText[4] = false;
 				  break;
 				  default:
 				  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
@@ -283,12 +291,14 @@ public class UserInfoController {
 			  CardLastName = TempInput;
 			  CCLastNameStatus.setTextFill(Color.color(0, 1, 0));
 			  CCLastNameStatus.setText("✓");
+			  ValidateText[5] = true;
 			  }
 			  break;
 		  case BACK_SPACE:
 			  CardLastName = "";
 			  CCLastNameStatus.setTextFill(Color.color(1, 0, 0));
 			  CCLastNameStatus.setText("**");
+			  ValidateText[5] = false;
 			  break;
 			  default:
 			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
@@ -314,6 +324,7 @@ public class UserInfoController {
 				  CVC = TempInput;
 				  CVCStatus.setTextFill(Color.color(0, 1, 0));
 				  CVCStatus.setText("✓");
+				  ValidateText[9] = true;
 			  }
 			  else {
 				  CVCStatus.setTextFill(Color.color(1, 0, 0));
@@ -324,6 +335,7 @@ public class UserInfoController {
 			  CVC = "";
 			  CVCStatus.setTextFill(Color.color(1, 0, 0));
 		      CVCStatus.setText("**");
+		      ValidateText[9] = false;
 			  break;
 		  default:
 			  break;
@@ -345,6 +357,7 @@ public class UserInfoController {
 				  CardZipCode = TempInput;
 				  ZipCodeStatus.setTextFill(Color.color(0, 1, 0));
 				  ZipCodeStatus.setText("✓");
+				  ValidateText[11] = true;
 			  }
 			  else {
 				  ZipCodeStatus.setTextFill(Color.color(1, 0, 0));
@@ -355,6 +368,7 @@ public class UserInfoController {
 			  CardZipCode = "";
 			  ZipCodeStatus.setTextFill(Color.color(1, 0, 0));
 		      ZipCodeStatus.setText("**");
+		      ValidateText[11] = false;
 			  break;
 		  default:
 			  break;
@@ -376,6 +390,7 @@ public class UserInfoController {
 				  CardCountry = TempString;
 				  CountryStatus.setTextFill(Color.color(0, 1, 0));
 				  CountryStatus.setText("✓");
+				   ValidateText[10] = true;
 				  }
 				  else {
 					  CountryStatus.setTextFill(Color.color(1, 0, 0));
@@ -386,6 +401,7 @@ public class UserInfoController {
 				  CardCountry = "";
 				  CountryStatus.setTextFill(Color.color(1, 0, 0));
 				  CountryStatus.setText("**");
+				  ValidateText[10] = false;
 				  break;
 				  default:
 				  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
@@ -428,6 +444,7 @@ public class UserInfoController {
 			  SFirstName = FirstName.getText();
 			  FirstNameStatus.setTextFill(Color.color(0, 1, 0));
 			  FirstNameStatus.setText("✓");
+			  ValidateText[0] = true;
 			   
 			  }
 			  break;
@@ -435,6 +452,7 @@ public class UserInfoController {
 			  SFirstName = FirstName.getText();
 			  FirstNameStatus.setTextFill(Color.color(1, 0, 0));
 			  FirstNameStatus.setText("**");
+			  ValidateText[0] = false;
 			  
 			  break;
 			  default:
@@ -464,13 +482,14 @@ public class UserInfoController {
 			  SLastName = LastName.getText();
 			  LastNameStatus.setTextFill(Color.color(0, 1, 0));
 			  LastNameStatus.setText("✓");
-			  
+			   ValidateText[1] = true;
 			  }
 			  break;
 		  case BACK_SPACE:
 			  SLastName = "";
 			  LastNameStatus.setTextFill(Color.color(1, 0, 0));
 			  LastNameStatus.setText("**");
+			  ValidateText[1] = false;
 			  
 			  break;
 			  default:
@@ -506,6 +525,7 @@ public class UserInfoController {
 				SEmail = Email.getText();
 				EmailStatus.setTextFill(Color.color(0, 1, 0));
 				EmailStatus.setText("✓");
+				ValidateText[3] = true;
 			}
 			else{
 				EmailStatus.setTextFill(Color.color(1, 0, 0));
@@ -516,6 +536,7 @@ public class UserInfoController {
 			SEmail = ""; // If they are back spacing, we want to clear for when they actually press enter.
 			EmailStatus.setTextFill(Color.color(1, 0, 0));
 			EmailStatus.setText("**");
+			ValidateText[3] = false;
 			break;
 		 default:
 			 break;
@@ -562,6 +583,7 @@ public class UserInfoController {
 			         SNumber = TempInput;
 			         PhoneStatus.setTextFill(Color.color(0, 1, 0));
 			         PhoneStatus.setText("✓");		
+			         ValidateText[2] = true;
 			         
 			  } // End of If statement
 			  else {
@@ -572,6 +594,7 @@ public class UserInfoController {
 		  case BACK_SPACE:
 			  PhoneStatus.setTextFill(Color.color(1, 0, 0));
 			  PhoneStatus.setText("**");
+			   ValidateText[2] = false;
 			  
 			  break;
 			  
@@ -601,6 +624,7 @@ public class UserInfoController {
 				 SCard = TempInput;
 				 CreditCardError.setTextFill(Color.color(0,1,0));
 				 CreditCardError.setText("✓");
+				 ValidateText[6] = true;
 			 }
 			 else {
 				 CreditCardError.setTextFill(Color.color(1, 0, 0));
@@ -611,6 +635,7 @@ public class UserInfoController {
 			 SCard = "";
 			 CreditCardError.setTextFill(Color.color(1, 0, 0));
 			 CreditCardError.setText("**");
+			 ValidateText[6] = false;
 			 break;
 		default:
 			 break;
@@ -661,8 +686,16 @@ public class UserInfoController {
 	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
 	 */
 	
-	
-	
+	/*
+	 * 
+	 */
+	   private boolean TestValidateText() {
+		  for(int i = 0 ; i < ValidateText.length ; i++) {
+			  if(ValidateText[i] == false)
+				  return false;
+		  }
+		  return true;
+	   }
 
 	
 	
@@ -675,6 +708,7 @@ public class UserInfoController {
 	 
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
+		        if(TestValidateText()) {
 		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.FXML"));
                 root = loader.load();
                 Customer CustomerData = confirmRoom();
@@ -686,6 +720,14 @@ public class UserInfoController {
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+		        }
+		        else {
+		        	Alert alert = new Alert(AlertType.ERROR);
+		        	alert.setTitle("Error");
+		        	alert.setHeaderText(null);
+		        	alert.setContentText("Invalid Data for entry! Please try again.");
+		        	alert.showAndWait();
+		        }
     }
 	
 	@FXML
