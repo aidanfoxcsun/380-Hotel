@@ -88,5 +88,10 @@
             <Font size="24.0" />
          </font>
       </Text>
+      <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="998.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:///C:/Users/codth/git/380-Hotel/Images/TelephoneIcon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
