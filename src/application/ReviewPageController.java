@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.time.temporal.ChronoUnit;
+
 public class ReviewPageController {
 	private Stage stage;
 	private Scene scene;
@@ -99,9 +101,10 @@ public class ReviewPageController {
 		            HotelCheckIn.setText(HotelData.GetCheckInDate().toString());
 		            HotelCheckOut.setText(HotelData.GetCheckOutDate().toString());
 		            
-		            int DateDifference = HotelData.GetCheckOutDate().compareTo(HotelData.GetCheckInDate());
+		            //int DateDifference = HotelData.GetCheckOutDate().compareTo(HotelData.GetCheckInDate());
+		            int DateDifference = Math.abs((int) ChronoUnit.DAYS.between(HotelData.GetCheckOutDate(), HotelData.GetCheckInDate()));
 		            int TotalCost = DateDifference * HotelData.getHotelCost();
-		              
+		            System.out.println(DateDifference);
 		            TheMoney.setText("$" + Integer.toString(TotalCost));
 		            
 		            	
