@@ -194,7 +194,7 @@ public class Customer {
 	public void UpdateExcel() {
 		Excel e = new Excel();
 		int i = 1;
-		while(e.getCell("Victims", i, 0) != null) {
+		while(e.getCell("Victims", i, 0) != null && !e.getCell("Victims", i, 0).getStringCellValue().equals("")) {
 			if(e.getCell("Victims", i, 0).getStringCellValue().equals(CustomerFirstName)) {
 				this.row = i; // stores the location
 				return;
@@ -260,12 +260,14 @@ public class Customer {
 			if((e.getCell("Victims", i, 1).getStringCellValue().equals(lastName)) &&
 					Integer.parseInt(e.getCell("Victims", i, 10).getStringCellValue()) == roomID) {
 				System.out.println("Customer found!");
-				return new Customer(e.getCell("Victims", i, 0).getStringCellValue(),
+				Customer c = new Customer(e.getCell("Victims", i, 0).getStringCellValue(),
 						e.getCell("Victims", i, 1).getStringCellValue(),
 						e.getCell("Victims", i, 2).getStringCellValue(),
 						e.getCell("Victims", i, 3).getStringCellValue(),
 						e.getCell("Victims", i, 10).getStringCellValue(),
 						e.getCell("Victims", i, 6).getStringCellValue());
+				c.row = i;
+				return c;
 			}
 			i++;
 		}

@@ -178,6 +178,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Text fill="#cf0808" layoutX="719.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Per Night." />
+      <Text fill="#cf0808" layoutX="719.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For Total Stay." wrappingWidth="124.0633544921875" />
    </children>
 </AnchorPane>

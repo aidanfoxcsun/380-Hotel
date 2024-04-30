@@ -307,7 +307,9 @@ public class HotelRoom {
 					break;
 				}
 				
-				return new HotelRoom(type, cost, roomID);
+				HotelRoom r = new HotelRoom(type, cost, roomID);
+				r.SetRow(i);
+				return r;
 			}
 			i++; 
 		}
