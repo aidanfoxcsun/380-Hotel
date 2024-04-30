@@ -160,10 +160,10 @@
       </GridPane>
       <Text fill="WHITE" layoutX="549.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-blend-mode: 0.5;" text="Total:">
          <font>
-            <Font name="Tempus Sans ITC" size="29.0" />
+            <Font size="29.0" />
          </font>
       </Text>
-      <Label fx:id="TheMoney" layoutX="623.0" layoutY="413.0" prefHeight="38.0" prefWidth="70.0" text="TotalMoney" textFill="WHITE">
+      <Label fx:id="TheMoney" layoutX="623.0" layoutY="413.0" prefHeight="43.0" prefWidth="89.0" text="TotalMoney" textFill="WHITE">
          <font>
             <Font size="29.0" />
          </font>
