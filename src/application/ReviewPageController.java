@@ -121,6 +121,7 @@ public class ReviewPageController {
 	   */
 	  public void ConfirmReservation() {
 		   NewCustomer.UpdateExcel();
+		   NewCustomer.UpdateRoom(HotelData, HotelData.GetCheckInDate().toString(), HotelData.GetCheckOutDate().toString());
 		   HotelData.Reserve(HotelData.GetCheckInDate(), HotelData.GetCheckOutDate());
 	  }
 	  

@@ -94,4 +94,23 @@ public class Excel {
 			e.printStackTrace();
 		}
 	}
+	
+	public void DeleteRow(String SheetName, int rNum) {
+		try {
+			FileInputStream fis = new FileInputStream("The Phantom Inn.xlsx");
+			Workbook wb = WorkbookFactory.create(fis);
+			Sheet s = wb.getSheet(SheetName);
+			Row r = s.getRow(rNum);
+			s.removeRow(r);
+			if(s.getRow(rNum + 1) != null) {				
+				s.shiftRows(rNum + 1, s.getLastRowNum(), -1);
+			}
+			FileOutputStream fos = new FileOutputStream("The Phantom Inn.xlsx");
+			wb.write(fos);
+			fos.close();
+		} catch(Exception e) {
+			System.out.println("Exception:" + e + " in DeleteRow!");
+			e.printStackTrace();
+		}
+	}
 }
