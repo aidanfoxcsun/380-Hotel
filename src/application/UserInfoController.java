@@ -243,172 +243,60 @@ public class UserInfoController {
 	
 	
 	/**
-	 * Validates and stores the Credit Card's first name
 	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024
-	 * @param Event
-	 */
-	@FXML 
-	public void CFirstnameCheck(KeyEvent Event) {
-		   String TempString = CFirstName.getText();
-			  switch(Event.getCode()) {
-			  case ENTER:
-				  
-				  if(!TempString.isBlank()) {
-				  CardFirstName = TempString;
-				  CCFirstNameStatus.setTextFill(Color.color(0, 1, 0));
-				  CCFirstNameStatus.setText("✓");
-				  ValidateText[4] = true;
-				  }
-				  break;
-			  case BACK_SPACE:
-				  CardFirstName = "";
-				  CCFirstNameStatus.setTextFill(Color.color(1, 0, 0));
-				  CCFirstNameStatus.setText("**");
-				  ValidateText[4] = false;
-				  break;
-				  default:
-				  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
-				  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
-				  break;
-	 		  }
-		
-	}
-	
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024
-	 * Description: validates and handles Credit Card Last Name.
-	 * @param Event
-	 */
-	@FXML
-	public void CLastNameCheck(KeyEvent Event) {
-		String TempInput = CLastName.getText();
-		  switch(Event.getCode()) {
-		  case ENTER:
-			  if(!TempInput.isBlank()) { 
-			  CardLastName = TempInput;
-			  CCLastNameStatus.setTextFill(Color.color(0, 1, 0));
-			  CCLastNameStatus.setText("✓");
-			  ValidateText[5] = true;
-			  }
-			  break;
-		  case BACK_SPACE:
-			  CardLastName = "";
-			  CCLastNameStatus.setTextFill(Color.color(1, 0, 0));
-			  CCLastNameStatus.setText("**");
-			  ValidateText[5] = false;
-			  break;
-			  default:
-			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
-			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
-			  break;
-		  }
-	}
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024
-	 * Description: Handles the CVC data, validates and stores.
-	 * @param Event
+	 * Date: 04/21/2024
+	 * Takes given credit card number as a string. converts into a parsable long int, then validates using Luhn's algorithm.
+	 * @return true if valid number, false if 
 	 * @throws IOException
 	 */
+	public boolean CreditCardChecker() throws IOException{
+		// Figure out credit card, because java doesn't like unsigned longs.
+		
+		
+		
+		int[] CardNum = new int[CreditCardNumber.getText().length()];
+		int SumOfNumbers = 0;
+        for(int i = 0 ; i < CardNum.length; i++) {
+        	CardNum[i] = Integer.parseInt(CreditCardNumber.getText().substring(i, i+1));
+        }
+        
+        for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
+        	int TempNum = CardNum[i];
+        	TempNum = TempNum * 2;
+        	if(TempNum >= 10)
+        		TempNum = (TempNum % 10) + 1;
+        	CardNum[i] = TempNum;
+        }
+        
+        for(int i = 0 ; i < CardNum.length; i++) {
+        	SumOfNumbers += CardNum[i];
+        }
+        
+        if(SumOfNumbers % 10 == 0)
+        	return true;
+        else
+        	return false;
+
+	}
 	
-	@FXML
-	public void CVCStatusCheck(KeyEvent Event) throws IOException {
-		
-		String TempInput = CVCNumber.getText();
-		  switch(Event.getCode()) {
-		  case ENTER:
-			  if(TempInput.length() == 3 && NumberVerify(TempInput)) {
-				  CVC = TempInput;
-				  CVCStatus.setTextFill(Color.color(0, 1, 0));
-				  CVCStatus.setText("✓");
-				  ValidateText[9] = true;
-			  }
-			  else {
-				  CVCStatus.setTextFill(Color.color(1, 0, 0));
-			      CVCStatus.setText("INVALID");
-			  }
-			  break;
-		  case BACK_SPACE:
-			  CVC = "";
-			  CVCStatus.setTextFill(Color.color(1, 0, 0));
-		      CVCStatus.setText("**");
-		      ValidateText[9] = false;
-			  break;
-		  default:
-			  break;
+	/*
+	/ I'm thinking that only the fields that require validation get their own methods.
+	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
+	 */
+	
+	/*
+	 * 
+	 */
+	   private boolean TestValidateText() {
+		  for(int i = 0 ; i < ValidateText.length ; i++) {
+			  if(ValidateText[i] == false)
+				  return false;
 		  }
-	}
-	 /**
-	  * Author: Sebastian Sunga
-	  * Date: 04/18/2024
-	  * Description: validates and stores the Zipcode data
-	  * @param Event
-	  * @throws IOException
-	  */
-	 @FXML
-	public void ZipcodeStatusCheck(KeyEvent Event) throws IOException {
-		 String TempInput = ZipCode.getText();
-		  switch(Event.getCode()) {
-		  case ENTER:
-			  if(TempInput.length() == 5 && NumberVerify(TempInput)) {
-				  CardZipCode = TempInput;
-				  ZipCodeStatus.setTextFill(Color.color(0, 1, 0));
-				  ZipCodeStatus.setText("✓");
-				  ValidateText[11] = true;
-			  }
-			  else {
-				  ZipCodeStatus.setTextFill(Color.color(1, 0, 0));
-			      ZipCodeStatus.setText("INVALID");
-			  }
-			  break;
-		  case BACK_SPACE:
-			  CardZipCode = "";
-			  ZipCodeStatus.setTextFill(Color.color(1, 0, 0));
-		      ZipCodeStatus.setText("**");
-		      ValidateText[11] = false;
-			  break;
-		  default:
-			  break;
-		  }
-	}
-	 /**
-	  * Author: Sebastian Sunga
-	  * Date: 04/18/2024
-	  * Description: Handles the Country data.
-	  * @param Event
-	  * @throws IOException
-	  */
-	 @FXML
-	public void CountryStatusCheck(KeyEvent Event) throws IOException {
-		   String TempString = Country.getText();
-			  switch(Event.getCode()) {
-			  case ENTER:
-				  if(!TempString.isBlank()) {
-				  CardCountry = TempString;
-				  CountryStatus.setTextFill(Color.color(0, 1, 0));
-				  CountryStatus.setText("✓");
-				   ValidateText[10] = true;
-				  }
-				  else {
-					  CountryStatus.setTextFill(Color.color(1, 0, 0));
-					  CountryStatus.setText("INVALID"); 
-				  }
-				  break;
-			  case BACK_SPACE:
-				  CardCountry = "";
-				  CountryStatus.setTextFill(Color.color(1, 0, 0));
-				  CountryStatus.setText("**");
-				  ValidateText[10] = false;
-				  break;
-				  default:
-				  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
-				  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
-				  break;
-	 		  }
-		
-	}
+		  return true;
+	   }
+
+	
+	
 	
 	// Sole Purpose of this method is for RoomSelectionController loader to actually pass on the HotelReservation data.
 	 /**
@@ -644,58 +532,174 @@ public class UserInfoController {
 		}
 	
 	/**
+	 * Validates and stores the Credit Card's first name
 	 * Author: Sebastian Sunga
-	 * Date: 04/21/2024
-	 * Takes given credit card number as a string. converts into a parsable long int, then validates using Luhn's algorithm.
-	 * @return true if valid number, false if 
-	 * @throws IOException
+	 * Date: 04/18/2024
+	 * @param Event
 	 */
-	public boolean CreditCardChecker() throws IOException{
-		// Figure out credit card, because java doesn't like unsigned longs.
+	@FXML 
+	public void CFirstnameCheck(KeyEvent Event) {
+		   String TempString = CFirstName.getText();
+			  switch(Event.getCode()) {
+			  case ENTER:
+				  
+				  if(!TempString.isBlank()) {
+				  CardFirstName = TempString;
+				  CCFirstNameStatus.setTextFill(Color.color(0, 1, 0));
+				  CCFirstNameStatus.setText("✓");
+				  ValidateText[4] = true;
+				  }
+				  break;
+			  case BACK_SPACE:
+				  CardFirstName = "";
+				  CCFirstNameStatus.setTextFill(Color.color(1, 0, 0));
+				  CCFirstNameStatus.setText("**");
+				  ValidateText[4] = false;
+				  break;
+				  default:
+				  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
+				  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
+				  break;
+	 		  }
 		
-		
-		
-		int[] CardNum = new int[CreditCardNumber.getText().length()];
-		int SumOfNumbers = 0;
-        for(int i = 0 ; i < CardNum.length; i++) {
-        	CardNum[i] = Integer.parseInt(CreditCardNumber.getText().substring(i, i+1));
-        }
-        
-        for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
-        	int TempNum = CardNum[i];
-        	TempNum = TempNum * 2;
-        	if(TempNum >= 10)
-        		TempNum = (TempNum % 10) + 1;
-        	CardNum[i] = TempNum;
-        }
-        
-        for(int i = 0 ; i < CardNum.length; i++) {
-        	SumOfNumbers += CardNum[i];
-        }
-        
-        if(SumOfNumbers % 10 == 0)
-        	return true;
-        else
-        	return false;
-
 	}
 	
-	/*
-	/ I'm thinking that only the fields that require validation get their own methods.
-	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: validates and handles Credit Card Last Name.
+	 * @param Event
+	 */
+	@FXML
+	public void CLastNameCheck(KeyEvent Event) {
+		String TempInput = CLastName.getText();
+		  switch(Event.getCode()) {
+		  case ENTER:
+			  if(!TempInput.isBlank()) { 
+			  CardLastName = TempInput;
+			  CCLastNameStatus.setTextFill(Color.color(0, 1, 0));
+			  CCLastNameStatus.setText("✓");
+			  ValidateText[5] = true;
+			  }
+			  break;
+		  case BACK_SPACE:
+			  CardLastName = "";
+			  CCLastNameStatus.setTextFill(Color.color(1, 0, 0));
+			  CCLastNameStatus.setText("**");
+			  ValidateText[5] = false;
+			  break;
+			  default:
+			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
+			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
+			  break;
+		  }
+	}
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Handles the CVC data, validates and stores.
+	 * @param Event
+	 * @throws IOException
 	 */
 	
-	/*
-	 * 
-	 */
-	   private boolean TestValidateText() {
-		  for(int i = 0 ; i < ValidateText.length ; i++) {
-			  if(ValidateText[i] == false)
-				  return false;
+	@FXML
+	public void CVCStatusCheck(KeyEvent Event) throws IOException {
+		
+		String TempInput = CVCNumber.getText();
+		  switch(Event.getCode()) {
+		  case ENTER:
+			  if(TempInput.length() == 3 && NumberVerify(TempInput)) {
+				  CVC = TempInput;
+				  CVCStatus.setTextFill(Color.color(0, 1, 0));
+				  CVCStatus.setText("✓");
+				  ValidateText[9] = true;
+			  }
+			  else {
+				  CVCStatus.setTextFill(Color.color(1, 0, 0));
+			      CVCStatus.setText("INVALID");
+			  }
+			  break;
+		  case BACK_SPACE:
+			  CVC = "";
+			  CVCStatus.setTextFill(Color.color(1, 0, 0));
+		      CVCStatus.setText("**");
+		      ValidateText[9] = false;
+			  break;
+		  default:
+			  break;
 		  }
-		  return true;
-	   }
-
+	}
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/18/2024
+	  * Description: validates and stores the Zipcode data
+	  * @param Event
+	  * @throws IOException
+	  */
+	 @FXML
+	public void ZipcodeStatusCheck(KeyEvent Event) throws IOException {
+		 String TempInput = ZipCode.getText();
+		  switch(Event.getCode()) {
+		  case ENTER:
+			  if(TempInput.length() == 5 && NumberVerify(TempInput)) {
+				  CardZipCode = TempInput;
+				  ZipCodeStatus.setTextFill(Color.color(0, 1, 0));
+				  ZipCodeStatus.setText("✓");
+				  ValidateText[11] = true;
+			  }
+			  else {
+				  ZipCodeStatus.setTextFill(Color.color(1, 0, 0));
+			      ZipCodeStatus.setText("INVALID");
+			  }
+			  break;
+		  case BACK_SPACE:
+			  CardZipCode = "";
+			  ZipCodeStatus.setTextFill(Color.color(1, 0, 0));
+		      ZipCodeStatus.setText("**");
+		      ValidateText[11] = false;
+			  break;
+		  default:
+			  break;
+		  }
+	}
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/18/2024
+	  * Description: Handles the Country data.
+	  * @param Event
+	  * @throws IOException
+	  */
+	 @FXML
+	public void CountryStatusCheck(KeyEvent Event) throws IOException {
+		   String TempString = Country.getText();
+			  switch(Event.getCode()) {
+			  case ENTER:
+				  if(!TempString.isBlank()) {
+				  CardCountry = TempString;
+				  CountryStatus.setTextFill(Color.color(0, 1, 0));
+				  CountryStatus.setText("✓");
+				   ValidateText[10] = true;
+				  }
+				  else {
+					  CountryStatus.setTextFill(Color.color(1, 0, 0));
+					  CountryStatus.setText("INVALID"); 
+				  }
+				  break;
+			  case BACK_SPACE:
+				  CardCountry = "";
+				  CountryStatus.setTextFill(Color.color(1, 0, 0));
+				  CountryStatus.setText("**");
+				  ValidateText[10] = false;
+				  break;
+				  default:
+				  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
+				  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
+				  break;
+	 		  }
+		
+	}
+	
+	
 	
 	
 	
