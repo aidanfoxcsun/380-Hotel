@@ -74,6 +74,9 @@ public class CancelRoomTwoController {
     public void switchToSelectionScreen(ActionEvent event) throws IOException {			
 		 // SHOULD CANCEL BOOKING AND SEND TO ROOM SELECTION SCREEN
 			CancelBooking();
+			Receipt CancelReceipt = new Receipt(m_Customer,m_HotelRoom);
+			CancelReceipt.CancelReceipt();
+			CancelReceipt.SendToManager("Cancellation");
             root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
