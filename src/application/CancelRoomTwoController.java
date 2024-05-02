@@ -92,6 +92,8 @@ public class CancelRoomTwoController {
 		// Cancels Booking and returns to home screen.
 	    public void CancelRoomswitchToHomePage(ActionEvent event) throws IOException {
 				CancelBooking();
+				Receipt CancelReceipt = new Receipt(m_Customer,m_HotelRoom);
+				CancelReceipt.CancelReceipt();
 	            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
 	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	            scene = new Scene(root);

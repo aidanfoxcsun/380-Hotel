@@ -1,5 +1,7 @@
 package application;
 
+// Unneeded class. should delete
+
 public class Manager {
 
 	 //Purpose of this class is to send emails to both a manager and whatever the customer is.
