@@ -172,6 +172,7 @@ public class ReviewPageController {
 		    ConfirmReservation();
 		    Receipt Customer = new Receipt(NewCustomer, HotelData);
 		    Customer.CallEmail();
+		    Customer.SendToManager("Reservation");
 		    
             root = FXMLLoader.load(getClass().getResource("ThankYouPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

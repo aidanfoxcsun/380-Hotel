@@ -94,6 +94,7 @@ public class CancelRoomTwoController {
 				CancelBooking();
 				Receipt CancelReceipt = new Receipt(m_Customer,m_HotelRoom);
 				CancelReceipt.CancelReceipt();
+				CancelReceipt.SendToManager("Cancellation");
 	            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
 	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	            scene = new Scene(root);

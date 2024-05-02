@@ -3,6 +3,8 @@ package application;
 import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+
+import java.time.LocalDate;
 import java.util.Properties;
 
 public class Receipt {
@@ -106,6 +108,49 @@ public class Receipt {
 	    	  e.printStackTrace();
 	      
 	      }
-	   
+	       
    }
+     //Same as above, but it sends to the management email instead.
+   public void SendToManager(String TransactionType) {
+	
+		   
+		   Properties prop = new Properties();
+			prop.put("mail.smtp.host", "smtp.gmail.com");
+			  prop.put("mail.smtp.port", "465");
+		      prop.put("mail.smtp.auth", "true");
+		      prop.put("mail.smtp.socketFactory.port", "465");
+		      prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		      
+		      
+		      Session session = Session.getInstance(prop,
+		              new jakarta.mail.Authenticator() {
+		                  protected PasswordAuthentication getPasswordAuthentication() {
+		                      return new PasswordAuthentication(username, password);
+		                  }
+		              });
+		      
+		      try {
+		    	   Message message = new MimeMessage(session);
+		    	   message.setFrom(new InternetAddress(username));
+		    	   message.setRecipient(Message.RecipientType.TO, new InternetAddress(username));
+		    	   
+		    	   message.setSubject("Phantom Inn record of transaction:");
+		    	
+		    	   String bodyMessage = "Transaction type: " + TransactionType;
+		    	   bodyMessage.concat("\n\n Name of Customer: " + CustGrabber.getCustomerFirstName() + " " + CustGrabber.getCustomerLastName());
+		    	   LocalDate now  = LocalDate.now();
+		    	   bodyMessage.concat("\n\n Time of Transaction:" + now );
+		    	   bodyMessage.concat("\n\n Room Type: " + HotelGrabber.getHotelType() );
+		    	   message.setText(bodyMessage);
+		    	   
+		    	  
+		    	   
+		    	   Transport.send(message);
+		    	   
+		    	   System.out.print("Message has been sent");
+		   }
+		      catch(MessagingException e) {
+		    	  e.printStackTrace();
+		     }
+		  }
 }
