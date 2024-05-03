@@ -464,7 +464,6 @@ public class UserInfoController {
 		  String TempInput = PhoneNumber.getText();
 		  switch(Event.getCode()) {
 		  case ENTER:
-			  System.out.println(TempInput.length());
 			  if(!TempInput.isBlank() && TempInput.length() == 10 && NumberVerify(TempInput)) { //Very nasty looking
 				   
 			         SNumber = TempInput;

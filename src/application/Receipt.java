@@ -49,11 +49,11 @@ public class Receipt {
     	   ReceiptMessage = ReceiptMessage.concat("================================================================================");
     	   ReceiptMessage = ReceiptMessage.concat("\nRoom ID: " + HotelGrabber.getRoomID());
     	   ReceiptMessage = ReceiptMessage.concat("\n\n");
-    	   ReceiptMessage = ReceiptMessage.concat(" Check In Date: " + HotelGrabber.GetCheckInDate());
-    	   ReceiptMessage = ReceiptMessage.concat("\n Check Out Date: " + HotelGrabber.GetCheckOutDate());
+    	   ReceiptMessage = ReceiptMessage.concat(" Check In Date: " + HotelGrabber.GetCheckInDate() + ".");
+    	   ReceiptMessage = ReceiptMessage.concat("\n Check Out Date: " + HotelGrabber.GetCheckOutDate() + ".");
     	   ReceiptMessage = ReceiptMessage.concat("\n\n");
-    	   ReceiptMessage = ReceiptMessage.concat("Cost of Stay: $" + HotelGrabber.getHotelCost() + "  every night.");
-    	   ReceiptMessage = ReceiptMessage.concat("\n\n Name on Card: " + CustGrabber.getCustomerLastName());
+    	   ReceiptMessage = ReceiptMessage.concat("Cost of Stay: $" + HotelGrabber.getHotelCost() + "Per Night.");
+    	   ReceiptMessage = ReceiptMessage.concat("\n\n Name on Card: " + CustGrabber.getCreditCardFirstName() + CustGrabber.getCreditCardLastName());
     	   
     	   ReceiptMessage = ReceiptMessage.concat("\n\n" + "================================================================================");
     	   ReceiptMessage = ReceiptMessage.concat("\n\n If you have any questions about your reservation, please send an email to phantominnmanage@gmail.com");
@@ -96,7 +96,7 @@ public class Receipt {
 	    	   
 	    	   message.setSubject("Phantom Inn Booking Receipt.");
 	    	
-	    	   message.setText("This email has been sent to confirm the cancelation of your stay at the Phantom Inn \n We hope to see you again soon");
+	    	   message.setText("Hello " + CustGrabber.getCustomerFirstName() + " " + CustGrabber.getCustomerLastName() + " email has been sent to confirm the cancelation of your stay at the Phantom Inn. \n We hope to see you again soon.");
 	    	   
 	    	   Transport.send(message);
 	    	   
@@ -135,12 +135,13 @@ public class Receipt {
 		    	   message.setRecipient(Message.RecipientType.TO, new InternetAddress(username));
 		    	   
 		    	   message.setSubject("Phantom Inn record of transaction:");
-		    	
-		    	   String bodyMessage = "Transaction type: " + TransactionType;
-		    	   bodyMessage.concat("\n\n Name of Customer: " + CustGrabber.getCustomerFirstName() + " " + CustGrabber.getCustomerLastName());
 		    	   LocalDate now  = LocalDate.now();
-		    	   bodyMessage.concat("\n\n Time of Transaction:" + now );
-		    	   bodyMessage.concat("\n\n Room Type: " + HotelGrabber.getHotelType() );
+		    	   String bodyMessage = "Transaction type: ";
+		    	 bodyMessage = bodyMessage.concat(TransactionType);
+		    	  bodyMessage = bodyMessage.concat("\n\n Name of Customer: " + CustGrabber.getCustomerFirstName() + " " + CustGrabber.getCustomerLastName());
+		    	   
+		    	  bodyMessage = bodyMessage.concat("\n\n Time of Transaction:" + now );
+		    	   bodyMessage = bodyMessage.concat("\n\n Room Type: " + HotelGrabber.getHotelType() );
 		    	   message.setText(bodyMessage);
 		    	   
 		    	  
