@@ -120,6 +120,10 @@ public class Customer {
 		CustomerCreditCard = customerCreditCard;
 	}
 	
+	public String CardLastFour() {
+		return CustomerCreditCard.substring(11, 15);
+	}
+	
 	public String getCVCCode() {
 		return CVCCode;
 	}
@@ -206,7 +210,12 @@ public class Customer {
 		e.CreateCell("Victims", this.row, 1, CustomerLastName); 
 		e.CreateCell("Victims", this.row, 2, CustomerEmail);
 		e.CreateCell("Victims", this.row, 3, CustomerPhoneNumber);
+		e.CreateCell("Victims", this.row, 4, CreditCardFirstName);
+		e.CreateCell("Victims", this.row, 5, CreditCardLastName); 
 		e.CreateCell("Victims", this.row, 6, CustomerCreditCard);
+		e.CreateCell("VIctims", this.row, 7, EXPDate);
+		e.CreateCell("Victims", this.row, 8, CVCCode);
+		e.CreateCell("Victims", this.row, 9, ZipCode);
 		this.UpdateRoom(this.CustomerHotelRoom, null, null);
 	}
 	

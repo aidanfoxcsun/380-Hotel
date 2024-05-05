@@ -171,8 +171,8 @@ public class ReviewPageController {
     public void switchToThankYouPage(ActionEvent event) throws IOException {
 		    ConfirmReservation();
 		    Receipt Customer = new Receipt(NewCustomer, HotelData);
-		    Customer.CallEmail();
-		    Customer.SendToManager("Reservation");
+		    Customer.SendEmail(EmailTypes.RESERVATION);
+		   
 		    
             root = FXMLLoader.load(getClass().getResource("ThankYouPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();

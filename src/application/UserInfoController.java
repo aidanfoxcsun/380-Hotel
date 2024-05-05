@@ -343,6 +343,7 @@ public class UserInfoController {
 			  
 			  break;
 			  default:
+				  
 			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
 			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
 			  break;
