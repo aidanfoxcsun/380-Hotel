@@ -243,6 +243,295 @@ public class UserInfoController {
 	
 	
 	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/21/2024
+	 * Takes given credit card number as a string. converts into a parsable long int, then validates using Luhn's algorithm.
+	 * @return true if valid number, false if 
+	 * @throws IOException
+	 */
+	public boolean CreditCardChecker() throws IOException{
+		// Figure out credit card, because java doesn't like unsigned longs.
+		
+		
+		
+		int[] CardNum = new int[CreditCardNumber.getText().length()];
+		int SumOfNumbers = 0;
+        for(int i = 0 ; i < CardNum.length; i++) {
+        	CardNum[i] = Integer.parseInt(CreditCardNumber.getText().substring(i, i+1));
+        }
+        
+        for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
+        	int TempNum = CardNum[i];
+        	TempNum = TempNum * 2;
+        	if(TempNum >= 10)
+        		TempNum = (TempNum % 10) + 1;
+        	CardNum[i] = TempNum;
+        }
+        
+        for(int i = 0 ; i < CardNum.length; i++) {
+        	SumOfNumbers += CardNum[i];
+        }
+        
+        if(SumOfNumbers % 10 == 0)
+        	return true;
+        else
+        	return false;
+
+	}
+	
+	/*
+	/ I'm thinking that only the fields that require validation get their own methods.
+	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
+	 */
+	
+	/*
+	 * 
+	 */
+	   private boolean TestValidateText() {
+		  for(int i = 0 ; i < ValidateText.length ; i++) {
+			  if(ValidateText[i] == false)
+				  return false;
+		  }
+		  return true;
+	   }
+
+	
+	
+	
+	// Sole Purpose of this method is for RoomSelectionController loader to actually pass on the HotelReservation data.
+	 /**
+	  * Author: Sebastian Sunga
+	  * Date: 04/07/2024
+	  * Description: Small method to handle and set the hotel room data from RoomSelectionController.
+	  * @param Hotel
+	  */
+	public void HotelGrabber(HotelRoom Hotel) {
+		HotelRoom = Hotel;
+		// System.out.print("THIS WORKED");
+	}
+	
+	
+/**
+ * Author: Sebastian Sunga
+ * Date: 04/18/2024
+ * Description: Handles the First Name data. validates and stores
+ * 
+ * @param Event
+ * @throws IOException
+ */
+	
+	@FXML
+	public void FirstNameSetter(KeyEvent Event) throws IOException{
+		   String TempString = FirstName.getText();
+		  switch(Event.getCode()) {
+		  case ENTER:
+			  
+			  
+			  if(!TempString.isBlank()) {
+			  SFirstName = FirstName.getText();
+			  FirstNameStatus.setTextFill(Color.color(0, 1, 0));
+			  FirstNameStatus.setText("✓");
+			  ValidateText[0] = true;
+			   
+			  }
+			  break;
+		  case BACK_SPACE:
+			  SFirstName = FirstName.getText();
+			  FirstNameStatus.setTextFill(Color.color(1, 0, 0));
+			  FirstNameStatus.setText("**");
+			  ValidateText[0] = false;
+			  
+			  break;
+			  default:
+				  
+			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
+			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
+			  break;
+ 		  }
+		
+		 
+	}
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/21/2024
+	 * Description: Sets SLastname from user input.
+	 * @param Event
+	 * @throws IOException
+	 */
+	
+	@FXML
+	public void LastNameSetter(KeyEvent Event) throws IOException{
+		String TempInput = LastName.getText();
+		  switch(Event.getCode()) {
+		  case ENTER:
+			  
+			  
+			  if(!TempInput.isBlank()) { 
+			  SLastName = LastName.getText();
+			  LastNameStatus.setTextFill(Color.color(0, 1, 0));
+			  LastNameStatus.setText("✓");
+			   ValidateText[1] = true;
+			  }
+			  break;
+		  case BACK_SPACE:
+			  SLastName = "";
+			  LastNameStatus.setTextFill(Color.color(1, 0, 0));
+			  LastNameStatus.setText("**");
+			  ValidateText[1] = false;
+			  
+			  break;
+			  default:
+			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
+			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
+			  break;
+ 		  }
+	}
+	
+	private boolean EmailVerify(String Email) throws IOException{ 
+		for(int i = 0 ; i < Email.length() ; i++) {
+			
+			if(Email.charAt(i) == '@')
+					return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Grabs a valid email from user input.
+	 * @param Event
+	 * @throws IOException
+	 */
+	
+	@FXML
+	public void EmailSetter(KeyEvent Event) throws IOException{
+		String TempEmail = Email.getText();
+		switch(Event.getCode()) {
+		case ENTER:
+			if(!TempEmail.isBlank() && EmailVerify(TempEmail)) {
+				SEmail = Email.getText();
+				EmailStatus.setTextFill(Color.color(0, 1, 0));
+				EmailStatus.setText("✓");
+				ValidateText[3] = true;
+			}
+			else{
+				EmailStatus.setTextFill(Color.color(1, 0, 0));
+				EmailStatus.setText("Invalid Email");
+			}
+			break;
+		case BACK_SPACE:
+			SEmail = ""; // If they are back spacing, we want to clear for when they actually press enter.
+			EmailStatus.setTextFill(Color.color(1, 0, 0));
+			EmailStatus.setText("**");
+			ValidateText[3] = false;
+			break;
+		 default:
+			 break;
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Takes a given number(as string), and tests if the character is a digit. false if not, true if all are digits.
+	 * @param GivenNumber
+	 * @return
+	 * @throws IOException
+	 */
+	private boolean NumberVerify(String GivenNumber) throws IOException{ 
+		for(int i = 0 ; i < GivenNumber.length() ; i++) {
+			char TestDigit = GivenNumber.charAt(i);
+			if(!Character.isDigit(TestDigit))
+					return false;
+		}
+		return true;
+	}
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024
+	 * Description: Validates and sets the phone number data.
+	 * @param Event
+	 * @throws IOException
+	 */
+	@FXML
+	public void PhoneNumSetter(KeyEvent Event) throws IOException{
+		  String TempInput = PhoneNumber.getText();
+		  switch(Event.getCode()) {
+		  case ENTER:
+			  if(!TempInput.isBlank() && TempInput.length() == 10 && NumberVerify(TempInput)) { //Very nasty looking
+				   
+			         SNumber = TempInput;
+			         PhoneStatus.setTextFill(Color.color(0, 1, 0));
+			         PhoneStatus.setText("✓");		
+			         ValidateText[2] = true;
+			         
+			  } // End of If statement
+			  else {
+				  PhoneStatus.setText("Please enter a valid Phone Number.");
+				  SNumber = "";
+			  }
+			  break;
+		  case BACK_SPACE:
+			  PhoneStatus.setTextFill(Color.color(1, 0, 0));
+			  PhoneStatus.setText("**");
+			   ValidateText[2] = false;
+			  
+			  break;
+			  
+			  default:
+			  
+			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
+			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
+			  break;
+ 		  }
+	}
+	
+	/**
+	 * Author: Sebastian Sunga
+	 * Date: 04/18/2024 
+	 * Description: Validates and stores given CC # data. Uses the CreditCard Checker to validate.
+	 * @param Event
+	 * @throws IOException
+	 */
+	
+	@FXML
+	  public void CreditCardSetter(KeyEvent Event) throws IOException{
+		String TempInput = CreditCardNumber.getText();
+		
+		 switch(Event.getCode()) {
+		 case ENTER:
+			 if(TempInput.length() == 16 && CreditCardChecker()) {
+				 SCard = TempInput;
+				 CreditCardError.setTextFill(Color.color(0,1,0));
+				 CreditCardError.setText("✓");
+				 ValidateText[6] = true;
+			 }
+			 else {
+				 CreditCardError.setTextFill(Color.color(1, 0, 0));
+				 CreditCardError.setText("INVALID");
+			 }
+			 break;
+		 case BACK_SPACE:
+			 SCard = "";
+			 CreditCardError.setTextFill(Color.color(1, 0, 0));
+			 CreditCardError.setText("**");
+			 ValidateText[6] = false;
+			 break;
+		default:
+			 break;
+		 }
+			
+			
+		}
+	
+	/**
 	 * Validates and stores the Credit Card's first name
 	 * Author: Sebastian Sunga
 	 * Date: 04/18/2024
@@ -410,292 +699,7 @@ public class UserInfoController {
 		
 	}
 	
-	// Sole Purpose of this method is for RoomSelectionController loader to actually pass on the HotelReservation data.
-	 /**
-	  * Author: Sebastian Sunga
-	  * Date: 04/07/2024
-	  * Description: Small method to handle and set the hotel room data from RoomSelectionController.
-	  * @param Hotel
-	  */
-	public void HotelGrabber(HotelRoom Hotel) {
-		HotelRoom = Hotel;
-		// System.out.print("THIS WORKED");
-	}
 	
-	
-/**
- * Author: Sebastian Sunga
- * Date: 04/18/2024
- * Description: Handles the First Name data. validates and stores
- * 
- * @param Event
- * @throws IOException
- */
-	
-	@FXML
-	public void FirstNameSetter(KeyEvent Event) throws IOException{
-		   String TempString = FirstName.getText();
-		  switch(Event.getCode()) {
-		  case ENTER:
-			  
-			  
-			  if(!TempString.isBlank()) {
-			  SFirstName = FirstName.getText();
-			  FirstNameStatus.setTextFill(Color.color(0, 1, 0));
-			  FirstNameStatus.setText("✓");
-			  ValidateText[0] = true;
-			   
-			  }
-			  break;
-		  case BACK_SPACE:
-			  SFirstName = FirstName.getText();
-			  FirstNameStatus.setTextFill(Color.color(1, 0, 0));
-			  FirstNameStatus.setText("**");
-			  ValidateText[0] = false;
-			  
-			  break;
-			  default:
-			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
-			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
-			  break;
- 		  }
-		
-		 
-	}
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/21/2024
-	 * Description: Sets SLastname from user input.
-	 * @param Event
-	 * @throws IOException
-	 */
-	
-	@FXML
-	public void LastNameSetter(KeyEvent Event) throws IOException{
-		String TempInput = LastName.getText();
-		  switch(Event.getCode()) {
-		  case ENTER:
-			  
-			  
-			  if(!TempInput.isBlank()) { 
-			  SLastName = LastName.getText();
-			  LastNameStatus.setTextFill(Color.color(0, 1, 0));
-			  LastNameStatus.setText("✓");
-			   ValidateText[1] = true;
-			  }
-			  break;
-		  case BACK_SPACE:
-			  SLastName = "";
-			  LastNameStatus.setTextFill(Color.color(1, 0, 0));
-			  LastNameStatus.setText("**");
-			  ValidateText[1] = false;
-			  
-			  break;
-			  default:
-			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
-			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
-			  break;
- 		  }
-	}
-	
-	private boolean EmailVerify(String Email) throws IOException{ 
-		for(int i = 0 ; i < Email.length() ; i++) {
-			
-			if(Email.charAt(i) == '@')
-					return true;
-		}
-		return false;
-	}
-	
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024
-	 * Description: Grabs a valid email from user input.
-	 * @param Event
-	 * @throws IOException
-	 */
-	
-	@FXML
-	public void EmailSetter(KeyEvent Event) throws IOException{
-		String TempEmail = Email.getText();
-		switch(Event.getCode()) {
-		case ENTER:
-			if(!TempEmail.isBlank() && EmailVerify(TempEmail)) {
-				SEmail = Email.getText();
-				EmailStatus.setTextFill(Color.color(0, 1, 0));
-				EmailStatus.setText("✓");
-				ValidateText[3] = true;
-			}
-			else{
-				EmailStatus.setTextFill(Color.color(1, 0, 0));
-				EmailStatus.setText("Invalid Email");
-			}
-			break;
-		case BACK_SPACE:
-			SEmail = ""; // If they are back spacing, we want to clear for when they actually press enter.
-			EmailStatus.setTextFill(Color.color(1, 0, 0));
-			EmailStatus.setText("**");
-			ValidateText[3] = false;
-			break;
-		 default:
-			 break;
-		}
-		
-		
-		
-	}
-	
-	
-	
-	
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024
-	 * Description: Takes a given number(as string), and tests if the character is a digit. false if not, true if all are digits.
-	 * @param GivenNumber
-	 * @return
-	 * @throws IOException
-	 */
-	private boolean NumberVerify(String GivenNumber) throws IOException{ 
-		for(int i = 0 ; i < GivenNumber.length() ; i++) {
-			char TestDigit = GivenNumber.charAt(i);
-			if(!Character.isDigit(TestDigit))
-					return false;
-		}
-		return true;
-	}
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024
-	 * Description: Validates and sets the phone number data.
-	 * @param Event
-	 * @throws IOException
-	 */
-	@FXML
-	public void PhoneNumSetter(KeyEvent Event) throws IOException{
-		  String TempInput = PhoneNumber.getText();
-		  switch(Event.getCode()) {
-		  case ENTER:
-			  System.out.println(TempInput.length());
-			  if(!TempInput.isBlank() && TempInput.length() == 10 && NumberVerify(TempInput)) { //Very nasty looking
-				   
-			         SNumber = TempInput;
-			         PhoneStatus.setTextFill(Color.color(0, 1, 0));
-			         PhoneStatus.setText("✓");		
-			         ValidateText[2] = true;
-			         
-			  } // End of If statement
-			  else {
-				  PhoneStatus.setText("Please enter a valid Phone Number.");
-				  SNumber = "";
-			  }
-			  break;
-		  case BACK_SPACE:
-			  PhoneStatus.setTextFill(Color.color(1, 0, 0));
-			  PhoneStatus.setText("**");
-			   ValidateText[2] = false;
-			  
-			  break;
-			  
-			  default:
-			  
-			  // Do nothing. Probably some form of check if it's a valid input. but in the case of First names
-			  // We don't need to be very strict in validation. Because if someone enters a wrong name it's kinda their fault.
-			  break;
- 		  }
-	}
-	
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/18/2024 
-	 * Description: Validates and stores given CC # data. Uses the CreditCard Checker to validate.
-	 * @param Event
-	 * @throws IOException
-	 */
-	
-	@FXML
-	  public void CreditCardSetter(KeyEvent Event) throws IOException{
-		String TempInput = CreditCardNumber.getText();
-		
-		 switch(Event.getCode()) {
-		 case ENTER:
-			 if(TempInput.length() == 16 && CreditCardChecker()) {
-				 SCard = TempInput;
-				 CreditCardError.setTextFill(Color.color(0,1,0));
-				 CreditCardError.setText("✓");
-				 ValidateText[6] = true;
-			 }
-			 else {
-				 CreditCardError.setTextFill(Color.color(1, 0, 0));
-				 CreditCardError.setText("INVALID");
-			 }
-			 break;
-		 case BACK_SPACE:
-			 SCard = "";
-			 CreditCardError.setTextFill(Color.color(1, 0, 0));
-			 CreditCardError.setText("**");
-			 ValidateText[6] = false;
-			 break;
-		default:
-			 break;
-		 }
-			
-			
-		}
-	
-	/**
-	 * Author: Sebastian Sunga
-	 * Date: 04/21/2024
-	 * Takes given credit card number as a string. converts into a parsable long int, then validates using Luhn's algorithm.
-	 * @return true if valid number, false if 
-	 * @throws IOException
-	 */
-	public boolean CreditCardChecker() throws IOException{
-		// Figure out credit card, because java doesn't like unsigned longs.
-		
-		
-		
-		int[] CardNum = new int[CreditCardNumber.getText().length()];
-		int SumOfNumbers = 0;
-        for(int i = 0 ; i < CardNum.length; i++) {
-        	CardNum[i] = Integer.parseInt(CreditCardNumber.getText().substring(i, i+1));
-        }
-        
-        for(int i = CardNum.length - 2; i >= 0 ; i = i -2) {
-        	int TempNum = CardNum[i];
-        	TempNum = TempNum * 2;
-        	if(TempNum >= 10)
-        		TempNum = (TempNum % 10) + 1;
-        	CardNum[i] = TempNum;
-        }
-        
-        for(int i = 0 ; i < CardNum.length; i++) {
-        	SumOfNumbers += CardNum[i];
-        }
-        
-        if(SumOfNumbers % 10 == 0)
-        	return true;
-        else
-        	return false;
-
-	}
-	
-	/*
-	/ I'm thinking that only the fields that require validation get their own methods.
-	 *  Basic fields that doesn't require validation can just be grabbed with the next button.
-	 */
-	
-	/*
-	 * 
-	 */
-	   private boolean TestValidateText() {
-		  for(int i = 0 ; i < ValidateText.length ; i++) {
-			  if(ValidateText[i] == false)
-				  return false;
-		  }
-		  return true;
-	   }
-
 	
 	
 	
