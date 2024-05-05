@@ -18,9 +18,9 @@
       </ImageView>
       <Pane prefHeight="101.0" prefWidth="1225.0">
          <children>
-            <Label layoutY="-3.0" prefHeight="110.0" prefWidth="1225.0" style="-fx-background-color: BLACK;" text="  Your Reservation Has Been Booked. See You Soon!" textFill="#e42121">
+            <Label layoutY="-3.0" prefHeight="110.0" prefWidth="1225.0" style="-fx-background-color: BLACK;" text="  Your reservation has been booked, a confirmation has been sent to your email.  See you soon!" textFill="#e42121">
                <font>
-                  <Font name="Tempus Sans ITC" size="55.0" />
+                  <Font name="Tempus Sans ITC" size="30.0" />
                </font>
             </Label>
          </children>
