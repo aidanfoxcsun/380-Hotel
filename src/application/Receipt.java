@@ -19,6 +19,13 @@ public class Receipt {
 		 CustGrabber = customer;
 		 HotelGrabber = hotelroom;
 	 }
+	 
+	 /**
+		 * Author: Sebastian Sunga
+		 * Date: 04/29/2024
+		 * Description: Creates a session to send an email to given Customer email with a receipt.
+		 * @param EmailType
+		 */
 	
    public void SendEmail(EmailTypes EmailType) {
 	   // 1 <- Reservation Receipt
