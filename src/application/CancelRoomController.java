@@ -34,7 +34,7 @@ public class CancelRoomController {
 	 */
     @FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+        root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -59,7 +59,7 @@ public class CancelRoomController {
 
         if (customer != null) {
             // If customer is found, navigate to the next cancellation page
-        	FXMLLoader loader = new FXMLLoader(getClass().getResource("CancellationPageTwo.FXML"));
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/CancellationPageTwo.FXML"));
             root = loader.load();
             
             CancelRoomTwoController cancelRoomTwoController = loader.getController();

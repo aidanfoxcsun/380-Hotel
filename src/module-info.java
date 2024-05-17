@@ -9,4 +9,5 @@ module ThePhantomInn {
 	requires jakarta.mail;
 
     opens application to javafx.graphics, javafx.fxml;
+    exports application;
 }

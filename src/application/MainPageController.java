@@ -28,7 +28,7 @@ public class MainPageController extends Application {
     public void start(Stage stage) throws Exception {
         //Group root = new Group();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            Parent root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
             stage = new Stage();
             //Image topIcon = new Image("HomePage.png");
             Scene mainScreenScene = new Scene(root);
@@ -50,7 +50,7 @@ public class MainPageController extends Application {
 	 * */
 	@FXML
     public void switchToSelectionScreen(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/RoomSelectionPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -66,7 +66,7 @@ public class MainPageController extends Application {
 		 */
 	@FXML
 	 public void switchToSupportScreen(ActionEvent event) throws IOException {
-         root = FXMLLoader.load(getClass().getResource("Support.FXML"));
+         root = FXMLLoader.load(getClass().getResource("/application/Support.FXML"));
          stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          scene = new Scene(root);
          stage.setScene(scene);
@@ -74,7 +74,7 @@ public class MainPageController extends Application {
 	 }
 	@FXML
 	 public void switchToCancelRoomScreen(ActionEvent event) throws IOException {
-         root = FXMLLoader.load(getClass().getResource("CancellationPage.FXML"));
+         root = FXMLLoader.load(getClass().getResource("/application/CancellationPage.FXML"));
          stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          scene = new Scene(root);
          stage.setScene(scene);

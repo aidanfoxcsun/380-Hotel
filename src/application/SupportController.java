@@ -30,7 +30,7 @@ public class SupportController {
 		 */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

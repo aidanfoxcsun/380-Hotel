@@ -139,7 +139,7 @@ public class ReviewPageController {
     public void switchToHomePage(ActionEvent event) throws IOException {
 		    
 		    
-            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -154,7 +154,7 @@ public class ReviewPageController {
 	 * */
 	@FXML
     public void switchToUserInfoPage(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/UserInfoPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -174,7 +174,7 @@ public class ReviewPageController {
 		    Customer.SendEmail(EmailTypes.RESERVATION);
 		   
 		    
-            root = FXMLLoader.load(getClass().getResource("ThankYouPage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/ThankYouPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

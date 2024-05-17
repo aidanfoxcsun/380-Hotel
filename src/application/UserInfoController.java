@@ -715,7 +715,7 @@ public class UserInfoController {
 	@FXML
     public void switchToReviewPage(ActionEvent event) throws IOException {
 		        if(TestValidateText()) {
-		        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewPage.FXML"));
+		        FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/ReviewPage.FXML"));
                 root = loader.load();
                 Customer CustomerData = confirmRoom();
                 ReviewPageController ReviewPageController = loader.getController();
@@ -744,7 +744,7 @@ public class UserInfoController {
 	 * */
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -759,7 +759,7 @@ public class UserInfoController {
 	 * */
 	@FXML
     public void switchToRoomSelectionScreen(ActionEvent event) throws IOException {
-            root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/RoomSelectionPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

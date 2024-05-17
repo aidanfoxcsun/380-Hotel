@@ -204,7 +204,7 @@ public class RoomSelectionController {
 	 */
     public void switchToHomePage(ActionEvent event) throws IOException {
 		     
-            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
            
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -229,7 +229,7 @@ public class RoomSelectionController {
     public void switchToUserInfoScreen(ActionEvent event) throws IOException {
            // root = FXMLLoader.load(getClass().getResource("UserInfoPage.FXML"));
 		if(canConfirm) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("UserInfoPage.FXML"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/UserInfoPage.FXML"));
             root = loader.load();         
             
             UserInfoController UserInfoController = loader.getController();

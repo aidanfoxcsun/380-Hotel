@@ -39,7 +39,7 @@ public class CancelRoomTwoController {
 	@FXML
     public void switchToHomePage(ActionEvent event) throws IOException {
 		 // ONLY GOES TO HOME
-            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -56,7 +56,7 @@ public class CancelRoomTwoController {
 	@FXML
 	 public void switchToCancelRoomScreen(ActionEvent event) throws IOException {	
 		// ONLY GOES BACK TO CANCEL ROOM SCREEN 1
-         root = FXMLLoader.load(getClass().getResource("CancellationPage.FXML"));
+         root = FXMLLoader.load(getClass().getResource("/application/CancellationPage.FXML"));
          stage = (Stage)((Node)event.getSource()).getScene().getWindow();
          scene = new Scene(root);
          stage.setScene(scene);
@@ -77,7 +77,7 @@ public class CancelRoomTwoController {
 			Receipt CancelReceipt = new Receipt(m_Customer,m_HotelRoom);
 			CancelReceipt.SendEmail(EmailTypes.CANCELATION);
 			
-            root = FXMLLoader.load(getClass().getResource("RoomSelectionPage.FXML"));
+            root = FXMLLoader.load(getClass().getResource("/application/RoomSelectionPage.FXML"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -97,7 +97,7 @@ public class CancelRoomTwoController {
 				CancelBooking();
 				Receipt CancelReceipt = new Receipt(m_Customer,m_HotelRoom);
 				CancelReceipt.SendEmail(EmailTypes.CANCELATION);;
-	            root = FXMLLoader.load(getClass().getResource("HomePage.FXML"));
+	            root = FXMLLoader.load(getClass().getResource("/application/HomePage.FXML"));
 	            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 	            scene = new Scene(root);
 	            stage.setScene(scene);
